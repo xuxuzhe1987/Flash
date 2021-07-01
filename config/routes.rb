@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :decks do
-    resources :cards, only: [:new, :create]
+    resources :cards, only: [:index, :new, :create]
   end
 
   resources :cards, except: [:new, :create]

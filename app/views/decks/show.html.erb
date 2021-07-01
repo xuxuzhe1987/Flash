@@ -1,0 +1,7 @@
+<h1><%= @deck.name %></h1>
+
+<ul>
+  <% @deck.cards.each do |card|%>
+    <li><%= card.question %></li>
+  <% end %>
+</ul>
