@@ -1,10 +1,11 @@
 class DecksController < ApplicationController
+  before_action :set_deck, only: [:show, :edit, :update, :destroy]
+
   def index
     @decks = Deck.all
   end
 
   def show
-    @deck = Deck.find(params[:id])
   end
 
   def new
@@ -18,17 +19,14 @@ class DecksController < ApplicationController
   end
 
   def edit
-    @deck = Deck.find(params[:id])
   end
 
   def update
-    @deck = Deck.find(params[:id])
     @deck.update(deck_params)
     redirect_to deck_path(@deck)
   end
 
   def destroy
-    @deck = Deck.find(params[:id])
     @deck.destroy
     redirect_to decks_path
   end
@@ -39,4 +37,7 @@ class DecksController < ApplicationController
     params.require(:deck).permit(:name)
   end
 
+  def set_deck
+    @deck = Deck.find(params[:id])
+  end
 end
