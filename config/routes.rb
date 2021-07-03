@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :user_cards, only: [:update]
 
+  resources :user_decks, only: [:update]
+
 end
