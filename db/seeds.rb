@@ -42,15 +42,15 @@ end
 #       hint: "NA",
 #       deck_id: programming_basics.id)
 
-c = Card.create(question: "How do you write code that runs only if a condition is satisfied?",
-      answer: "With the `if` keyword",
-      hint: "NA",
-      deck_id: flow_and_arrays.id)
+# c = Card.create(question: "How do you write code that runs only if a condition is satisfied?",
+#       answer: "With the `if` keyword",
+#       hint: "NA",
+#       deck_id: flow_and_arrays.id)
 
-d = Card.create(question: "How can you test the opposite of a given condition?",
-      answer: "You can add a `!` (the logical negation operator) in front of the condition",
-      hint: "NA",
-      deck_id: flow_and_arrays.id)
+# d = Card.create(question: "How can you test the opposite of a given condition?",
+#       answer: "You can add a `!` (the logical negation operator) in front of the condition",
+#       hint: "NA",
+#       deck_id: flow_and_arrays.id)
 
-puts "Finished!"
+# puts "Finished!"
 
