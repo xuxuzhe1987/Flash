@@ -2,6 +2,12 @@
 
 <ul>
   <% @deck.cards.each do |card|%>
-    <li><%= card.question %></li>
+    <li>Question: <%= card.question %></li>
+    <li>Answer: <%= card.answer %></li>
+    <li>Hint: <%= card.hint %></li>
+    <br>
   <% end %>
 </ul>
+
+<%= link_to "Edit", edit_deck_path %>
+<%= link_to "Delete", deck_path(@deck), method: :delete, data: { confirm: "Are you sure?" } %>
