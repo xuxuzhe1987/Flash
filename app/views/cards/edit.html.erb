@@ -1,0 +1,19 @@
+edit.html.erb
+<%= form_for(@card) do |f| %>
+  <div class="form-group">
+    <%= f.label :question %>
+    <%= f.text_field :question, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :answer %>
+    <%= f.text_field :answer, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :hint %>
+    <%= f.text_field :hint, class: 'form-control' %>
+  </div>
+
+  <div class="text-center p-3">
+    <%= f.submit class: 'btn btn-outline-secondary'%>
+  </div>
+<% end %>
