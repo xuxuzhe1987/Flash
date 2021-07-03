@@ -9,6 +9,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+# gem 'rack-cors'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -27,8 +28,10 @@ gem 'redis', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
+gem 'rest-client'
 gem 'devise'
+gem 'active_model_serializers'
+gem 'yaml'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
