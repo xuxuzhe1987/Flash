@@ -1,15 +1,15 @@
 <h1><%= @deck.name %></h1>
-
+<%= link_to "New Card", new_deck_card_path(@deck) %>
 <ul>
   <% @deck.cards.each do |card|%>
-    <li>Question: <%= card.question %></li>
-    <li>Answer: <%= card.answer %></li>
-    <li>Hint: <%= card.hint %></li>
-    <br>
-    <%= link_to "edit", edit_card_path(card)%>
-    <%= link_to "delete", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
+    <div class="card">
+      <li>Question: <%= card.question %></li>
+      <li>Answer: <%= card.answer %></li>
+      <li>Hint: <%= card.hint %></li>
+      <%= link_to "Edit Card", edit_card_path(card)%>
+      <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
   <% end %>
 </ul>
-
-<%= link_to "Edit", edit_deck_path %>
-<%= link_to "Delete", deck_path(@deck), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "Edit Deck", edit_deck_path %>
+<%= link_to "Delete Deck", deck_path(@deck), method: :delete, data: { confirm: "Are you sure?" } %>

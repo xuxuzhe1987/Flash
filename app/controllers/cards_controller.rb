@@ -18,11 +18,11 @@ class CardsController < ApplicationController
     @card.deck = @deck
     # authorize @deck
     @card.save
-    # if @card.save
-    redirect_to new_deck_card_path(@deck)
-    # else
-    #   render.new
-    # end
+    if @card.save
+      redirect_to new_deck_card_path(@deck)
+    else
+      render.new
+    end
   end
 
   def edit
