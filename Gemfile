@@ -32,6 +32,7 @@ gem 'rest-client'
 gem 'devise'
 gem 'active_model_serializers'
 gem 'yaml'
+gem 'pundit'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

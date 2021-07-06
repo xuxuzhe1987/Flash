@@ -3,16 +3,20 @@ class CardsController < ApplicationController
   before_action :set_deck, only: [:new, :create]
 
   def index
-    @cards = Card.all
+    @cards = policy_scope(Card)
+    # @cards = Card.all
   end
 
   def new
     @card = Card.new
+    authorize @card
   end
 
   def create
     @card = Card.new(card_params)
+    authorize @card
     @card.deck = @deck
+    # authorize @deck
     @card.save
     if @card.save
       redirect_to new_deck_card_path(@deck)
@@ -22,11 +26,13 @@ class CardsController < ApplicationController
   end
 
   def edit
+    authorize @card
   end
 
   def update
     @card.update(card_params)
     redirect_to deck_path(@card.deck_id)
+    authorize @card
   end
 
   def destroy
