@@ -8,10 +8,13 @@
     <div class="answer hidden">
       <div><%= card.answer %> </div>
     </div>
+    <div class="hint hidden">
+      <div><%= card.hint %> </div>
+    </div>
     <div id ="activeCardButtons">
     <button id="flip" type="button" value="Flip" onclick="flip()">Flip</button>
     <button id="next" onclick="nextCard()">Next Card </button>
-    <button id="hint" type="button" value="hint" onClick="hintView()"> Hint </button>
+    <button id="hint" type="button" value="hint" onClick="hint()"> Hint </button>
     </div>
       <br>
   </div>
@@ -30,6 +33,7 @@
 
   let questions = document.querySelectorAll(".question")
   let answers = document.querySelectorAll(".answer")
+  let hints = document.querySelectorAll(".hint")
 
   function nextCard() {
     answers.forEach(e => e.classList.add("hidden"))
@@ -46,5 +50,9 @@
   function flip() {
     // questions.forEach(e => e.style.display = "block")
     answers.forEach(e => e.classList.toggle("hidden"))
+  }
+
+  function hint() {
+    hints.forEach(e => e.classList.toggle("hidden"))
   }
 </script>
