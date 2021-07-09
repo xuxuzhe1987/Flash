@@ -6,10 +6,10 @@ Rails.application.routes.draw do
     resources :cards, only: [:new, :create]
   end
 
-  resources :cards, except: [:new, :create, :show]
+  resources :cards, except: [:new, :create]
 
   resources :user_cards, only: [:update]
 
-  resources :user_decks, only: [:update]
+  resources :user_decks, only: [:create, :update, :show]
 
 end
