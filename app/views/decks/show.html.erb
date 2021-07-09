@@ -8,6 +8,12 @@
     <div class="answer hidden">
       <div><%= card.answer %> </div>
     </div>
+    <div class="text-box hidden mb-3">
+      <form>
+          <input type="text">
+          <input type="submit">
+      </form>
+    </div>
     <div class="hint hidden">
       <div><%= card.hint %> </div>
     </div>
@@ -15,6 +21,7 @@
     <button id="flip" type="button" value="Flip" onclick="flip()">Flip</button>
     <button id="next" onclick="nextCard()">Next Card </button>
     <button id="hint" type="button" value="hint" onClick="hint()"> Hint </button>
+    <button id="user-answer" type="button" value="Type your Answer" onClick="add()"> Answer Me? </button>
     </div>
       <br>
   </div>
@@ -46,13 +53,18 @@
     next = document.getElementById(`card-${nextIndex}`)
   }
 
-
   function flip() {
-    // questions.forEach(e => e.style.display = "block")
     answers.forEach(e => e.classList.toggle("hidden"))
   }
 
   function hint() {
     hints.forEach(e => e.classList.toggle("hidden"))
+  }
+
+  function add() {
+
+   userAnswers = document.querySelectorAll(".text-box")
+   userAnswers.forEach(e => e.classList.toggle("hidden"))
+
   }
 </script>
