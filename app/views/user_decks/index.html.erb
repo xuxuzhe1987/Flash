@@ -1,0 +1,12 @@
+<h1>My Profile</h1>
+<h3>On Going Decks:</h3>
+<ul>
+  <% @user_decks.each do |user_deck| %>
+    <div class="card">
+      <li>Deck: <%= user_deck.deck.name %></li>
+      <li>Status: <%= user_deck.status %></li>
+      <%= link_to "Continue", user_deck_path(user_deck)%>
+      <%= link_to "Delete History", user_deck_path(user_deck), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  <% end %>
+</ul>

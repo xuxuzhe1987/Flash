@@ -5,9 +5,9 @@
 <ul>
   <% @deck.cards.each do |card|%>
     <div class="card">
-      <li>Question: <%= card.question %></li>
-      <li>Answer: <%= card.answer %></li>
-      <li>Hint: <%= card.hint %></li>
+      <p>Question: <%= card.question %></p>
+      <p>Answer: <%= card.answer %></p>
+      <p>Hint: <%= card.hint %></p>
       <%= link_to "Edit Card", edit_card_path(card)%>
       <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
