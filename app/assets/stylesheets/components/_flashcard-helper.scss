@@ -1,0 +1,141 @@
+
+html{
+  min-width:100%;
+  max-width:900px;
+  overflow:hidden;
+}
+h4{
+  text-align: center;
+  position: relative;
+  padding-right: 5em;
+  margin-right: 180px;
+}
+body{
+  min-width:100%;
+  max-width:900px;
+  width:100%;
+  height:100%;
+  overflow:screen;
+}
+h1{
+  text-align:center;
+  font-family:sans-serif;
+}
+p {
+  text-align: center;
+}
+#front, #back {
+  min-width:100%;
+  max-width:900px;
+  text-align: center;
+}
+#activeCardButtons {
+  min-width: 100%;
+  max-width: 900px;
+  margin-left:auto;
+  margin-right:auto;
+
+}
+
+#flip {
+  position:absolute;
+  width: 50px;
+  left:50%;
+  margin-left:-25px;
+
+
+}
+#next {
+float:right;
+  margin-right:15px;
+}
+#submit {
+  position:relative;
+  width:180px;
+  margin-left:;
+  margin-top:10px;
+  margin-bottom:10px;
+  display:block;
+}
+#cardForm {
+  position:absolute;
+  width: 100%;
+  margin-left:50%;
+  margin-top:10px;
+}
+#front, #back{
+  display:block;
+}
+
+#front:hover:before{
+  position:relative;
+  float:left;
+  font-size:24px;
+  content:'Question:';
+  z-index:-1;
+  margin-right:-100%;
+  margin-top: -6px;
+  color:grey;
+}
+#back:hover:before{
+  position:relative;
+  float:left;
+  font-size:24px;
+  content:'Answer:';
+  z-index:-1;
+  margin-right:-100%;
+  margin-top:-8px;
+  color:grey;
+}
+
+hr {
+  margin-left:-8px;
+}
+a.activator {
+cursor:pointer;
+  position: absolute;
+  bottom:10px;
+}
+#importExport {
+    font-size:10pt;
+    position:relative;
+    bottom:200px;
+    left:-600px;
+    width: 500px;
+  height:180px;
+    background-color:#fff;
+    color:#7F7F7F;
+    padding:0px;
+
+    border:0px solid #ccc;
+
+    -moz-box-shadow: 0 1px 5px #333;
+    -webkit-box-shadow: 0 1px 5px #333;
+  border-radius: 20px;
+      -moz-border-radius: 20px;
+    -webkit-border-radius:20px;
+    -khtml-border-radius:20px;
+    z-index:101;
+
+}
+
+a.close {
+        position:relative;
+/*  display: inline; */
+            float:right;
+            width:26px;
+            height:26px;
+            background:transparent url(https://microwavemansion.com/images/cancel.png) repeat top left;
+            margin-top:-26px;
+            margin-right:-26px;
+            cursor:pointer;
+}
+.overlay{
+    background:transparent url(https://microwavemansion.com/images/overlay.png) repeat top left;
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index:100;
+}
