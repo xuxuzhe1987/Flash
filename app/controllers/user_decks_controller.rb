@@ -22,7 +22,7 @@ class UserDecksController < ApplicationController
   #   @user_card.update(user_card_params)
   #   redirect_to deck_path(@card.deck_id)
   #   authorize @user_card
-  # end
+  end
 
 
   def destroy
