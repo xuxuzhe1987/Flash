@@ -5,11 +5,6 @@ class UserDecksController < ApplicationController
     @user_cards = UserCard.where(user_id: current_user.id)
   end
 
-  def new
-    @user_deck = UserDeck.new
-    authorize @user_deck
-  end
-
   def create
     @user_deck = UserDeck.new(user_deck_params)
     authorize @user_deck
@@ -35,7 +30,6 @@ class UserDecksController < ApplicationController
   private
 
   def user_deck_params
-    params.permit(:name, :attachment, :status, :deck_id, :user_id)
+    params.permit(:status, :deck_id, :user_id)
   end
-
 end
