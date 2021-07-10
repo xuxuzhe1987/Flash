@@ -32,6 +32,7 @@
       </div>
     <% end %>
   </div>
+  <div class="swiper-pagination"></div>
 </div>
 
 <script type="text/javascript">
@@ -39,8 +40,15 @@
     allowSlidePrev: false,
     watchSlidesProgress: true,
     allowSlideNext: false,
-    lastSlideMessage: 'This is the last slide'
+    lastSlideMessage: 'This is the last slide',
+
+    pagination: {
+    el: '.swiper-pagination',
+    progressbarFillClass: 'swiper-pagination-progressbar-fill'
+    },
   });
+
+
   // swiper.on('sliderFirstMove', function(swiper, event) {
   //   console.log('test')
   // });
