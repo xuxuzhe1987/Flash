@@ -1,73 +1,19 @@
   <h1><%= @deck.name %></h1>
   <%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post %>
   <%= link_to "New Card", new_deck_card_path(@deck) %>
-  <div class="card-container">
-<% @deck.cards.each_with_index do |card, i|%>
-  <div id="card-<%= i %>" class="card" style="display: none;">
-    <p class="question" style="dispaly: block;"><%= card.question %></p><br>
-    <hr><br>
-    <div class="answer hidden">
-      <div><%= card.answer %> </div>
+
+<ul>
+  <% @deck.cards.each do |card|%>
+    <div class="card">
+      <li>Question: <%= card.question %></li>
+      <li>Answer: <%= card.answer %></li>
+      <li>Hint: <%= card.hint %></li>
+      <%= link_to "Edit Card", edit_card_path(card)%>
+      <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
-    <div class="text-box hidden mb-3">
-      <form>
-          <input type="text">
-          <input type="submit">
-      </form>
-    </div>
-    <div class="hint hidden">
-      <div><%= card.hint %> </div>
-    </div>
-    <div id ="activeCardButtons">
-    <button id="flip" type="button" value="Flip" onclick="flip()">Flip</button>
-    <button id="next" onclick="nextCard()">Next Card </button>
-    <button id="hint" type="button" value="hint" onClick="hint()"> Hint </button>
-    <button id="user-answer" type="button" value="Type your Answer" onClick="add()"> Answer Me? </button>
-     <%= link_to "Edit Card", edit_card_path(card)%>
-     <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
-    </div>
-      <br>
-  </div>
+
   <% end %>
-  </div>
+</ul>
 
-<script type="text/javascript">
-  let currentIndex = 0
-  let nextIndex = 1
-  let cards = document.querySelectorAll(".card")
 
-  let current = document.getElementById(`card-${currentIndex}`)
-  current.style.display = "block"
 
-  let next = document.getElementById(`card-${nextIndex}`)
-
-  let questions = document.querySelectorAll(".question")
-  let answers = document.querySelectorAll(".answer")
-  let hints = document.querySelectorAll(".hint")
-
-  function nextCard() {
-    answers.forEach(e => e.classList.add("hidden"))
-    questions.forEach(e => e.classList.remove("hidden"))
-    current.style.display = "none"
-    next.style.display = "block"
-    current = next
-    currentIndex = currentIndex === (cards.length - 1) ? 0 : currentIndex + 1
-    nextIndex = nextIndex === (cards.length - 1) ? 0 : nextIndex + 1
-    next = document.getElementById(`card-${nextIndex}`)
-  }
-
-  function flip() {
-    answers.forEach(e => e.classList.toggle("hidden"))
-  }
-
-  function hint() {
-    hints.forEach(e => e.classList.toggle("hidden"))
-  }
-
-  function add() {
-
-   userAnswers = document.querySelectorAll(".text-box")
-   userAnswers.forEach(e => e.classList.toggle("hidden"))
-
-  }
-</script>
