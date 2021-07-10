@@ -26,7 +26,6 @@ class DecksController < ApplicationController
   def edit
     @deck = Deck.find(params[:id])
     authorize @deck
-
   end
 
   def update
