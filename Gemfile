@@ -29,7 +29,7 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rest-client'
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise'
 gem 'active_model_serializers'
 gem 'yaml'
 gem 'pundit'
@@ -37,10 +37,9 @@ gem 'pundit'
 gem 'omniauth'
 gem 'omniauth-github'
 
+gem "omniauth-rails_csrf_protection"
 gem 'carrierwave'
-gem  'bootstrap-sass'
-
-
+gem 'bootstrap-sass'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
