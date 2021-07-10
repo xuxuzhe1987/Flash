@@ -6,8 +6,12 @@
   <div id="card-<%= i %>" class="card swiper-slide" style="display: block;">
     <p class="question" style="dispaly: block;"><%= card.question %></p><br>
     <hr><br>
-    <div class="answer hidden">
+    <div class="swiper-container swiperTwo">
+      <div class="swiper-wrapper">
+      <div class="answer hidden swiper-slide">
       <div><%= card.answer %> </div>
+    </div>
+    </div>
     </div>
     <div class="text-box hidden mb-3">
       <form>
@@ -31,12 +35,32 @@
     </div>
   </div>
 
-
 <script type="text/javascript">
   var swiper = new Swiper(".mySwiper", {
-    allowSlidePrev: false
+    allowSlidePrev: false,
+    watchSlidesProgress: true,
+    allowSlideNext: false,
+    // lastSlideMessage: 'This is the last slide'
   });
-  console.log("testing", swiper)
+   swiper.on('sliderFirstMove', function(swiper, event) {
+    console.log('test')
+   });
+   swiper.on('slideChange', function(){
+
+    let hideAnswers = document.querySelectorAll(".answer")
+    hideAnswers.forEach((e) => {
+        if (!e.classList.contains("hidden")) {
+           e.classList.add("hidden")
+           console.log("add hidden")
+        }
+      });
+  });
+
+  swiper.on('slideChangeTransitionEnd', function(){
+    console.log('checking transition')
+    swiper.allowSlideNext = false
+  })
+
   let currentIndex = 0
   let nextIndex = 1
   let cards = document.querySelectorAll(".card")
@@ -63,6 +87,7 @@
 
   function flip() {
     answers.forEach(e => e.classList.toggle("hidden"))
+    swiper.allowSlideNext = true
   }
 
   function hint() {
@@ -71,9 +96,8 @@
 
   function add() {
 
-   userAnswers = document.querySelectorAll(".text-box")
+   const userAnswers = document.querySelectorAll(".text-box")
    userAnswers.forEach(e => e.classList.toggle("hidden"))
-
   }
 </script>
 
