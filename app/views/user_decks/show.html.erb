@@ -37,21 +37,41 @@
 
 <script type="text/javascript">
   var swiper = new Swiper(".mySwiper", {
+    effect: 'cube',
+    cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+      // effect: 'fade',
+    loop: true,
     allowSlidePrev: false,
     watchSlidesProgress: true,
     allowSlideNext: false,
     lastSlideMessage: 'This is the last slide',
-
+    slidesPerView:1,
+    spaceBetween: 30,
     pagination: {
     el: '.swiper-pagination',
-    progressbarFillClass: 'swiper-pagination-progressbar-fill',
+    type: 'progressbar',
+    // type: 'fraction',
     },
+    // breakpoints: {
+    //   640: {
+    //     slidesPerView: 1,
+    //     spaceBetween: 20,
+    //   },
+    //   768: {
+    //     slidesPerView: 1,
+    //     spaceBetween: 40,
+    //   },
+    //     1024: {
+    //       slidesPerView: 1,
+    //       spaceBetween: 50,
+    //     },
+    //   }
   });
-
-
-  // swiper.on('sliderFirstMove', function(swiper, event) {
-  //   console.log('test')
-  // });
 
   swiper.on('slideChange', function(){
     let hideAnswers = document.querySelectorAll(".answer")
