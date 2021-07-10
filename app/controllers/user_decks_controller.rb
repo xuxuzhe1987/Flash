@@ -14,7 +14,7 @@ class UserDecksController < ApplicationController
     @user_deck = UserDeck.new(user_deck_params)
     authorize @user_deck
     @user_deck.save
-    redirect_to user_deck_path(@user_deck[:id])
+    redirect_to user_deck_path(@user_deck)
   end
 
   def show
