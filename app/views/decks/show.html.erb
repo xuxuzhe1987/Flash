@@ -6,6 +6,7 @@
       <li>Question: <%= card.question %></li>
       <li>Answer: <%= card.answer %></li>
       <li>Hint: <%= card.hint %></li>
+
       <%= link_to "Edit Card", edit_card_path(card)%>
       <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
@@ -13,3 +14,7 @@
 </ul>
 <%= link_to "Edit Deck", edit_deck_path %>
 <%= link_to "Delete Deck", deck_path(@deck), method: :delete, data: { confirm: "Are you sure?" } %>
+
+
+
+
