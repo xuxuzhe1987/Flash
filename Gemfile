@@ -33,8 +33,12 @@ gem 'devise'
 gem 'active_model_serializers'
 gem 'yaml'
 gem 'pundit'
+
+gem 'omniauth-github'
+
 gem 'carrierwave'
 gem  'bootstrap-sass'
+
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
