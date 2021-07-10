@@ -2,9 +2,12 @@
 <h3>On Going Decks:</h3>
 <ul>
   <% @user_decks.each do |user_deck| %>
+    <%= @user_cards_known %>
     <div class="card">
       <li>Deck: <%= user_deck.deck.name %></li>
       <li>Status: <%= user_deck.status %></li>
+      <li>Known cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == true} %></li>
+      <li>Unknown cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == false} %></li>
       <%= link_to "Continue", user_deck_path(user_deck)%>
       <%= link_to "Delete History", user_deck_path(user_deck), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>

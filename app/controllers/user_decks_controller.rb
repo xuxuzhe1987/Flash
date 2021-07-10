@@ -1,8 +1,8 @@
 class UserDecksController < ApplicationController
-
   def index
     @user_decks = policy_scope(UserDeck)
     @user_decks = UserDeck.where(user_id: current_user.id)
+    @user_cards = UserCard.where(user_id: current_user.id)
   end
 
   def create
@@ -17,6 +17,9 @@ class UserDecksController < ApplicationController
     authorize @user_deck
   end
 
+  def update
+  end
+
   def destroy
     @user_deck = UserDeck.find(params[:id])
     authorize @user_deck
@@ -29,4 +32,5 @@ class UserDecksController < ApplicationController
   def user_deck_params
     params.permit(:status, :deck_id, :user_id)
   end
+
 end
