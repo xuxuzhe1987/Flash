@@ -1,8 +1,9 @@
 <h1><%= @user_deck.deck.name %></h1>
 
- <div class="card-container">
-<% @user_deck.deck.cards.each_with_index do |card, i|%>
-  <div id="card-<%= i %>" class="card" style="display: none;">
+ <div class="card-container swiper-container mySwiper">
+    <div class="swiper-wrapper">
+      <% @user_deck.deck.cards.each_with_index do |card, i|%>
+  <div id="card-<%= i %>" class="card swiper-slide" style="display: block;">
     <p class="question" style="dispaly: block;"><%= card.question %></p><br>
     <hr><br>
     <div class="answer hidden">
@@ -18,19 +19,24 @@
       <div><%= card.hint %> </div>
     </div>
     <div id ="activeCardButtons">
-    <button id="flip" type="button" value="Flip" onclick="flip()">Flip</button>
-    <button id="next" onclick="nextCard()">Next Card </button>
-    <button id="hint" type="button" value="hint" onClick="hint()"> Hint </button>
-    <button id="user-answer" type="button" value="Type your Answer" onClick="add()"> Answer Me? </button>
+      <button id="flip" type="button" value="Flip" onclick="flip()">Flip</button>
+      <button id="next" onclick="nextCard()">Next Card </button>
+      <button id="hint" type="button" value="hint" onClick="hint()"> Hint </button>
+      <button id="user-answer" type="button" value="Type your Answer" onClick="add()"> Answer Me? </button>
     </div>
       <br>
-  </div>
-  <% end %>
-  </div>
+    </div>
 
+    <% end %>
+    </div>
+  </div>
 
 
 <script type="text/javascript">
+  var swiper = new Swiper(".mySwiper", {
+    allowSlidePrev: false
+  });
+  console.log("testing", swiper)
   let currentIndex = 0
   let nextIndex = 1
   let cards = document.querySelectorAll(".card")
@@ -70,3 +76,5 @@
 
   }
 </script>
+
+
