@@ -342,6 +342,7 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  omniauth
   omniauth-github
   omniauth-rails_csrf_protection
   pg (>= 0.18, < 2.0)

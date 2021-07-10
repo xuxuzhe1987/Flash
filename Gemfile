@@ -33,7 +33,10 @@ gem 'devise', github: 'heartcombo/devise'
 gem 'active_model_serializers'
 gem 'yaml'
 gem 'pundit'
+
+gem 'omniauth'
 gem 'omniauth-github'
+
 gem "omniauth-rails_csrf_protection"
 gem 'carrierwave'
 gem 'bootstrap-sass'
