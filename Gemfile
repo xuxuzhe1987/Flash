@@ -34,6 +34,7 @@ gem 'active_model_serializers'
 gem 'yaml'
 gem 'pundit'
 
+gem 'omniauth'
 gem 'omniauth-github'
 
 gem 'carrierwave'

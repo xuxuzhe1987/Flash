@@ -9,7 +9,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-config.omniauth :github, '9640dc872bd64a55a0eb', 'a80bbdf1db4625e7aa020cd56e86c1a24822e940', scope: 'user:email'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -272,7 +271,7 @@ config.omniauth :github, '9640dc872bd64a55a0eb', 'a80bbdf1db4625e7aa020cd56e86c1
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :github, '9640dc872bd64a55a0eb', 'a80bbdf1db4625e7aa020cd56e86c1a24822e940', scope: 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
