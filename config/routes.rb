@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "callbacks" }
   root to: 'pages#home'
 
   resources :decks do
@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :cards, except: [:new, :create]
 
-  resources :user_cards, only: [:update]
+  resources :user_cards, only: [:create, :update]
 
-  resources :user_decks, only: [:index, :create, :show, :destroy]
+  resources :user_decks, only: [:index, :create, :show, :destroy, :update]
 
 end

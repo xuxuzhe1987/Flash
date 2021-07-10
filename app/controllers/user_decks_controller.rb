@@ -1,8 +1,8 @@
 class UserDecksController < ApplicationController
-
   def index
     @user_decks = policy_scope(UserDeck)
     @user_decks = UserDeck.where(user_id: current_user.id)
+    @user_cards = UserCard.where(user_id: current_user.id)
   end
 
   def create
@@ -16,6 +16,14 @@ class UserDecksController < ApplicationController
     @user_deck = UserDeck.find(params[:id])
     authorize @user_deck
   end
+
+  def update
+  #   @user_card = UserCard.find(params[:card_id])
+  #   @user_card.update(user_card_params)
+  #   redirect_to deck_path(@card.deck_id)
+  #   authorize @user_card
+  end
+
 
   def destroy
     @user_deck = UserDeck.find(params[:id])
