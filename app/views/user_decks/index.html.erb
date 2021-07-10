@@ -1,4 +1,5 @@
 <h1>My Profile</h1>
+<%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary" %>
 <h3>On Going Decks:</h3>
 <ul>
   <% @user_decks.each do |user_deck| %>
@@ -13,6 +14,4 @@
     </div>
   <% end %>
 </ul>
-
-<%= link_to "New Deck", new_deck_path, class: "btn btn-primary" %>
 

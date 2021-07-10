@@ -1,5 +1,5 @@
 <h1>All Decks</h1>
-<%= link_to "New Deck", new_deck_path %>
+<%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary" %>
 <ul>
   <% @decks.each do |deck| %>
     <li><%= link_to deck.name, deck_path(deck) %></li>
