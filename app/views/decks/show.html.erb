@@ -1,9 +1,14 @@
 <h1 class="text-center"><%= @deck.name %></h1>
-<!-- need add if statement later, if not exist, then go to create, if exist, then go to update -->
 <div class="button-container text-center">
 <%= link_to " << Back to All Decks", decks_path(@decks), style:"text-decoration: underline;" %><br>
-<%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class:"btn btn-primary" %><br>
-<%= link_to "New Card", new_deck_card_path(@deck) %>
+<!-- added if statement, if not exist, then create; if exist, then show -->
+<% if @user_decks.select{ |user_deck| user_deck.deck_id == @deck.id }.count == 0 %>
+  <%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-primary" %>
+<% else %>
+  <%= link_to "Play this deck", user_deck_path(@user_decks.select{ |user_deck| user_deck.deck_id == @deck.id }), class: "btn btn-primary" %>
+<% end %>
+<br>
+<%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-primary" %>
 </div>
 
 <ul class="list-group">

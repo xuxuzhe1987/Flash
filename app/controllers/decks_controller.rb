@@ -7,6 +7,7 @@ class DecksController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
+    @user_decks = UserDeck.where(user_id: current_user.id)
     authorize @deck
   end
 
