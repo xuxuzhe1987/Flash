@@ -48,8 +48,11 @@
     loop: true,
     allowSlidePrev: false,
     watchSlidesProgress: true,
-    allowSlideNext: false,
-    lastSlideMessage: 'This is the last slide',
+      // allowSlideNext: false,
+    a11y:{
+      enabled: true,
+      lastSlideMessage: 'This is the last slide',
+    },
     slidesPerView:1,
     spaceBetween: 30,
     pagination: {
@@ -82,11 +85,11 @@
       }
     });
   });
-
-  swiper.on('slideNextTransitionEnd', function(){
-    console.log('checking transition')
-    swiper.allowSlideNext = false
-  })
+  // function to block swipe unless having checked answer
+    // swiper.on('slideNextTransitionEnd', function(){
+    //   console.log('checking transition')
+    //   swiper.allowSlideNext = false
+   // })
 
   let currentIndex = 0
   let nextIndex = 1
@@ -114,7 +117,7 @@
 
   function flip() {
     answers.forEach(e => e.classList.toggle("hidden"))
-    swiper.allowSlideNext = true
+    // swiper.allowSlideNext = true
   }
 
   function hint() {
