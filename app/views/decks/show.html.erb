@@ -1,12 +1,7 @@
 <h1 class="text-center"><%= @deck.name %></h1>
 <div class="button-container text-center">
-<%= link_to " << Back to All Decks", decks_path(@decks), style:"text-decoration: underline;" %><br>
-<!-- added if statement, if not exist, then create; if exist, then show -->
-<% if @user_decks.select{ |user_deck| user_deck.deck_id == @deck.id }.count == 0 %>
-  <%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-primary" %>
-<% else %>
-  <%= link_to "Play this deck", user_deck_path(@user_decks.select{ |user_deck| user_deck.deck_id == @deck.id }), class: "btn btn-primary" %>
-<% end %>
+<%= link_to " << Back to All Decks", decks_path, style:"text-decoration: underline;" %><br>
+<%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-primary" %>
 <br>
 <%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-primary" %>
 </div>
