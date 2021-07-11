@@ -4,7 +4,9 @@
     <% @user_deck.deck.cards.each_with_index do |card, i|%>
       <div id="card-<%= i %>" class="card swiper-slide" style="display: block;">
         <h2>Question:</h2>
-        <div class="question" style="dispaly: block;"><%= card.question %></div><br>
+        <div class="question" style="dispaly: block;">
+          <%= card.question %>
+        </div><br>
         <hr><br>
         <div class="answer hidden">
           <h2>Answer:</h2>
@@ -28,7 +30,7 @@
           <button id="know" onclick="nextCard()"><%= link_to "Know", user_cards_path(answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post %></button>
           <button id="unknow" onclick="nextCard()"><%= link_to "Don't Know", user_cards_path(answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post %></button>
           <button id="hint" type="button" value="hint" onClick="hint()"> Hint </button>
-          <button id="user-answer" type="button" value="Type your Answer" onClick="add()"> Answer Me? </button>
+          <button id="user-answer" type="button" value="Type your Answer" onClick="add()"> Answer Me </button>
         </div>
         <br>
       </div>
@@ -37,13 +39,13 @@
   <br>
   <hr>
   <div class="text-center">
-  <button id="instructions" type="button" value="Instruction" onclick="instruction()">❓</button>
+    <button id="instructions" type="button" value="Instruction" onclick="instruction()">❓</button>
   </div>
   <div id="flash-instructions" class="hidden">
     <h5 class="text-center">Instructions:</h5>
     <div class=container>
       <div class="border border-dark text-center pt-2">
-        <p>Check the answer? tap <strong>Flip</strong><br>Know the answer? <em>Swipe ➡️</em><br>Don't know? tap <strong>Don't Know</strong><br>Input answer to compare? <strong>Answer Me?</strong></p>
+        <p>Check the answer? tap <strong>Flip</strong><br>Know the answer? <em>Swipe ➡️</em><br>Don't know? tap <strong>Don't Know</strong><br>Input answer to compare? <strong>Answer Me</strong></p>
       </div>
     </div>
   </div>
