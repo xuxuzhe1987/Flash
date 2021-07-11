@@ -1,9 +1,16 @@
-<h1>All Decks</h1>
-<%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary" %>
-<ul>
-  <% @decks.each do |deck| %>
-    <li><%= link_to deck.name, deck_path(deck) %></li>
-  <% end %>
-</ul>
+<h1 class="text-center">All Decks</h1>
+<div class="text-center mb-2">
+  <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary" %>
+</div>
+<div class="container">
+  <ul class="list-group">
+    <% @decks.each do |deck| %>
+      <li class="list-group-item"><%= link_to deck.name, deck_path(deck) %></li>
+    <% end %>
+  </ul>
+</div>
 
 
+<!-- <script>
+
+</script> -->
