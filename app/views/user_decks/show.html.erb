@@ -1,4 +1,4 @@
-<h1><%= @user_deck.deck.name %></h1>
+<h1 class='text-center'><%= @user_deck.deck.name %></h1>
 <div class="card-container swiper-container mySwiper">
   <div class="swiper-wrapper">
     <% @user_deck.deck.cards.each_with_index do |card, i|%>
@@ -8,24 +8,25 @@
         <hr><br>
         <div class="answer hidden">
           <h2>Answer:</h2>
-          <div><%= card.answer %> </div>
+          <div class="flashcard-content"><%= card.answer %> </div>
         </div>
         <div class="text-box hidden mb-3">
           <form>
+            <!-- need to update this submit button to link to user_cards answer column -->
             <input type="text">
             <input type="submit">
           </form>
         </div>
         <div class="hint hidden">
           <h4>Hint:</h4>
-          <div><%= card.hint %> </div>
+          <div class="flashcard-content"><%= card.hint %> </div>
         </div>
         <br>
         <div id ="activeCardButtons">
           <button id="flip" type="button" value="Flip" onclick="flip()">Flip</button>
           <!-- need add if statement later, if not exist, then go to create, if exist, then go to update -->
           <button id="know" onclick="nextCard()"><%= link_to "Know", user_cards_path(answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post %></button>
-          <button id="unknow" onclick="nextCard()"><%= link_to "Unknow", user_cards_path(answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post %></button>
+          <button id="unknow" onclick="nextCard()"><%= link_to "Don't Know", user_cards_path(answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post %></button>
           <button id="hint" type="button" value="hint" onClick="hint()"> Hint </button>
           <button id="user-answer" type="button" value="Type your Answer" onClick="add()"> Answer Me? </button>
         </div>
@@ -33,12 +34,26 @@
       </div>
     <% end %>
   </div>
+  <br>
+  <hr>
+  <div id="flash-instructions">
+    <h5 class="text-center">Instructions:</h5>
+    <div class=container>
+      <div class="border border-dark text-center pt-2">
+        <p>Check the answer? tap <strong>Flip</strong></p>
+        <p>Know the answer? <em>Swipe ➡️</em></p>
+        <p>Don't know? tap <strong>Don't Know</strong></p>
+        <p>Input answer to compare? <strong>Answer Me?</strong></p>
+      </div>
+    </div>
+  </div>
   <div class="swiper-pagination"></div>
 </div>
 
 <script type="text/javascript">
   var swiper = new Swiper(".mySwiper", {
     a11y: {
+      // still not working
       enabled: true,
       firstSlideMessage: 'Lets go!!',
       lastSlideMessage: "Last one and done!",
