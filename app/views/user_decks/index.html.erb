@@ -3,7 +3,6 @@
 <h3>On Going Decks:</h3>
 <ul>
   <% @user_decks.each do |user_deck| %>
-    <%= @user_cards_known %>
     <div class="card">
       <li>Deck: <%= user_deck.deck.name %></li>
       <li>Status: <%= user_deck.status %></li>

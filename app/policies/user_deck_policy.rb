@@ -21,4 +21,7 @@ class UserDeckPolicy < ApplicationPolicy
     return true
   end
 
+  def update?
+    true
+  end
 end

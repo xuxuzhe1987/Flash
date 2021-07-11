@@ -18,6 +18,8 @@ class UserDecksController < ApplicationController
   end
 
   def update
+    @user_deck = UserDeck.find(params[:id])
+    authorize @user_deck
   end
 
   def destroy
