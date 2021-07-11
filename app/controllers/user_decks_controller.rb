@@ -18,9 +18,12 @@ class UserDecksController < ApplicationController
   end
 
   def update
-    @user_deck = UserDeck.find(params[:id])
-    authorize @user_deck
+  #   @user_card = UserCard.find(params[:card_id])
+  #   @user_card.update(user_card_params)
+  #   redirect_to deck_path(@card.deck_id)
+  #   authorize @user_card
   end
+
 
   def destroy
     @user_deck = UserDeck.find(params[:id])
