@@ -1,23 +1,25 @@
-<h1><%= @deck.name %></h1>
+<h1 class="text-center"><%= @deck.name %></h1>
+<div class="button-container text-center">
+<%= link_to " << Back to All Decks", decks_path(@decks), style:"text-decoration: underline;" %><br>
 <!-- added if statement, if not exist, then create; if exist, then show -->
 <% if @user_decks.select{ |user_deck| user_deck.deck_id == @deck.id }.count == 0 %>
   <%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-primary" %>
 <% else %>
   <%= link_to "Play this deck", user_deck_path(@user_decks.select{ |user_deck| user_deck.deck_id == @deck.id }), class: "btn btn-primary" %>
 <% end %>
-
+<br>
 <%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-primary" %>
+</div>
 
-<ul>
-  <% @deck.cards.each do |card|%>
-    <div class="card">
-      <li>Question: <%= card.question %></li>
-      <li>Answer: <%= card.answer %></li>
-      <li>Hint: <%= card.hint %></li>
+<ul class="list-group">
+  <% @deck.cards.each_with_index do |card, i|%>
+    <div id="deck-card-<%= i %>" class="card">
+      <li class="list-group-item question">Question: <%= card.question %> </li>
+      <li class="list-group-item answer">Answer: <%= card.answer %></li>
+<!--       <li class="list-group-item">Hint: <%= card.hint %></li> -->
       <%= link_to "Edit Card", edit_card_path(card)%>
       <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
-
   <% end %>
 </ul>
 
