@@ -20,6 +20,7 @@
           <h4>Hint:</h4>
           <div><%= card.hint %> </div>
         </div>
+        <br>
         <div id ="activeCardButtons">
           <button id="flip" type="button" value="Flip" onclick="flip()">Flip</button>
           <!-- need add if statement later, if not exist, then go to create, if exist, then go to update -->
@@ -37,22 +38,23 @@
 
 <script type="text/javascript">
   var swiper = new Swiper(".mySwiper", {
+    a11y: {
+      enabled: true,
+      firstSlideMessage: 'Lets go!!',
+      lastSlideMessage: "Last one and done!",
+    },
     effect: 'cube',
     cubeEffect: {
-        shadow: true,
-        slideShadows: true,
-        shadowOffset: 20,
-        shadowScale: 0.94,
-      },
+      shadow: true,
+      slideShadows: true,
+      shadowOffset: 20,
+      shadowScale: 0.94,
+    },
       // effect: 'fade',
     loop: true,
     allowSlidePrev: false,
     watchSlidesProgress: true,
       // allowSlideNext: false,
-    a11y:{
-      enabled: true,
-      lastSlideMessage: 'This is the last slide',
-    },
     slidesPerView:1,
     spaceBetween: 30,
     pagination: {
@@ -98,11 +100,11 @@
   let current = document.getElementById(`card-${currentIndex}`)
   current.style.display = "block"
 
-  let next = document.getElementById(`card-${nextIndex}`)
+  const next = document.getElementById(`card-${nextIndex}`)
 
-  let questions = document.querySelectorAll(".question")
-  let answers = document.querySelectorAll(".answer")
-  let hints = document.querySelectorAll(".hint")
+  const questions = document.querySelectorAll(".question")
+  const answers = document.querySelectorAll(".answer")
+  const hints = document.querySelectorAll(".hint")
 
   function nextCard() {
     answers.forEach(e => e.classList.add("hidden"))
