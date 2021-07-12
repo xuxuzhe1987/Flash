@@ -47,3 +47,9 @@ h2{
   font-family: 'Play', sans-serif;
   font-size: 18px;
 }
+
+.stack-cards__item {
+  position: sticky;
+  top: var(--space-sm);
+  transform-origin: center top;
+}
