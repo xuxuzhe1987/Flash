@@ -1,9 +1,8 @@
 <h1>All Decks</h1>
 <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary" %>
-<ul>
+<ul class="stack-cards js-stack-cards">
   <% @decks.each do |deck| %>
-    <li><%= link_to deck.name, deck_path(deck) %></li>
+    <li class="stack-cards__item js-stack-cards__item"><%= link_to deck.name, deck_path(deck) %></li>
   <% end %>
 </ul>
-
 
