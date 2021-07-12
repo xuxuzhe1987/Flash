@@ -1,0 +1,25 @@
+// this is the SCSS for the Decks lists item
+.list-group-item a {
+  text-decoration: none;
+}
+
+.list-group-item:hover {
+  border: 1px solid #0B5AA2;
+}
+
+.list-group-item i {
+  align-self: center;
+  font-size: 15px;
+  color: #0B5AA2;
+  font-weight: bold;
+  animation: icon 1.5s infinite forwards;
+}
+
+@keyframes icon {
+  0%,100%{
+    transform: translate(0px);
+  }
+  50% {
+    transform: translate(3px);
+  }
+}
