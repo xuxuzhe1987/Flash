@@ -8,6 +8,7 @@ class UserDecksController < ApplicationController
   def create
     @deck = Deck.find(params[:deck_id])
     @user_decks = UserDeck.where(user_id: current_user.id)
+    # to ckeck if user_deck exist? create or show
     if @user_decks.select { |user_deck| user_deck.deck_id == @deck.id }.count.zero?
       @user_deck = UserDeck.new(user_deck_params)
       authorize @user_deck
@@ -20,15 +21,12 @@ class UserDecksController < ApplicationController
   end
 
   def show
+    @user_cards = UserCard.where(user_id: current_user.id)
     @user_deck = UserDeck.find(params[:id])
     authorize @user_deck
   end
 
   def update
-  #   @user_card = UserCard.find(params[:card_id])
-  #   @user_card.update(user_card_params)
-  #   redirect_to deck_path(@card.deck_id)
-  #   authorize @user_card
   end
 
   def destroy
