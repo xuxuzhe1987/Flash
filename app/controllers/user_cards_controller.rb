@@ -8,6 +8,7 @@ class UserCardsController < ApplicationController
   def update
     @user_card = UserCard.find(params[:id])
     authorize @user_card
+    @user_card.update(user_card_params)
   end
 
   private
