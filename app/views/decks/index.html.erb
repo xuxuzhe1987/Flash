@@ -3,15 +3,13 @@
 <div class="text-center mb-2">
   <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary" %>
 </div>
-<div class="container">
-  <ul class="list-group stack-cards js-stack-cards">
+<div class="container mycards">
+  <ul class="list-group">
     <% @decks.each do |deck| %>
-      <li class="list-group-item stack-cards__item js-stack-cards__item"><%= link_to deck.name, deck_path(deck) %></li>
+      <li class="list-group-item">
+        <i class="fas fa-angle-double-right"></i>
+        <%= link_to deck.name, deck_path(deck) %>
+        </li>
     <% end %>
   </ul>
 </div>
-
-
-<!-- <script>
-
-</script> -->
