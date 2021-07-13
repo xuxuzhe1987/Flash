@@ -1,25 +1,27 @@
-
-<div class="banner d-flex align-items-center">
-  <div class=" container inner text-left">
-    <h1 class="text-left txtBig"> .FLASH⚡️ </h1>
-    <p class ="txtBig">Get your coding-concepts right with <br> your trusty side-kick .FLASH⚡️</p>
-    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-outline-primary text-center'%>
-  </div>
-
-</div>
-<div class="container txtBig">
-  <div class="row">
-    <div class="col-sm">
-      <h2 class="txtBig">Setup</h2>
-      <ol>
+<body class="landingpage">
+ <div class="banner d-flex align-items-center">
+   <div class=" container inner text-center">
+     <h1 class="text-center txtBig"> .FLASH⚡️ </h1>
+     <p class ="txtBig">Get your coding-concepts right with <br> your trusty side-kick .FLASH⚡️</p>
+    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-outline-danger text-center'%>
+   </div>
+ </div>
+  <div class="container txtBig">
+   <div class="row">
+     <div class="col-sm">
+       <h2 class="txtBig text-center">Setup</h2>
+      <div class="bordered">
+        <ol>
         <li>Get logged in</li>
         <li>Start reviewing your pre-loaded cards</li>
         <li>Add your own decks and cards, for whatever topic!</li>
-      </ol>
+       </ol>
+      </div> 
+     </div>
     </div>
+   <br>
+  <h2 class="txtBig text-center"><%= link_to 'All Decks', decks_path %></h2>
+  <h2 class="txtBig text-center"><%= link_to 'My Profile', user_decks_path %></h2>
+   <br>
   </div>
-<br>
-  <h2 class="txtBig"><%= link_to 'All Decks', decks_path %></h2>
-  <h2 class="txtBig"><%= link_to 'My Profile', user_decks_path %></h2>
-<br>
-</div>
+</body>
