@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #000000;
 
 }
 
@@ -12,3 +12,12 @@
   width: 40px;
 }
 
+.navbar-light .navbar-toggler {
+    color: #2292A4;
+    border-color: #2292A4;
+    border: solid;
+    border-radius: 5px;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #2292A4;
+}
