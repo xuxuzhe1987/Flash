@@ -27,10 +27,12 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initFlashcard } from '../components/flashcard_swiping';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  // initSelect2()
+  initFlashcard()
 });
 
 import { initSweetalert } from '../packs/init_sweetalert';
