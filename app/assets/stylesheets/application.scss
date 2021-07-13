@@ -12,6 +12,15 @@
 @import "components/index";
 @import "pages/index";
 
+
+h1{
+  font-family: 'Play', sans-serif;
+}
+
+h2{
+  font-family: 'Play', sans-serif;
+}
+
 .hidden {
   display: none;
 }
@@ -33,13 +42,6 @@
   background: #fff;
   // width: 300px;
   // height:300px;
-}
-h1{
-  font-family: 'Play', sans-serif;
-}
-
-h2{
-  font-family: 'Play', sans-serif;
 }
 
 .flashcard-content {
