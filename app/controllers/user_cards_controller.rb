@@ -1,14 +1,17 @@
 class UserCardsController < ApplicationController
   def create
-    @user_card = UserCard.new(user_card_params)
-    authorize @user_card
-    @user_card.save
-  end
-
-  def update
-    @user_card = UserCard.find(params[:id])
-    authorize @user_card
-    @user_card.update(user_card_params)
+    @user_cards = UserCard.where(user_id: current_user.id)
+    @card = Card.find(params[:card_id])
+    # to ckeck if user_card exist? create or update
+    if @user_cards.select { |user_card| user_card.card_id == @card.id }.count.zero?
+      @user_card = UserCard.new(user_card_params)
+      authorize @user_card
+      @user_card.save
+    else
+      @user_card = @user_cards.select { |user_card| user_card.card_id == @card.id }.first
+      authorize @user_card
+      @user_card.update(user_card_params)
+    end
   end
 
   private
