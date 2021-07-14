@@ -1,24 +1,38 @@
 <h1 class="text-center"><%= @deck.name %></h1>
 <div class="button-container text-center">
 <%= link_to " << Back to All Decks", decks_path, style:"text-decoration: underline;" %><br>
-<%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-primary" %>
+<%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-primary btn-sm m-2" %>
 <br>
-<%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-primary" %>
+<%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-primary btn-sm m-2" %>
 </div>
-
-<ul class="list-group">
+<div class="container">
+  <ul class="list-group">
   <% @deck.cards.each_with_index do |card, i|%>
-    <div id="deck-card-<%= i %>" class="card">
-      <li class="list-group-item question">Question: <%= card.question %> </li>
-      <li class="list-group-item answer">Answer: <%= card.answer %></li>
+    <div id="deck-card-<%= i %>" class="card m-2">
+      <li class="list-group-item question text-center">Question: <%= card.question %> <br>
+        <div class="activeCardButton text-center m-2">
+          <button id="see-answer" onClick="showAnswer()" class="btn btn-primary btn-sm">See Answer</button>
+        </div>
+      </li>
+      <li id=answer-show class="list-group-item answer hidden">Answer: <%= card.answer %></li>
 <!--       <li class="list-group-item">Hint: <%= card.hint %></li> -->
-      <%= link_to "Edit Card", edit_card_path(card)%>
-      <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
+     <div class="activeCardButtons">
+      <div class="d-flex justify-content-between m-2">
+      <%= link_to "Edit Card", edit_card_path(card), class:'btn btn-primary btn-sm'%>
+      <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger btn-sm" %>
+      </div>
+
+     </div>
     </div>
   <% end %>
 </ul>
+</div>
+
 
 
 <script type="text/javascript">
-
+   function showAnswer() {
+   const seeAnswers = document.querySelectorAll(".answer")
+   seeAnswers.forEach(e => e.classList.toggle("hidden"))
+   }
 </script>
