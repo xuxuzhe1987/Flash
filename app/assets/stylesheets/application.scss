@@ -12,17 +12,26 @@
 @import "components/index";
 @import "pages/index";
 
-
-h1{
-  font-family: 'Play', sans-serif;
+body.application {
+ background-color: #000 ;
 }
 
-h2{
+h1 {
   font-family: 'Play', sans-serif;
+  color: #2292A4;
+}
+
+h2 {
+  font-family: 'Play', sans-serif;
+  color: #2292A4;
 }
 
 .hidden {
   display: none;
+}
+
+.a {
+
 }
 
 // .swiper-container {
