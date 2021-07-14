@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :cards, except: [:new, :create]
 
-  resources :user_cards, only: [:create, :update]
+  resources :user_cards, only: [:create]
 
   resources :user_decks, only: [:index, :create, :show, :destroy, :update]
 
