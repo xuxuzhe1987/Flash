@@ -17,6 +17,6 @@ class UserCardsController < ApplicationController
   private
 
   def user_card_params
-    params.permit(:answer, :result, :card_id, :user_id)
+    params.permit(:user_deck_id, :answer, :result, :card_id, :user_id)
   end
 end
