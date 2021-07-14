@@ -33,7 +33,11 @@
             <button id="know" onclick="nextCard()"><%= link_to "Know", user_card_path(@user_cards.select { |user_card| user_card.card_id == card.id }, answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :put %></button>
           <% end %>
           <!-- "Don't Know" to ckeck if user_card exist? create or update -->
-          <a id="unknow" href="#">Don't Know</a>
+           <% if @user_cards.select { |user_card| user_card.card_id == card.id }.count.zero?%>
+            <button id="unknow"><%= link_to "Don't Know", user_cards_path(answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post %></button>
+          <% else %>
+            <button id="unknow" on><%= link_to "Don't Know", user_card_path(@user_cards.select { |user_card| user_card.card_id == card.id }, answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :put %></button>
+          <% end %>
           <button id="hint" type="button" value="hint" onClick="hint()"> Hint </button>
           <button id="user-answer" type="button" value="Type your Answer" onClick="add()"> Answer Me </button>
         </div>
