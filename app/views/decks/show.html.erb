@@ -9,9 +9,9 @@
   <ul class="list-group">
   <% @deck.cards.each_with_index do |card, i|%>
     <div id="deck-card-<%= i %>" class="card m-2">
-      <li class="list-group-item question text-center">Question: <%= card.question %>
+      <li class="list-group-item question text-center" style="font-size:12px;">Q: <%= card.question %>
       </li>
-      <li id=answer-show class="list-group-item answer hidden">Answer: <%= card.answer %></li>
+      <li id=answer-show class="list-group-item answer hidden" style="font-size:12px;">A: <%= card.answer %></li>
 <!--       <li class="list-group-item">Hint: <%= card.hint %></li> -->
      <div class="activeCardButtons">
       <div class="d-flex justify-content-between m-2">
