@@ -4,7 +4,7 @@ class DecksController < ApplicationController
   def index
     @decks = policy_scope(Deck)
     @my_decks = @decks.where(user_id: current_user.id)
-    # @lw_decks = @decks.where(user_id: lewagon)
+    @lw_decks = @decks.where(user_id: 1)
   end
 
   def show
