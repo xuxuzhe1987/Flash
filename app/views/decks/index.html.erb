@@ -5,7 +5,7 @@
 </div>
 <div class="container ">
   <div class=" list-group">
-    <% @decks.each do |deck| %>
+    <% @my_decks.each do |deck| %>
       <div class=" list-group-item">
         <i class="fa fa-angle-right"></i>
         <span><%= link_to deck.name, deck_path(deck) %> </span>

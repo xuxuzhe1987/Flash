@@ -1,4 +1,5 @@
 class Deck < ApplicationRecord
+  belongs_to :user
   has_many :cards, dependent: :destroy
   has_many :user_decks, dependent: :destroy
   mount_uploader :attachment, AttachmentUploader # Tells rails to use this uploader for this model.
