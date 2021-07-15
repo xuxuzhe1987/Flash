@@ -1,0 +1,9 @@
+<%= form_tag(decks_path, :method => "get",   
+    class: '') do %>
+  <div class="input-group txtComputer">  
+    <%= search_field_tag :search, params[:search], placeholder: "Find your Deck", class: "form-control" %>  
+    <div class="input-group-btn">  
+      <%= button_tag "", :class => 'btn btn-primary fab fa-searchengin ml-2 form-control',:name => nil %>  
+    </div>  
+  </div>  
+<% end %>
