@@ -12,8 +12,12 @@
       <li class="list-group-item question">Question: <%= card.question %> </li>
       <li class="list-group-item answer">Answer: <%= card.answer %></li>
 <!--       <li class="list-group-item">Hint: <%= card.hint %></li> -->
-      <%= link_to "Edit Card", edit_card_path(card)%>
-      <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% if policy(@deck).update? %>
+        <%= link_to "Edit Card", edit_card_path(card)%>
+      <% end %>
+      <% if policy(@deck).destroy? %>
+        <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     </div>
   <% end %>
 </ul>

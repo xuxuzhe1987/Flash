@@ -5,10 +5,33 @@
 </div>
 <div class="container ">
   <div class=" list-group">
+    <h2>Le Wagon Decks</h2>
+    <% @lw_decks.each do |deck| %>
+      <div class=" list-group-item">
+        <i class="fa fa-angle-right"></i>
+        <span><%= link_to deck.name, deck_path(deck) %></span>
+        <% if policy(deck).update? %>
+          <%= link_to "Edit", edit_deck_path(deck), class:"btn btn-danger btn-sm" %>
+        <% end %>
+        <% if policy(deck).destroy? %>
+          <%= link_to "Delete", deck_path(deck), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger btn-sm" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <div class=" list-group">
+    <h2>My Own Decks</h2>
     <% @my_decks.each do |deck| %>
       <div class=" list-group-item">
         <i class="fa fa-angle-right"></i>
         <span><%= link_to deck.name, deck_path(deck) %> </span>
+        <% if policy(deck).update? %>
+          <%= link_to "Edit", edit_deck_path(deck), class:"btn btn-danger btn-sm" %>
+        <% end %>
+        <% if policy(deck).destroy? %>
+          <%= link_to "Delete", deck_path(deck), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger btn-sm" %>
+        <% end %>
         </div>
     <% end %>
   </div>

@@ -12,6 +12,8 @@ require "yaml"
 
 Deck.destroy_all
 Card.destroy_all
+user = User.new(name: "lewagon", email: "admin@me.com", encrypted_password: "123456", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2021-07-01 00:00:00", last_sign_in_at: "2021-07-01 00:00:00", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1")
+user.save!(validate: false)
 
 # setup------------------------------------------------------
 
@@ -21,16 +23,16 @@ sample1 = YAML.load(open(file1).read)
 
 puts 'Creating Cards for 00-Setup...'
 
-deckname1 = Deck.create!(name: sample1["deck_name"] + " (English)")
+deckname1 = Deck.create!(user_id: user.id, name: sample1["deck_name"] + " (English)")
 sample1["cards"].each do |card|
- Card.create!(user_id: "lewagon", deck_id: deckname1.id, question: card["front"], answer: card["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname1.id, question: card["front"], answer: card["back"], hint: card["slug"])
 end
 
 puts 'Creating Cards for 00-Setup... in Chinese'
 
-deckname1cn = Deck.create!(name: sample1["deck_name"] + " (中文)")
+deckname1cn = Deck.create!(user_id: user.id, name: sample1["deck_name"] + " (中文)")
 sample1["cards"].each do |card|
- Card.create!(user_id: "lewagon", deck_id: deckname1cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname1cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
 end
 
 
