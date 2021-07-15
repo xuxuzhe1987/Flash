@@ -21,58 +21,67 @@ sample1 = YAML.load(open(file1).read)
 
 puts 'Creating Cards for 00-Setup...'
 
-deckname1 = Deck.create!(name: sample1["deck_name"])
+deckname1 = Deck.create!(name: sample1["deck_name"] + " (English)")
 sample1["cards"].each do |card|
- Card.create!(deck_id: deckname1.id, question: card["front"], answer: card["back"], hint: card["slug"])
+ Card.create!(user_id: "lewagon", deck_id: deckname1.id, question: card["front"], answer: card["back"], hint: card["slug"])
 end
+
+puts 'Creating Cards for 00-Setup... in Chinese'
+
+deckname1cn = Deck.create!(name: sample1["deck_name"] + " (中文)")
+sample1["cards"].each do |card|
+ Card.create!(user_id: "lewagon", deck_id: deckname1cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+end
+
+
 
 # programming basics-----------------------------------------
 
-file2 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/01-Ruby_01-Programming-basics.yml?token=ASLME6QSAZEY3FVJMM35M63A6KGVM"
-sample2 = YAML.load(open(file2).read)
+# file2 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/01-Ruby_01-Programming-basics.yml?token=ASLME6QSAZEY3FVJMM35M63A6KGVM"
+# sample2 = YAML.load(open(file2).read)
 
-puts 'Creating Cards for 01-Ruby_01-Programming-basics...'
+# puts 'Creating Cards for 01-Ruby_01-Programming-basics...'
 
-deckname2 = Deck.create!(name: sample2["deck_name"])
-sample2["cards"].each do |card|
- Card.create!(deck_id: deckname2.id, question: card["front"], answer: card["back"], hint: card["slug"])
-end
+# deckname2 = Deck.create!(name: sample2["deck_name"])
+# sample2["cards"].each do |card|
+#  Card.create!(deck_id: deckname2.id, question: card["front"], answer: card["back"], hint: card["slug"])
+# end
 
-# flow array--------------------------------------------------
+# # flow array--------------------------------------------------
 
-file3 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/01-Ruby_02-Flow-Array.yml?token=ASLME6VNOEWCAZ4PO2NFUPTA6KG2Q"
-sample3 = YAML.load(open(file3).read)
+# file3 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/01-Ruby_02-Flow-Array.yml?token=ASLME6VNOEWCAZ4PO2NFUPTA6KG2Q"
+# sample3 = YAML.load(open(file3).read)
 
-puts 'Creating Cards for 01-Ruby_02-Flow-Array...'
+# puts 'Creating Cards for 01-Ruby_02-Flow-Array...'
 
-deckname3 = Deck.create!(name: sample3["deck_name"])
-sample3["cards"].each do |card|
- Card.create!(deck_id: deckname3.id, question: card["front"], answer: card["back"], hint: card["slug"])
-end
+# deckname3 = Deck.create!(name: sample3["deck_name"])
+# sample3["cards"].each do |card|
+#  Card.create!(deck_id: deckname3.id, question: card["front"], answer: card["back"], hint: card["slug"])
+# end
 
-# iterators blocks---------------------------------------------
+# # iterators blocks---------------------------------------------
 
-file4 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/01-Ruby_03-Iterators-Blocks.yml?token=ASLME6TLPJ6YDFN4GRRLNTDA6KG4W"
-sample4 = YAML.load(open(file4).read)
+# file4 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/01-Ruby_03-Iterators-Blocks.yml?token=ASLME6TLPJ6YDFN4GRRLNTDA6KG4W"
+# sample4 = YAML.load(open(file4).read)
 
-puts 'Creating Cards for 01-Ruby_03-Iterators-Blocks...'
+# puts 'Creating Cards for 01-Ruby_03-Iterators-Blocks...'
 
-deckname4 = Deck.create!(name: sample4["deck_name"])
-sample4["cards"].each do |card|
- Card.create!(deck_id: deckname4.id, question: card["front"], answer: card["back"], hint: card["slug"])
-end
+# deckname4 = Deck.create!(name: sample4["deck_name"])
+# sample4["cards"].each do |card|
+#  Card.create!(deck_id: deckname4.id, question: card["front"], answer: card["back"], hint: card["slug"])
+# end
 
-# hash symbols ------------------------------------------------
+# # hash symbols ------------------------------------------------
 
-file5 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/01-Ruby_04-Hash-Symbols.yml?token=ASLME6TDFUA6OTK6KO3W5T3A6KG6W"
-sample5 = YAML.load(open(file5).read)
+# file5 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/01-Ruby_04-Hash-Symbols.yml?token=ASLME6TDFUA6OTK6KO3W5T3A6KG6W"
+# sample5 = YAML.load(open(file5).read)
 
-puts 'Creating Cards for 01-Ruby_04-Hash-Symbols...'
+# puts 'Creating Cards for 01-Ruby_04-Hash-Symbols...'
 
-deckname5 = Deck.create!(name: sample5["deck_name"])
-sample5["cards"].each do |card|
- Card.create!(deck_id: deckname5.id, question: card["front"], answer: card["back"], hint: card["slug"])
-end
+# deckname5 = Deck.create!(name: sample5["deck_name"])
+# sample5["cards"].each do |card|
+#  Card.create!(deck_id: deckname5.id, question: card["front"], answer: card["back"], hint: card["slug"])
+# end
 
 # regex-------------------------------------------------------
 
