@@ -9,16 +9,18 @@
 <ul class="list-group">
   <% @deck.cards.each_with_index do |card, i|%>
     <div id="deck-card-<%= i %>" class="card">
-      <li class="list-group-item question">Question: <%= card.question %> </li>
+      <li class="d-flex list-group-item question">Question: <%= card.question %>
+        <div class= "activeCardButtons d-flex m-2" >
+          <% if policy(@deck).update? %>
+            <%= link_to "", edit_card_path(card), class:"far fa-edit mr-2"%>
+          <% end %>
+          <% if policy(@deck).destroy? %>
+            <%= link_to "", card_path(card), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash" %>
+          <% end %>
+        </div>
+       </li>
       <li class="list-group-item answer">Answer: <%= card.answer %></li>
-      <div class= "activeCardButtons d-flex m-2" >
-      <% if policy(@deck).update? %>
-        <%= link_to "Edit Card", edit_card_path(card), class:"btn btn-primary btn-sm mr-2"%>
-      <% end %>
-      <% if policy(@deck).destroy? %>
-        <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger btn-sm" %>
-      <% end %>
-      </div>
+
     </div>
   <% end %>
 </ul>
