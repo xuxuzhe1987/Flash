@@ -13,7 +13,6 @@
           <div class="flashcard-content"><%= card.answer %> </div>
         </div>
         <div class="text-box hidden mb-3">
-            <!-- need to update this submit button to link to user_cards answer column -->
             <textarea id=user-answer-box placeholder="type your answer"></textarea> <br>
             <button id="show-answer" onClick="flip()">See Answer</button>
         </div>
@@ -105,6 +104,13 @@
       if (!e.classList.contains("hidden")) {
         e.classList.add("hidden")
         console.log('checking hint hidden')
+      }
+    })
+    let hideUserAnswers = document.querySelectorAll(".text-box")
+    hideUserAnswers.forEach((e) => {
+      if (!e.classList.contains("hidden")) {
+        e.classList.add("hidden")
+        console.log("checking text-box hidden")
       }
     })
   });
