@@ -59,4 +59,14 @@ h2 {
 }
 
 
+#relative-cont {
+  position: relative;
+}
 
+#absolute-cont {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+}
