@@ -33,15 +33,3 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
-import { initSweetalert } from '../packs/init_sweetalert';
-
-initSweetalert('#delete-link', {
-  title: "Are you sure?",
-  text: "This action cannot be reversed",
-  icon: "warning"
-}, (value) => {
-  if (value) {
-    const link = document.querySelector('#delete-link');
-    link.click();
-  }
-});
