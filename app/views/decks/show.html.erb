@@ -11,7 +11,6 @@
     <div id="deck-card-<%= i %>" class="card">
       <li class="list-group-item question">Question: <%= card.question %> </li>
       <li class="list-group-item answer">Answer: <%= card.answer %></li>
-<!--       <li class="list-group-item">Hint: <%= card.hint %></li> -->
       <% if policy(@deck).update? %>
         <%= link_to "Edit Card", edit_card_path(card)%>
       <% end %>
