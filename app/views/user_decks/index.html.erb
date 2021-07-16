@@ -1,6 +1,9 @@
 <h1 class="text-center">My Profile</h1>
 <div class="text-center">
-  <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary" %>
+<%= link_to "All Decks", decks_path(@decks), class:"btn btn-primary btn-sm" %>
+</div>
+<div class="text-center m-2">
+  <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary btn-sm" %>
 </div>
 <h3 class="text-center m-2">My On Going Decks:</h3>
 <div class="container">
@@ -12,14 +15,19 @@
         <i class="fas fa-angle-double-right"></i>
         Deck: <%= user_deck.deck.name %>
       </div>
-      <li class="list-group-item">Status: <%= user_deck.status %></li>
-      <li class="list-group-item">Known cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == true} %></li>
-      <li class="list-group-item">Unknown cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == false} %></li>
-      <div class="d-flex justify-content-around m-2">
-      <%= link_to "Continue", user_deck_path(user_deck), class:"btn btn-primary btn-sm"%>
-      <%= link_to "Delete History", user_deck_path(user_deck),  method: :delete, data: { confirm: "Are you sure?" }, id:"delete-link", class:"btn btn-danger btn-sm" %>
-      </div>
+        <li class="list-group-item">Status: <%= user_deck.status %></li>
+        <li class="list-group-item">Known cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == true} %></li>
+        <li class="list-group-item">Unknown cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == false} %></li>
+        <div class=" text-center m-2">
+          <%= link_to "Continue", user_deck_path(user_deck), class:"btn btn-primary btn-sm mr-2"%>
+          <%= link_to "Delete History", user_deck_path(user_deck),  method: :delete, data: { confirm: "Are you sure?" }, id:"delete-link", class:"btn btn-danger btn-sm ml-2" %>
+        </div>
     </div>
     <% end %>
   </ul>
 </div>
+
+           <!-- <div id="absolute-profile">
+            link_to "", user_deck_path(user_deck), class:"fas fa-forward"%>
+            link_to "", user_deck_path(user_deck),  method: :delete, data: { confirm: "Are you sure?" }, id:"delete-link", class:"fas fa-trash" %>
+          </div>  -->
