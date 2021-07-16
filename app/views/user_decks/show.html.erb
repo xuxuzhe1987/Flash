@@ -13,11 +13,9 @@
           <div class="flashcard-content"><%= card.answer %> </div>
         </div>
         <div class="text-box hidden mb-3">
-          <form>
             <!-- need to update this submit button to link to user_cards answer column -->
-            <input type="text" placeholder="add your answer">
-            <input type="submit">
-          </form>
+            <textarea id=user-answer-box placeholder="type your answer"></textarea> <br>
+            <button id="show-answer" onClick="flip()">See Answer</button>
         </div>
         <div class="hint hidden">
           <h4>Hint:</h4>
@@ -140,7 +138,8 @@
   }
 
   function hint() {
-    hints.forEach(e => e.classList.toggle("hidden"))
+    hints.forEach((e) => e.classList.toggle("hidden"))
+
   }
 
   function add() {
