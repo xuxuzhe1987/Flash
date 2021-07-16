@@ -61,5 +61,6 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.hosts << "b9c6b3a7aaef.ngrok.io"
+  # this is the NGROK tunnel needing to be update when testing on phone
+  # config.hosts << "b9c6b3a7aaef.ngrok.io"
 end

@@ -13,11 +13,8 @@
           <div class="flashcard-content"><%= card.answer %> </div>
         </div>
         <div class="text-box hidden mb-3">
-          <form>
-            <!-- need to update this submit button to link to user_cards answer column -->
-            <input type="text" placeholder="add your answer">
-            <input type="submit">
-          </form>
+            <textarea id=user-answer-box placeholder="type your answer"></textarea> <br>
+            <button id="show-answer" onClick="flip()">See Answer</button>
         </div>
         <div class="hint hidden">
           <h4>Hint:</h4>
@@ -102,6 +99,20 @@
         console.log("add hidden")
       }
     });
+    let hideHints = document.querySelectorAll(".hint")
+    hideHints.forEach((e) => {
+      if (!e.classList.contains("hidden")) {
+        e.classList.add("hidden")
+        console.log('checking hint hidden')
+      }
+    })
+    let hideUserAnswers = document.querySelectorAll(".text-box")
+    hideUserAnswers.forEach((e) => {
+      if (!e.classList.contains("hidden")) {
+        e.classList.add("hidden")
+        console.log("checking text-box hidden")
+      }
+    })
   });
   // function to block swipe unless having checked answer
     // swiper.on('slideNextTransitionEnd', function(){
@@ -140,7 +151,8 @@
   }
 
   function hint() {
-    hints.forEach(e => e.classList.toggle("hidden"))
+    hints.forEach((e) => e.classList.toggle("hidden"))
+
   }
 
   function add() {
