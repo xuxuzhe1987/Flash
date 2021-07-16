@@ -1,7 +1,8 @@
 
 <h1 class="text-center">All Decks</h1>
 <div class="text-center mb-2">
-  <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary" %>
+  <%= link_to " My Profile", user_decks_path(@user_decks) %> <br>
+  <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary btn-sm" %>
 </div>
 <div class="container ">
   <div class=" list-group">

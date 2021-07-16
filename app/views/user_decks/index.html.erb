@@ -1,5 +1,8 @@
 <h1 class="text-center">My Profile</h1>
 <div class="text-center">
+<%= link_to "All Decks", decks_path(@decks) %>
+</div>
+<div class="text-center">
   <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary" %>
 </div>
 <h3 class="text-center m-2">My On Going Decks:</h3>
