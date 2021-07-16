@@ -12,10 +12,10 @@
       <li id="relative-cont" class="d-flex list-group-item question">Question: <%= card.question %>
         <div id="absolute-cont" class= "activeCardButtons d-flex  m-2" >
           <% if policy(@deck).update? %>
-            <%= link_to "", edit_card_path(card), class:"far fa-edit align-self-start"%>
+            <%= link_to "", edit_card_path(card), class:"far fa-edit"%>
           <% end %>
           <% if policy(@deck).destroy? %>
-            <%= link_to "", card_path(card), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-1" %>
+            <%= link_to "", card_path(card), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-2" %>
           <% end %>
         </div>
        </li>

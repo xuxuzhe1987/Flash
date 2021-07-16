@@ -71,6 +71,19 @@ h2 {
   height: 25px;
 }
 
+#relative-index {
+  position: relative;
+
+}
+
+#absolute-index {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+}
+
 // #relative-profile {
 //   position: relative;
 // }

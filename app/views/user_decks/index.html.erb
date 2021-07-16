@@ -15,7 +15,6 @@
         <i class="fas fa-angle-double-right"></i>
         Deck: <%= user_deck.deck.name %>
       </div>
-      <div id=relative-cont>
         <li class="list-group-item">Status: <%= user_deck.status %></li>
         <li class="list-group-item">Known cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == true} %></li>
         <li class="list-group-item">Unknown cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == false} %></li>
@@ -23,8 +22,6 @@
           <%= link_to "Continue", user_deck_path(user_deck), class:"btn btn-primary btn-sm mr-2"%>
           <%= link_to "Delete History", user_deck_path(user_deck),  method: :delete, data: { confirm: "Are you sure?" }, id:"delete-link", class:"btn btn-danger btn-sm ml-2" %>
         </div>
-      </div>
-
     </div>
     <% end %>
   </ul>
