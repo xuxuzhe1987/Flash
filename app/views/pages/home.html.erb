@@ -20,8 +20,10 @@
         </div>
         <div class="flash-facts text-center">
         </div>
-        <div class="faq">
-          <h2> FAQ </h2>
+        <h2 class="text-center">
+          FAQ <i type="button" class="fas fa-arrow-down" onClick="showFaq()"></i>
+        </h2>
+        <div id="faq" class="hidden">
           <ul class= "list-group">
             <li class="list-group-item question">⚡️ Are flashcards good for studying?</li>
             <li class="list-group-item answer">Flashcards are an incredibly versatile study tool. While many students think of using them for simple facts, they can be used for complex processes throughout one's academic career.</li>
@@ -41,4 +43,10 @@
     <h2 class="txtBig text-center"><%= link_to 'My Profile', user_decks_path %></h2>
     <br>
   </div>
+  <script>
+    function showFaq() {
+      const faq = document.getElementById("faq")
+      faq.classList.toggle("hidden")
+    }
+  </script>
 </body>
