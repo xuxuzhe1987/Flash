@@ -21,3 +21,24 @@
 .navbar-light .navbar-nav .nav-link {
   color: #2292A4;
 }
+
+.search {
+  //border-style: solid 2px #2292A4;
+  border: solid 3px #2292A4;
+  border-radius: 5px;
+  color: #2292A4;
+  outline: 0;
+  position: absolute;
+  background-color: #000000;
+  left: 155px;
+  top: 13px;
+}
+
+.searchbutton {
+  position: absolute;
+  left: 108px;
+  top: 13px;
+  padding-top: 2px;
+  padding-bottom:2px;
+
+}
