@@ -70,9 +70,11 @@ const initFlashcard = () => {
   const hints = document.querySelectorAll(".hint")
 
   let dontKnowBtn = document.getElementById("unknow")
-  dontKnowBtn.addEventListener("click", (e) => {
+  console.log(dontKnowBtn)
+  dontKnowBtn.addEventListener("submit", (e) => {
     e.preventDefault()
-    dontKnow()
+    console.log(e)
+    // dontKnow()
   })
 
   function nextCard() {
