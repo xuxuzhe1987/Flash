@@ -1,6 +1,14 @@
 
 <h1 class="text-center">All Decks</h1>
 <div class="text-center mb-2">
+
+  <%= link_to "Add New Deck", new_deck_path, class: "btn btn-outline-primary" %>
+</div>
+<div class="container ">
+  <div class=" list-group">
+    <% @decks.each do |deck| %>
+      <div class=" list-group-item txtSmall text-center">
+
   <%= link_to " My Profile", user_decks_path(@user_decks) %> <br>
   <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary btn-sm" %>
 </div>
@@ -9,6 +17,7 @@
     <h2>Le Wagon Decks</h2>
     <% @lw_decks.each do |deck| %>
       <div class=" list-group-item">
+
         <i class="fa fa-angle-right"></i>
         <span><%= link_to deck.name, deck_path(deck) %></span>
         <% if policy(deck).update? %>

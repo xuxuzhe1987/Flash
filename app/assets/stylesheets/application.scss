@@ -13,7 +13,7 @@
 @import "pages/index";
 
 body.application {
- //background-color: #000 ;
+ background-color: #000 ;
 }
 
 h1 {
@@ -22,6 +22,11 @@ h1 {
 }
 
 h2 {
+  font-family: 'Play', sans-serif;
+  color: #2292A4;
+}
+
+h3 {
   font-family: 'Play', sans-serif;
   color: #2292A4;
 }
@@ -56,6 +61,54 @@ h2 {
 .flashcard-content {
   font-family: 'Play', sans-serif;
   font-size: 18px;
+}
+
+
+.form {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 20px;
+}
+
+.deviseform {
+  border: solid 3px #2292A4;
+  border-radius: 5px;
+  color: #2292A4;
+  background-color: #000000;
+  width:40vh;
+  padding-top: 10px;
+  padding-bottom: 10px;  
+}
+
+.form-inputs {
+  margin: 10px;
+  
+}
+
+.indexcont {
+  border: solid 3px #2292A4;
+  border-radius: 5px;
+  color: #2292A4;
+  background-color: #000000;
+  width:40vh;
+}
+
+.list-group-item {
+  background-color: #000000;
+}
+
+.well {
+ margin-top: 10px;
+}
+
+.card {
+  border: solid 3px #2292A4;
+  border-radius: 5px;
+  color: #2292A4;
+  background-color: #000000;
+  margin-bottom: 5px;
+  margin-top:5px;
 }
 
 
