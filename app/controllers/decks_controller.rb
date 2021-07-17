@@ -3,12 +3,11 @@ class DecksController < ApplicationController
 
   def index
     @decks = policy_scope(Deck)
-
     if params[:search].present?
-      @books = Deck.where("name ILIKE ?", "%#{params[:search]}%")
+      @decks = Deck.where("name ILIKE ?", "%#{params[:search]}%")
     else
-      @books = Deck.all
-    end
+      @decks = Deck.all
+    end 
 
     @my_decks = @decks.where(user_id: current_user.id)
     @lw_decks = @decks.where(user_id: 1)
