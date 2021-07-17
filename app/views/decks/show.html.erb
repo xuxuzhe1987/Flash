@@ -1,11 +1,12 @@
 <h1 class="text-center"><%= @deck.name %></h1>
 <div class="button-container text-center">
-<%= link_to " << Back to All Decks", decks_path, style:"text-decoration: underline;" %><br>
+<%= link_to "Back to All Decks", decks_path, class:"btn btn-primary btn-sm m-2" %><br>
 <%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-primary btn-sm mb-2" %>
 <br>
 <%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-primary btn-sm mb-2" %>
 </div>
 
+<div class="container">
 <ul class="list-group">
   <% @deck.cards.each_with_index do |card, i|%>
     <div id="deck-card-<%= i %>" class="card">
@@ -19,11 +20,11 @@
           <% end %>
         </div>
        </li>
-      <li class="list-group-item answer">Answer: <%= card.answer %></li>
-
+      <li class="list-group-item answer mb-6">Answer: <%= card.answer %></li>
     </div>
   <% end %>
 </ul>
+</div>
 
 
 <script type="text/javascript">
