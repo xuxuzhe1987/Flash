@@ -1,11 +1,11 @@
-<h1 class='text-center'><%= @user_deck.deck.name %></h1>
+<!-- <h1 class='text-center'><%= @user_deck.deck.name %></h1> -->
 <div class="card-container swiper-container mySwiper">
   <div class="swiper-wrapper">
     <% @user_deck.deck.cards.each_with_index do |card, i|%>
       <div id="card-<%= i %>" class="card swiper-slide" style="display: block;">
-        <h2>Question:</h2>
+        <!-- <h2>Question:</h2> -->
         <div class="question" style="dispaly: block;">
-          <%= card.question %>
+          <br><br><br><h2> <%= card.question %> </h2>
         </div><br>
         <hr><br>
         <div class="answer hidden">
@@ -33,7 +33,7 @@
     <% end %>
   </div>
   <br>
-  <hr>
+  <!-- <hr> -->
   <div class="text-center">
     <button id="instructions" type="submit" value="Instruction">❓</button>
   </div>

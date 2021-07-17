@@ -50,7 +50,7 @@ const swiper = new Swiper(".mySwiper", {
     watchSlidesProgress: true,
       // allowSlideNext: false,
     slidesPerView:1,
-    spaceBetween: 30,
+    spaceBetween: 10,
     pagination: {
     el: '.swiper-pagination',
     type: 'progressbar',
