@@ -4,7 +4,6 @@ class CardsController < ApplicationController
 
   def index
     @cards = policy_scope(Card)
-    # @cards = Card.all
   end
 
   def new
@@ -16,7 +15,6 @@ class CardsController < ApplicationController
     @card = Card.new(card_params)
     authorize @card
     @card.deck = @deck
-    # authorize @deck
     @card.save
     if @card.save
       redirect_to new_deck_card_path(@deck)
@@ -31,13 +29,14 @@ class CardsController < ApplicationController
 
   def update
     @card.update(card_params)
-    redirect_to deck_path(@card.deck_id)
     authorize @card
+    redirect_to deck_path(@card.deck_id)
   end
 
   def destroy
     @card.destroy
     redirect_to deck_path(@card.deck_id)
+    authorize @card
   end
 
   private

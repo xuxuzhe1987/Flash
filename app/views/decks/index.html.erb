@@ -1,15 +1,51 @@
 
 <h1 class="text-center">All Decks</h1>
 <div class="text-center mb-2">
-  <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary" %>
+
+  <%= link_to "Add New Deck", new_deck_path, class: "btn btn-outline-primary" %>
 </div>
 <div class="container ">
   <div class=" list-group">
     <% @decks.each do |deck| %>
+      <div class=" list-group-item txtSmall text-center">
+
+  <%= link_to " My Profile", user_decks_path(@user_decks) %> <br>
+  <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary btn-sm" %>
+</div>
+<div class="container ">
+  <div class=" list-group">
+    <h2>Le Wagon Decks</h2>
+    <% @lw_decks.each do |deck| %>
       <div class=" list-group-item">
+
+        <i class="fa fa-angle-right"></i>
+        <span><%= link_to deck.name, deck_path(deck) %></span>
+        <% if policy(deck).update? %>
+          <%= link_to "Edit", edit_deck_path(deck), class:"btn btn-danger btn-sm" %>
+        <% end %>
+        <% if policy(deck).destroy? %>
+          <%= link_to "Delete", deck_path(deck), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger btn-sm" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <div class=" list-group">
+    <h2>My Own Decks</h2>
+    <% @my_decks.each do |deck| %>
+      <div id="relative-index" class="list-group-item">
         <i class="fa fa-angle-right"></i>
         <span><%= link_to deck.name, deck_path(deck) %> </span>
-        </div>
+        <div id="absolute-index" class="d-flex">
+          <% if policy(deck).update? %>
+            <%= link_to "", edit_deck_path(deck), class:"far fa-edit" %>
+          <% end %>
+          <% if policy(deck).destroy? %>
+            <%= link_to "", deck_path(deck), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-2" %>
+          <% end %>
+       </div>
+      </div>
     <% end %>
   </div>
 </div>
+<% end %>

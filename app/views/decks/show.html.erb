@@ -1,23 +1,40 @@
 <h1 class="text-center"><%= @deck.name %></h1>
-<div class="button-container text-center">
+<div class="button-container text-center txtSmall">
 <%= link_to " << Back to All Decks", decks_path, style:"text-decoration: underline;" %><br>
-<%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-primary" %>
-<br>
-<%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-primary" %>
-</div>
 
-<ul class="list-group">
+<%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-outline-primary my-1" %>
+<br>
+<%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-outline-danger my-1" %>
+=======
+<%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-primary btn-sm mb-2" %>
+<br>
+<%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-primary btn-sm mb-2" %>
+
+</div>
+<div class = "form text-center">
+<ul class="txtSmall">
   <% @deck.cards.each_with_index do |card, i|%>
+
+    <div id="deck-card <%= i %>" class="card">
+
     <div id="deck-card-<%= i %>" class="card">
-      <li class="list-group-item question">Question: <%= card.question %> </li>
+      <li id="relative-cont" class="d-flex list-group-item question">Question: <%= card.question %>
+        <div id="absolute-cont" class= "activeCardButtons d-flex  m-2" >
+          <% if policy(@deck).update? %>
+            <%= link_to "", edit_card_path(card), class:"far fa-edit"%>
+          <% end %>
+          <% if policy(@deck).destroy? %>
+            <%= link_to "", card_path(card), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-2" %>
+          <% end %>
+        </div>
+       </li>
+
       <li class="list-group-item answer">Answer: <%= card.answer %></li>
-<!--       <li class="list-group-item">Hint: <%= card.hint %></li> -->
-      <%= link_to "Edit Card", edit_card_path(card)%>
-      <%= link_to "Delete Card", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
+
     </div>
   <% end %>
 </ul>
-
+</div>
 
 <script type="text/javascript">
 
