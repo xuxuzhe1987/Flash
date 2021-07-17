@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable
   has_many :user_cards, dependent: :destroy
   has_many :user_decks, dependent: :destroy
+  has_many :decks, dependent: :destroy
 
 def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user |

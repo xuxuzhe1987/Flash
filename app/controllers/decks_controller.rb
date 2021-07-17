@@ -3,11 +3,16 @@ class DecksController < ApplicationController
 
   def index
     @decks = policy_scope(Deck)
+
     if params[:search].present?
       @books = Deck.where("name ILIKE ?", "%#{params[:search]}%")
     else
       @books = Deck.all
     end
+
+    @my_decks = @decks.where(user_id: current_user.id)
+    @lw_decks = @decks.where(user_id: 1)
+
   end
 
   def show
@@ -23,9 +28,10 @@ class DecksController < ApplicationController
 
   def create
     @deck = Deck.new(deck_params)
+    authorize @deck
+    @deck.user = current_user
     @deck.save
     redirect_to new_deck_card_path(@deck)
-    authorize @deck
   end
 
   def edit

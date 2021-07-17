@@ -1,27 +1,52 @@
 <body class="landingpage">
- <div class="banner d-flex align-items-center">
+  <div class="banner d-flex align-items-center">
    <div class=" container inner text-center">
      <h1 class="text-center txtBig"> .FLASH⚡️ </h1>
      <p class ="txtSmall">GET DECKED OUT!</p>
     <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-outline-danger text-center'%>
    </div>
- </div>
-  <div class="container txtBig">
-   <div class="row">
-     <div class="col-sm">
-       <h2 class="txtBig text-center">Setup</h2>
-      <div class="bordered">
-        <ol>
-        <li class="txtSmall">Get logged in</li>
-        <li class="txtSmall">Start reviewing your pre-loaded cards</li>
-        <li class="txtSmall">Add your own decks and cards, for whatever topic!</li>
-       </ol>
-      </div> 
-     </div>
-    </div>
-   <br>
-  <h2 class="txtBig text-center"><%= link_to 'All Decks', decks_path %></h2>
-  <h2 class="txtBig text-center"><%= link_to 'My Profile', user_decks_path %></h2>
-   <br>
   </div>
+  <div class="container txtBig">
+    <div class="row">
+      <div class="col-sm">
+        <h2 class="txtBig text-center">Setup</h2>
+        <div class="bordered">
+          <ol>
+            <li class="txtSmall">Get logged in</li>
+            <li class="txtSmall">Start reviewing your pre-loaded cards</li>
+            <li class="txtSmall">Add your own decks and cards, for whatever topic!</li>
+            <li class="txtSmall">Get started on your studying!!</li>
+          </ol>
+        </div>
+        <div class="flash-facts text-center">
+        </div>
+        <h2 class="text-center">
+          FAQ <i type="button" class="fas fa-arrow-down" onClick="showFaq()"></i>
+        </h2>
+        <div id="faq" class="hidden">
+          <ul class= "list-group">
+            <li class="list-group-item question">⚡️ Are flashcards good for studying?</li>
+            <li class="list-group-item answer">Flashcards are an incredibly versatile study tool. While many students think of using them for simple facts, they can be used for complex processes throughout one's academic career.</li>
+            <li class="list-group-item question">⚡️ How do you study flashcards?</li>
+            <li class="list-group-item answer">- Keep information as short as possible.<br> - Write clearly.<br>- One question and one answer per card.
+            </li>
+            <li class="list-group-item question">⚡️ Do I study better using Flashcards?</li>
+            <li class="list-group-item answer">10 out of 10 Medical Professionals state that using flashcards to self-test helps you learn information quicker</li>
+            <li class="list-group-item question">⚡️ Is there a clear benefit to using Flashcards?</li>
+            <li class="list-group-item answer">Helps you to identify any weak spots you may have with the material.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h2 class="txtBig text-center"><%= link_to 'All Decks', decks_path %></h2>
+    <h2 class="txtBig text-center"><%= link_to 'My Profile', user_decks_path %></h2>
+    <br>
+  </div>
+  <script>
+    function showFaq() {
+      const faq = document.getElementById("faq")
+      faq.classList.toggle("hidden")
+    }
+  </script>
 </body>
