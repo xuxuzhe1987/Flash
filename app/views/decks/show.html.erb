@@ -1,14 +1,28 @@
 <h1 class="text-center"><%= @deck.name %></h1>
+<<<<<<< HEAD
 <div class="button-container text-center">
-<%= link_to " << Back to All Decks", decks_path, style:"text-decoration: underline;" %><br>
+<%= link_to "Back to All Decks", decks_path, class:"btn btn-primary btn-sm m-2" %><br>
 <%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-primary btn-sm mb-2" %>
-<br>
-<%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-primary btn-sm mb-2" %>
-</div>
+=======
+<div class="button-container text-center txtSmall">
+<%= link_to " << Back to All Decks", decks_path, style:"text-decoration: underline;" %><br>
 
+<%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-outline-primary my-1" %>
+>>>>>>> 13400bb4b90855d5daecc6daa4d3f82cae845874
+<br>
+<%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-outline-danger my-1" %>
+
+<<<<<<< HEAD
+<div class="container">
 <ul class="list-group">
+=======
+</div>
+<div class = "form text-center">
+<ul class="txtSmall">
+>>>>>>> 13400bb4b90855d5daecc6daa4d3f82cae845874
   <% @deck.cards.each_with_index do |card, i|%>
-    <div id="deck-card-<%= i %>" class="card">
+
+    <div id="deck-card <%= i %>" class="card">
       <li id="relative-cont" class="d-flex list-group-item question">Question: <%= card.question %>
         <div id="absolute-cont" class= "activeCardButtons d-flex  m-2" >
           <% if policy(@deck).update? %>
@@ -19,12 +33,17 @@
           <% end %>
         </div>
        </li>
+<<<<<<< HEAD
+      <li class="list-group-item answer mb-6">Answer: <%= card.answer %></li>
+=======
+
       <li class="list-group-item answer">Answer: <%= card.answer %></li>
 
+>>>>>>> 13400bb4b90855d5daecc6daa4d3f82cae845874
     </div>
   <% end %>
 </ul>
-
+</div>
 
 <script type="text/javascript">
 
