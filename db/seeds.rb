@@ -17,7 +17,7 @@ user.save!(validate: false)
 
 # setup------------------------------------------------------
 
-file1 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/00-Setup.yml?token=ASLME6Q3V5F2NYLJIUACT73A6KGRC"
+file1 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/00-Setup.yml?token=ASLME6X5T64X5FUE7RZ4IS3A7IY6E"
 
 sample1 = YAML.load(open(file1).read)
 
