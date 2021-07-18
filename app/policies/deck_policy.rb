@@ -22,10 +22,10 @@ class DeckPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.user == user || user.admin == true
   end
 
   def destroy?
-    record.user == user
+    record.user == user || user.admin == true
   end
 end
