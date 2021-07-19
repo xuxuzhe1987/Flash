@@ -7,11 +7,10 @@ class DecksController < ApplicationController
       @decks = Deck.where("name ILIKE ?", "%#{params[:search]}%")
     else
       @decks = Deck.all
-    end 
+    end
 
     @my_decks = @decks.where(user_id: current_user.id)
     @lw_decks = @decks.where(user_id: 1)
-
   end
 
   def show
@@ -30,7 +29,18 @@ class DecksController < ApplicationController
     authorize @deck
     @deck.user = current_user
     @deck.save
-    redirect_to new_deck_card_path(@deck)
+    if params[:deck][:attachment].nil?
+      redirect_to new_deck_card_path(@deck)
+    else
+      upload
+      require 'csv'
+      CSV.foreach(Rails.root.join('public', 'uploads', 'cards_import.csv'), headers: true) do |row|
+        @card = Card.new(row.to_h)
+        @card.deck = @deck
+        @card.save
+      end
+      redirect_to decks_path
+    end
   end
 
   def edit
@@ -58,5 +68,12 @@ class DecksController < ApplicationController
 
   def set_deck
     @deck = Deck.find(params[:id])
+  end
+
+  def upload
+    uploaded_file = params[:deck][:attachment]
+    File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
+      file.write(uploaded_file.read)
+    end
   end
 end
