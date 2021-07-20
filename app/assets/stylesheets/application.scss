@@ -54,7 +54,7 @@ h3 {
   text-align: center;
   font-size: 16px;
     width: 360px;
-    height: 500px;
+    height: 570px;
     margin-top: 40px;
     margin-left:4px;
     margin-right:4px;
@@ -156,8 +156,10 @@ margin-top: 20px;
 // }
 
 #instructions {
-  font-size: 32px;
   border: none;
+//   position: absolute;
+//   left: 10px;
+//   top: 10px;
 }
 
 .hint-button-absolute {
@@ -176,8 +178,21 @@ margin-top: 20px;
     border-color: black;
 }
 
-.absolute-buttons-card {
-  position:absolute;
-  bottom:20px;
-  left: 17px;
-}
+// .relative-buttons-card {
+//   position: relative;
+// }
+
+// .know-button {
+//   position: absolute;
+//   left: 15px;
+// }
+
+// .user-answer-button {
+//   position: absolute;
+//   text-align: center;
+// }
+
+// .unknow-button {
+//   position: absolute;
+//   right: 15px;
+// }
