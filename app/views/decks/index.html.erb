@@ -1,7 +1,6 @@
-
 <h1 class="text-center m2">All Decks</h1>
-<div class="text-center mb-2">
-  <%= link_to " My Profile", user_decks_path(@user_decks), class:"btn btn-primary btn-sm" %> <br>
+<div class="text-center">
+  <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary btn-sm m-2" %>
 </div>
 <div class="container">
   <div class=" list-group">
@@ -22,9 +21,6 @@
   <br>
   <div class=" list-group">
     <h2 class="text-center">My Own Decks</h2>
-    <div class="text-center">
-    <%= link_to "Add New Deck", new_deck_path, class: "btn btn-primary btn-sm m-2" %>
-    </div>
     <% @my_decks.each do |deck| %>
       <div id="relative-index" class="list-group-item">
         <i class="fa fa-angle-right"></i>
