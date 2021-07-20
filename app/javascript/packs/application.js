@@ -44,7 +44,7 @@ const swiper = new Swiper(".swiper-container", {
     //   shadowOffset: 20,
     //   shadowScale: 0.94,
     // },
-      // effect: 'fade',
+      effect: 'fade',
     loop: true,
     allowSlidePrev: false,
     watchSlidesProgress: true,
@@ -93,6 +93,13 @@ const swiper = new Swiper(".swiper-container", {
         e.classList.add("hidden")
       }
     });
+  });
+
+  swiper.on('doubleTap', function () {
+  console.log('double tap');
+  // let answers = document.querySelectorAll(".answer")
+  // answers.forEach(e => e.classList.toggle("hidden"))
+  flip()
   });
 
   // function to block swipe unless having checked answer
