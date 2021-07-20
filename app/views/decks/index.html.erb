@@ -30,11 +30,14 @@
         <i class="fa fa-angle-right"></i>
         <span><%= link_to deck.name, deck_path(deck) %> </span>
         <div id="absolute-index" class="d-flex">
+        <!--   <% if policy(deck).show? %>
+          <%= link_to "", deck_path(deck), class:"fas fa-eye mr-3"  %>
+          <% end %> -->
           <% if policy(deck).update? %>
             <%= link_to "", edit_deck_path(deck), class:"far fa-edit" %>
           <% end %>
           <% if policy(deck).destroy? %>
-            <%= link_to "", deck_path(deck), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-2" %>
+            <%= link_to "", deck_path(deck), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-3" %>
           <% end %>
        </div>
         </div>

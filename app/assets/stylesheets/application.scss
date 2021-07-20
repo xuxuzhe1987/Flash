@@ -134,8 +134,8 @@ margin-top: 20px;
 #absolute-index {
   position: absolute;
   top: 15px;
-  right: 20px;
-  width: 25px;
+  right: 40px;
+  width: 50px;
   height: 25px;
 }
 
@@ -150,3 +150,15 @@ margin-top: 20px;
 //   width: 30px;
 //   height: 30px;
 // }
+
+#instructions {
+  border-radius: 50%;
+  font-size: 32px;
+  border: none;
+}
+
+.hint-button-absolute {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

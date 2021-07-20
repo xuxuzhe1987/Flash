@@ -3,7 +3,11 @@
   <div class="swiper-wrapper">
     <% @user_deck.deck.cards.each_with_index do |card, i|%>
       <div id="card-<%= i %>" class="card swiper-slide" style="display: block;">
-        <!-- <h2>Question:</h2> -->
+        <div class="hint-button-absolute">
+          <button id="hint" value="hint">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </div>
         <div class="question" style="dispaly: block;">
           <br><br><br><h2> <%= card.question %> </h2>
         </div><br>
@@ -25,7 +29,6 @@
           <button class="flip" value="Flip" type="submit">Flip</button>
           <button id="know" class="know"><%= link_to "Know", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post %></button>
           <button id="unknow" class="unknow"><%= link_to "Don't Know", user_cards_path(user_deck_id: @user_deck.id, answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post %></button>
-          <button id="hint" type="submit" value="hint"> Hint </button>
           <button id="user-answer" class="user-answer" type="button" value="Type your Answer"> Answer Me </button>
         </div>
         <br>
@@ -35,7 +38,9 @@
   <br>
   <!-- <hr> -->
   <div class="text-center">
-    <button id="instructions" type="submit" value="Instruction">❓</button>
+    <button id="instructions" value="Instruction" class="btn btn-outline-info btn-sm">
+      <i class="far fa-question-circle"></i>
+    </button>
   </div>
   <div id="flash-instructions" class="hidden">
     <h5 class="text-center">Instructions:</h5>
