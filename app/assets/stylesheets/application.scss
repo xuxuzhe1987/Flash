@@ -44,20 +44,21 @@ h3 {
 //   height: 600px;
 // }
 
-// .swiper-container {
-//   width: 100%;
-//   height: 100%;
-// }
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+}
 
 .swiper-slide {
   font-family: 'Play', sans-serif;
   text-align: center;
   font-size: 16px;
-    width: 359px;
-    height: 500px;
+    width: 360px;
+    height: 570px;
     margin-top: 40px;
-  // width: 300px;
-  // height:600px;
+    margin-left:4px;
+    margin-right:4px;
+    padding:4px;
 }
 
 .flashcard-content {
@@ -65,6 +66,9 @@ h3 {
   font-size: 18px;
 }
 
+.swiper-pagination {
+  color: white;
+}
 
 .form {
 display: flex;
@@ -134,8 +138,8 @@ margin-top: 20px;
 #absolute-index {
   position: absolute;
   top: 15px;
-  right: 20px;
-  width: 25px;
+  right: 40px;
+  width: 50px;
   height: 25px;
 }
 
@@ -149,4 +153,48 @@ margin-top: 20px;
 //   right: 5px;
 //   width: 30px;
 //   height: 30px;
+// }gs
+
+#instructions {
+  border: none;
+//   position: absolute;
+//   left: 10px;
+//   top: 10px;
+}
+
+.hint-button-absolute {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.btn-outline-info {
+  border: none;
+  border-color:none;
+}
+.btn-outline-info:hover {
+    color: white;
+    background-color: black;
+    border-color: black;
+}
+
+#activeCardButtons{
+  bottom:0px !important;
+
+
+}
+
+// .know-button {
+//   position: absolute;
+//   left: 15px;
+// }
+
+// .user-answer-button {
+//   position: absolute;
+//   text-align: center;
+// }
+
+// .unknow-button {
+//   position: absolute;
+//   right: 15px;
 // }
