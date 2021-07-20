@@ -1,19 +1,18 @@
 <!-- <h1 class='text-center'><%= @user_deck.deck.name %></h1> -->
-<div class="card-container swiper-container mySwiper">
+<div class="card-container swiper-container">
   <div class="swiper-wrapper">
     <% @user_deck.deck.cards.each_with_index do |card, i|%>
-      <div id="card-<%= i %>" class="card swiper-slide" style="display: block;">
+      <div id="card-<%= i %>" class="card swiper-slide text-center" style="display: block;">
         <div class="hint-button-absolute">
-          <button id="hint" value="hint">
+          <button id="hint" value="hint" class="btn btn-outline-info">
             <i class="fas fa-info-circle"></i>
           </button>
         </div>
         <div class="question" style="dispaly: block;">
           <br><br><br><h2> <%= card.question %> </h2>
-        </div><br>
-        <hr><br>
+        </div>
+        <br><br><br>
         <div class="answer hidden">
-          <h2>Answer:</h2>
           <div class="flashcard-content"><%= card.answer %> </div>
         </div>
         <div class="text-box hidden mb-3">
@@ -21,22 +20,19 @@
             <button id="show-answer">See Answer</button>
         </div>
         <div class="hint hidden">
-          <h4>Hint:</h4>
-          <div class="flashcard-content"><%= card.hint %> </div>
+          <div class="flashcard-content">HINT: <em> <%= card.hint %> </em> </div>
         </div>
         <br>
-        <div id ="activeCardButtons">
+        <div class="swiper-pagination"></div>
+        <div id ="activeCardButtons" class="absolute-buttons-card">
           <button class="flip" value="Flip" type="submit">Flip</button>
           <button id="know" class="know"><%= link_to "Know", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post %></button>
           <button id="unknow" class="unknow"><%= link_to "Don't Know", user_cards_path(user_deck_id: @user_deck.id, answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post %></button>
           <button id="user-answer" class="user-answer" type="button" value="Type your Answer"> Answer Me </button>
         </div>
-        <br>
       </div>
     <% end %>
   </div>
-  <br>
-  <!-- <hr> -->
   <div class="text-center">
     <button id="instructions" value="Instruction" class="btn btn-outline-info btn-sm">
       <i class="far fa-question-circle"></i>
@@ -50,7 +46,6 @@
       </div>
     </div>
   </div>
-  <div class="swiper-pagination"></div>
 </div>
 
 

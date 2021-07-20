@@ -30,13 +30,13 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 // import { initFlashcard } from '../components/flashcard_swiping';
 
-const swiper = new Swiper(".mySwiper", {
-    a11y: {
-      // still not working
-      enabled: true,
-      firstSlideMessage: 'Lets go!!',
-      lastSlideMessage: "Last one and done!",
-    },
+const swiper = new Swiper(".swiper-container", {
+    // a11y: {
+    //   // still not working
+    //   enabled: true,
+    //   firstSlideMessage: 'Lets go!!',
+    //   lastSlideMessage: "Last one and done!",
+    // },
     // effect: 'cube',
     // cubeEffect: {
     //   shadow: true,
@@ -50,10 +50,10 @@ const swiper = new Swiper(".mySwiper", {
     watchSlidesProgress: true,
       // allowSlideNext: false,
     slidesPerView:1,
-    spaceBetween: 10,
+    spaceBetween: 15,
     pagination: {
-    el: '.swiper-pagination',
-    type: 'progressbar',
+    // el: '.swiper-paginatio n',
+    // type: 'progressbar',
     // type: 'fraction',
     },
     // breakpoints: {
