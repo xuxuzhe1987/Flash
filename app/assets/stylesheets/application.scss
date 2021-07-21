@@ -39,6 +39,15 @@ h3 {
 
 }
 
+.a-box {
+  align-item:center;
+  border: dotted red;
+  width: 300px;
+  height: 150px;
+  margin-left: 4px;
+  margin: 0 auto;
+}
+
 // .swiper-container {
 //   width: 300px;
 //   height: 600px;
@@ -50,15 +59,17 @@ h3 {
 }
 
 .swiper-slide {
+  display: block;
   font-family: 'Play', sans-serif;
   text-align: center;
   font-size: 16px;
-    width: 360px;
-    height: 570px;
-    margin-top: 40px;
-    margin-left:4px;
-    margin-right:4px;
-    padding:4px;
+  width: 360px;
+  height: 550px;
+  // margin: 0 auto;
+  // float: none;
+  // position: relative;
+  // width: 300px;
+  // height:600px;
 }
 
 .flashcard-content {
@@ -141,6 +152,40 @@ margin-top: 20px;
   right: 40px;
   width: 50px;
   height: 25px;
+}
+
+#activeCardButtons{
+  bottom: 15px !important;
+  position:fixed;
+  margin-left: 72px;
+  margin-right:72px;
+}
+
+.btn-outline-info {
+  border: none;
+  border-color:none;
+}
+.btn-outline-info:hover {
+    color: white;
+    background-color: black;
+    border-color: black;
+}
+
+.btn-outline-secondary {
+  border: none;
+  background-color: none;
+}
+.btn-outline-secondary:hover {
+  border: none;
+  background-color: none;
+}
+
+.btn-outline-danger {
+  border: none;
+}
+
+.btn-outline-success {
+  border:none;
 }
 
 // #relative-profile {

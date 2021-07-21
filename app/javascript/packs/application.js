@@ -45,7 +45,7 @@ const swiper = new Swiper(".swiper-container", {
     //   shadowScale: 0.94,
     // },
       // effect: 'fade',
-    loop: true,
+    loop: false,
     allowSlidePrev: false,
     watchSlidesProgress: true,
       // allowSlideNext: false,

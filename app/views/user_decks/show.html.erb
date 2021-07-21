@@ -2,53 +2,54 @@
 <div class="card-container swiper-container">
   <div class="swiper-wrapper">
     <% @user_deck.deck.cards.each_with_index do |card, i|%>
-      <div id="card-<%= i %>" class="card d-flex justify-content-between swiper-slide text-center" style="display: block;">
-        <div class="hint-button-absolute">
-          <button id="hint" value="hint" class="btn btn-outline-info">
-            <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-        <div class="question" style="dispaly: block;">
-          <br><br><br><h2> <%= card.question %> </h2>
-        </div>
-        <br>
-        <div class="answer hidden">
+      <div id="card-<%= i %>" class="card swiper-slide m-2" style="display: block;">
+        <button id="hint" class="btn btn-outline-info" type="submit" value="hint">
+          <i class="fas fa-info-circle" style="font-size: 20px;"></i>
+        </button>
+        <div class="question m-2" style="dispaly: block;">
+          <br><h3> <%= card.question %> </h3>
+        </div><br>
+        <div class="answer hidden a-box" style="overflow-y:scroll;">
+          <h6 class="text-left m-1">Answer:</h6>
           <div class="flashcard-content"><%= card.answer %> </div>
         </div>
-        <br>
-        <div class="text-box hidden mb-3">
+        <div class="text-box hidden m-2">
             <textarea id=user-answer-box placeholder="type your answer"></textarea> <br>
-            <button id="show-answer" class="btn btn-outline-secondary btn-sm">See Answer</button>
+            <button id="show-answer" class="btn btn-primary btn-sm">See Answer</button>
         </div>
         <div class="hint hidden">
-          <div class="flashcard-content">HINT: <em> <%= card.hint %> </em> </div>
+          <div class="flashcard-content"> HINT:<%= card.hint %> </div>
         </div>
-        <div id ="activeCardButtons" class="relative-buttons-card d-flex justify-content-between">
+        <br>
+        <div id ="activeCardButtons" class="d-flex justify-content-around m-6">
           <!-- <button class="flip" value="Flip" type="submit">Flip</button> -->
-          <div class="know-button">
-            <button id="know" class="know btn btn-outline-success btn-sm ml-2"><%= link_to "", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post, class:"fas fa-check-square" %></button>
-          </div>
-          <div class="user-answer-button text-center">
-            <button id="user-answer" class="user-answer btn btn-outline-secondary btn-sm m-2" type="button" value="Type your Answer"> Type an Answer</button>
-          </div>
-          <div class="unknow-button">
-            <button id="unknow" class="unknow btn btn-outline-danger btn-sm mr-2"><%= link_to "", user_cards_path(user_deck_id: @user_deck.id, answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post, class:"fas fa-times-circle" %></button>
-          </div>
+          <button id="know" class="know btn btn-outline-success m-2">
+            <i class="fas fa-check-circle" style="font-size: 32px;">
+              <%= link_to "", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post %>
+           </i>
+          </button>
+          <button id="user-answer" class="user-answer btn btn-outline-secondary m-2" type="button" value="Type your Answer">
+            <i class="fas fa-pen-square" style="font-size: 32px;"></i>
+          </button>
+          <button id="unknow" class="unknow btn btn-outline-danger m-2">
+            <i class="fas fa-times-circle" style="font-size: 32px;">
+            <%= link_to "", user_cards_path(user_deck_id: @user_deck.id, answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post %>
+            </i>
+          </button>
         </div>
         <div class="swiper-pagination"></div>
       </div>
     <% end %>
   </div>
   <div class="text-center">
-    <button id="instructions" value="Instruction" class="btn btn-outline-info btn-sm">
-      <i class="far fa-question-circle"></i>
+    <button id="instructions" type="submit" value="Instruction" class="btn btn-outline-info">
+      <i class="fas fa-question-circle"></i>
     </button>
   </div>
   <div id="flash-instructions" class="hidden">
-    <h5 class="text-center">Instructions:</h5>
     <div class=container>
       <div class="border border-dark text-center pt-2">
-        <p>Check the answer? <strong>DoubleTap</strong><br>Know the answer? tap <strong> Know it!</strong><br>Don't know? tap <strong>Don't Know</strong><br>Input answer to compare? <strong>Answer Me</strong></p>
+        <p>Check the answer? <strong> doubleTap </strong> your screen<br>Know the answer? tap ✔︎ <br>Don't know? tap ✘<br>Input answer to compare? tap ✎</p>
       </div>
     </div>
   </div>
