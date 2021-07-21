@@ -3,29 +3,39 @@
   <div class="swiper-wrapper">
     <% @user_deck.deck.cards.each_with_index do |card, i|%>
       <div id="card-<%= i %>" class="card swiper-slide m-2" style="display: block;">
-        <button id="hint" type="submit" value="hint"> Hint </button>
+        <button id="hint" class="btn btn-outline-info btn-sm" type="submit" value="hint">
+          <i class="fas fa-info-circle" style="font-size: 20px;"></i>
+        </button>
         <div class="question m-2" style="dispaly: block;">
-          <br><br><br><h2> <%= card.question %> </h2>
+          <br><h3> <%= card.question %> </h3>
         </div><br>
-        <hr><br>
-        <div class="answer hidden" style="overflow-y:scroll;">
-          <h2>Answer:</h2>
+        <div class="answer hidden a-box" style="overflow-y:scroll;">
+          <h4>Answer:</h4>
           <div class="flashcard-content"><%= card.answer %> </div>
         </div>
-        <div class="text-box hidden mb-3">
+        <div class="text-box hidden m-2">
             <textarea id=user-answer-box placeholder="type your answer"></textarea> <br>
-            <button id="show-answer">See Answer</button>
+            <button id="show-answer" class="btn btn-primary btn-sm">See Answer</button>
         </div>
         <div class="hint hidden">
-          <h4>Hint:</h4>
-          <div class="flashcard-content"><%= card.hint %> </div>
+          <div class="flashcard-content"> HINT:<%= card.hint %> </div>
         </div>
         <br>
-        <div id ="activeCardButtons">
+        <div id ="activeCardButtons" class="d-flex justify-content-around m-6">
           <!-- <button class="flip" value="Flip" type="submit">Flip</button> -->
-          <button id="know" class="know"><%= link_to "Know", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post %></button>
-          <button id="unknow" class="unknow"><%= link_to "Don't Know", user_cards_path(user_deck_id: @user_deck.id, answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post %></button>
-          <button id="user-answer" class="user-answer" type="button" value="Type your Answer"> Answer Me </button>
+          <button id="know" class="know btn btn-outline-success m-2">
+            <i class="fas fa-check-circle">
+              <%= link_to "", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post %>
+           </i>
+          </button>
+          <button id="user-answer" class="user-answer btn btn-outline-secondary m-2" type="button" value="Type your Answer">
+            <i class="fas fa-pen-square"></i>
+          </button>
+          <button id="unknow" class="unknow btn btn-outline-danger m-2">
+            <i class="fas fa-times-circle">
+            <%= link_to "", user_cards_path(user_deck_id: @user_deck.id, answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post %>
+            </i>
+          </button>
         </div>
         <br>
       </div>
