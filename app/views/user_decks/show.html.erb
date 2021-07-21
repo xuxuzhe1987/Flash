@@ -2,9 +2,9 @@
 <div class="card-container swiper-container mySwiper">
   <div class="swiper-wrapper">
     <% @user_deck.deck.cards.each_with_index do |card, i|%>
-      <div id="card-<%= i %>" class="card swiper-slide" style="display: block;">
+      <div id="card-<%= i %>" class="card swiper-slide m-2" style="display: block;">
         <button id="hint" type="submit" value="hint"> Hint </button>
-        <div class="question" style="dispaly: block;">
+        <div class="question m-2" style="dispaly: block;">
           <br><br><br><h2> <%= card.question %> </h2>
         </div><br>
         <hr><br>
