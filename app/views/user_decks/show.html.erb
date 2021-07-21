@@ -1,5 +1,5 @@
 <!-- <h1 class='text-center'><%= @user_deck.deck.name %></h1> -->
-<div class="card-container swiper-container mySwiper">
+<div class="card-container swiper-container">
   <div class="swiper-wrapper">
     <% @user_deck.deck.cards.each_with_index do |card, i|%>
       <div id="card-<%= i %>" class="card swiper-slide m-2" style="display: block;">
@@ -37,7 +37,7 @@
             </i>
           </button>
         </div>
-        <br>
+        <div class="swiper-pagination"></div>
       </div>
     <% end %>
   </div>
@@ -53,7 +53,6 @@
       </div>
     </div>
   </div>
-  <div class="swiper-pagination"></div>
 </div>
 
 

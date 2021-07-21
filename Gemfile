@@ -33,10 +33,8 @@ gem 'devise', github: 'heartcombo/devise'
 gem 'active_model_serializers'
 gem 'yaml'
 gem 'pundit'
-
 gem 'omniauth'
 gem 'omniauth-github'
-
 gem "omniauth-rails_csrf_protection"
 gem 'carrierwave'
 gem 'bootstrap-sass'
@@ -44,6 +42,7 @@ gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'cloudinary', '~> 1.16.0'
+gem 'csv'
 
 group :development, :test do
   gem 'pry-byebug'
