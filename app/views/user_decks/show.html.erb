@@ -3,7 +3,7 @@
   <div class="swiper-wrapper">
     <% @user_deck.deck.cards.each_with_index do |card, i|%>
       <div id="card-<%= i %>" class="card swiper-slide m-2" style="display: block;">
-        <button id="hint" class="btn btn-outline-info btn-sm" type="submit" value="hint">
+        <button id="hint" class="btn btn-outline-info" type="submit" value="hint">
           <i class="fas fa-info-circle" style="font-size: 20px;"></i>
         </button>
         <div class="question m-2" style="dispaly: block;">
@@ -41,10 +41,10 @@
       </div>
     <% end %>
   </div>
-  <br>
-  <!-- <hr> -->
   <div class="text-center">
-    <button id="instructions" type="submit" value="Instruction">❓</button>
+    <button id="instructions" type="submit" value="Instruction" class="btn btn-outline-info">
+      <i class="fas fa-question-circle"></i>
+    </button>
   </div>
   <div id="flash-instructions" class="hidden">
     <h5 class="text-center">Instructions:</h5>
