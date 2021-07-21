@@ -39,6 +39,14 @@ h3 {
 
 }
 
+.answer {
+  align-item:center;
+  border: solid red;
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+}
+
 // .swiper-container {
 //   width: 300px;
 //   height: 600px;
@@ -50,12 +58,15 @@ h3 {
 // }
 
 .swiper-slide {
+  display: block;
   font-family: 'Play', sans-serif;
   text-align: center;
   font-size: 16px;
-    width: 359px;
-    height: 500px;
-    margin-top: 40px;
+  width: 360px;
+  height: 570px;
+  margin: 0 auto;
+  float: none;
+  position: relative;
   // width: 300px;
   // height:600px;
 }
@@ -137,6 +148,10 @@ margin-top: 20px;
   right: 20px;
   width: 25px;
   height: 25px;
+}
+
+#activeCardButtons{
+  bottom:0px !important;
 }
 
 // #relative-profile {
