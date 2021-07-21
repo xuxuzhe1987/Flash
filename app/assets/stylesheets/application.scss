@@ -154,7 +154,8 @@ margin-top: 20px;
 #activeCardButtons{
   bottom: 15px !important;
   position:fixed;
-  margin-left: 90px;
+  margin-left: 72px;
+  margin-right:72px;
 }
 
 .btn-outline-info {
@@ -165,6 +166,23 @@ margin-top: 20px;
     color: white;
     background-color: black;
     border-color: black;
+}
+
+.btn-outline-secondary {
+  border: none;
+  background-color: none;
+}
+.btn-outline-secondary:hover {
+  border: none;
+  background-color: none;
+}
+
+.btn-outline-danger {
+  border: none;
+}
+
+.btn-outline-success {
+  border:none;
 }
 
 // #relative-profile {
