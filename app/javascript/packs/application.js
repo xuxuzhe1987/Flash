@@ -24,8 +24,17 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import MarkdownIt from 'markdown-it';
 
+const answers = document.querySelectorAll(".answer")
 
+const initMarkdown = (answer) => {
+
+  console.log(answer)
+  const markdown = new MarkdownIt();
+  const html = markdown.render(answer.querySelector(".flashcard-content").innerText);
+  answer.querySelector(".flashcard-content").innerHTML = html;
+};
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 // import { initFlashcard } from '../components/flashcard_swiping';
@@ -117,7 +126,7 @@ const swiper = new Swiper(".swiper-container", {
   let next = document.getElementById(`card-${nextIndex}`)
 
   const questions = document.querySelectorAll(".question")
-  const answers = document.querySelectorAll(".answer")
+
   const hints = document.querySelectorAll(".hint")
 
   const dontKnowBtn = document.querySelectorAll(".unknow")
@@ -196,8 +205,12 @@ const swiper = new Swiper(".swiper-container", {
   }
 
   const flip = () => {
-    answers.forEach(e => e.classList.toggle("hidden"))
+    answers.forEach(e => {
+      e.classList.toggle("hidden")
+      initMarkdown(e)
+    })
     // swiper.allowSlideNext = true
+
   }
 
   const hint = () => {
@@ -221,4 +234,5 @@ document.addEventListener('turbolinks:load', () => {
   console.log('helllooo')
   // initFlashcard();
 });
+
 
