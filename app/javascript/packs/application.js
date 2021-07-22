@@ -27,13 +27,20 @@ import "bootstrap";
 import MarkdownIt from 'markdown-it';
 
 const answers = document.querySelectorAll(".answer")
+const hints = document.querySelectorAll(".hint")
 
-const initMarkdown = (answer) => {
-
-  console.log(answer)
+const initMarkdownAnswer = (answer) => {
+  // console.log(answer)
   const markdown = new MarkdownIt();
   const html = markdown.render(answer.querySelector(".flashcard-content").innerText);
   answer.querySelector(".flashcard-content").innerHTML = html;
+};
+
+const initMarkdownHint = (hint) => {
+  // console.log(hint)
+  const markdown = new MarkdownIt();
+  const html = markdown.render(hint.querySelector(".flashcard-content").innerText);
+  hint.querySelector(".flashcard-content").innerHTML = html;
 };
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -207,14 +214,16 @@ const swiper = new Swiper(".swiper-container", {
   const flip = () => {
     answers.forEach(e => {
       e.classList.toggle("hidden")
-      initMarkdown(e)
+      initMarkdownAnswer(e)
     })
     // swiper.allowSlideNext = true
 
   }
 
   const hint = () => {
-    hints.forEach(e => e.classList.toggle("hidden"))
+    hints.forEach(e => e.classList.toggle("hidden")
+      initMarkdownHint(e)
+      )
   }
 
   const add = () => {
