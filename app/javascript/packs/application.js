@@ -65,6 +65,9 @@ const swiper = new Swiper(".swiper-container", {
     // type: 'progressbar',
     // type: 'fraction',
     },
+    allowSlideNext: false,
+    allowTouchMove: true,
+    centeredSlides: true,
     // breakpoints: {
     //   640: {
     //     slidesPerView: 1,
