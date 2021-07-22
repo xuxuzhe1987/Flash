@@ -2,7 +2,6 @@
   justify-content: space-between;
   background: #000000;
   border-radius:16px;
-
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -21,6 +20,14 @@
 }
 .navbar-light .navbar-nav .nav-link {
   color: #2292A4;
+}
+
+.dropdown {
+  position: absolute;
+}
+
+.dropdown-menu {
+  opacity: 85%;
 }
 
 .search {
