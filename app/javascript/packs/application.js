@@ -39,80 +39,80 @@ const initMarkdown = (answer) => {
 // import { initSelect2 } from '../components/init_select2';
 // import { initFlashcard } from '../components/flashcard_swiping';
 
-const swiper = new Swiper(".swiper-container", {
-    // a11y: {
-    //   // still not working
-    //   enabled: true,
-    //   firstSlideMessage: 'Lets go!!',
-    //   lastSlideMessage: "Last one and done!",
-    // },
-    // effect: 'cube',
-    // cubeEffect: {
-    //   shadow: true,
-    //   slideShadows: true,
-    //   shadowOffset: 20,
-    //   shadowScale: 0.94,
-    // },
-      // effect: 'fade',
-    loop: false,
-    allowSlidePrev: false,
-    watchSlidesProgress: true,
-      // allowSlideNext: false,
-    slidesPerView:1,
-    spaceBetween: 15,
-    pagination: {
-    // el: '.swiper-paginatio n',
-    // type: 'progressbar',
-    // type: 'fraction',
-    },
-    allowSlideNext: false,
-    allowTouchMove: true,
-    centeredSlides: true,
-    // breakpoints: {
-    //   640: {
-    //     slidesPerView: 1,
-    //     spaceBetween: 20,
-    //   },
-    //   768: {
-    //     slidesPerView: 1,
-    //     spaceBetween: 40,
-    //   },
-    //     1024: {
-    //       slidesPerView: 1,
-    //       spaceBetween: 50,
-    //     },
-    //   }
-  });
+// const swiper = new Swiper(".swiper-container", {
+//     // a11y: {
+//     //   // still not working
+//     //   enabled: true,
+//     //   firstSlideMessage: 'Lets go!!',
+//     //   lastSlideMessage: "Last one and done!",
+//     // },
+//     // effect: 'cube',
+//     // cubeEffect: {
+//     //   shadow: true,
+//     //   slideShadows: true,
+//     //   shadowOffset: 20,
+//     //   shadowScale: 0.94,
+//     // },
+//       // effect: 'fade',
+//     loop: false,
+//     allowSlidePrev: false,
+//     watchSlidesProgress: true,
+//       // allowSlideNext: false,
+//     slidesPerView:1,
+//     spaceBetween: 15,
+//     pagination: {
+//     // el: '.swiper-paginatio n',
+//     // type: 'progressbar',
+//     // type: 'fraction',
+//     },
+//     allowSlideNext: false,
+//     allowTouchMove: true,
+//     centeredSlides: true,
+//     // breakpoints: {
+//     //   640: {
+//     //     slidesPerView: 1,
+//     //     spaceBetween: 20,
+//     //   },
+//     //   768: {
+//     //     slidesPerView: 1,
+//     //     spaceBetween: 40,
+//     //   },
+//     //     1024: {
+//     //       slidesPerView: 1,
+//     //       spaceBetween: 50,
+//     //     },
+//     //   }
+//   });
 
-  swiper.on('slideChange', function(){
-    let hideAnswers = document.querySelectorAll(".answer")
-    hideAnswers.forEach((e) => {
-      if (!e.classList.contains("hidden")) {
-        e.classList.add("hidden")
-        console.log("add hidden")
-      }
-    });
-    let hideHints = document.querySelectorAll(".hint")
-    hideHints.forEach((e) => {
-      if (!e.classList.contains("hidden")) {
-        e.classList.add("hidden")
-        console.log("add hidden")
-      }
-    });
-    let hideUserAnswers = document.querySelectorAll(".text-box")
-    hideUserAnswers.forEach((e) => {
-      if (!e.classList.contains("hidden")) {
-        e.classList.add("hidden")
-      }
-    });
-  });
+  // swiper.on('slideChange', function(){
+  //   let hideAnswers = document.querySelectorAll(".answer")
+  //   hideAnswers.forEach((e) => {
+  //     if (!e.classList.contains("hidden")) {
+  //       e.classList.add("hidden")
+  //       console.log("add hidden")
+  //     }
+  //   });
+  //   let hideHints = document.querySelectorAll(".hint")
+  //   hideHints.forEach((e) => {
+  //     if (!e.classList.contains("hidden")) {
+  //       e.classList.add("hidden")
+  //       console.log("add hidden")
+  //     }
+  //   });
+  //   let hideUserAnswers = document.querySelectorAll(".text-box")
+  //   hideUserAnswers.forEach((e) => {
+  //     if (!e.classList.contains("hidden")) {
+  //       e.classList.add("hidden")
+  //     }
+  //   });
+  // });
 
-  swiper.on('doubleTap', function () {
-  console.log('double tap');
-  // let answers = document.querySelectorAll(".answer")
-  // answers.forEach(e => e.classList.toggle("hidden"))
-  flip()
-  });
+  // swiper.on('doubleTap', function () {
+  // console.log('double tap');
+  // // let answers = document.querySelectorAll(".answer")
+  // // answers.forEach(e => e.classList.toggle("hidden"))
+  // flip()
+  // });
 
   // function to block swipe unless having checked answer
     // swiper.on('slideNextTransitionEnd', function(){
@@ -133,21 +133,19 @@ const swiper = new Swiper(".swiper-container", {
   const hints = document.querySelectorAll(".hint")
 
   const dontKnowBtn = document.querySelectorAll(".unknow")
-  console.log(dontKnowBtn)
     dontKnowBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-    console.log(e)
     nextCard()
     })
   })
 
-  const flipBtn = document.querySelectorAll(".flip")
-  flipBtn.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-    console.log(e)
-    flip()
-    })
-  })
+  // const flipBtn = document.querySelectorAll(".flip")
+  // flipBtn.forEach((btn) => {
+  //   btn.addEventListener('click', (e) => {
+  //   console.log(e)
+  //   flip()
+  //   })
+  // })
 
 
   const answerMeBtn = document.querySelectorAll(".user-answer")
@@ -161,7 +159,6 @@ const swiper = new Swiper(".swiper-container", {
   const knowBtn = document.querySelectorAll(".know")
   knowBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-    console.log(e)
     nextCard()
     })
   })
@@ -169,7 +166,6 @@ const swiper = new Swiper(".swiper-container", {
   const hintBtn = document.querySelectorAll("#hint")
   hintBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      console.log(e)
       hint()
     })
   })
@@ -177,7 +173,6 @@ const swiper = new Swiper(".swiper-container", {
   const instructionBtn = document.querySelector("#instructions")
   console.log(instructionBtn)
   instructionBtn.addEventListener('click', (e) => {
-    console.log(e)
       instruction()
     })
 
@@ -189,7 +184,6 @@ const swiper = new Swiper(".swiper-container", {
   })
 
   const nextCard = () => {
-    console.log('nextCard')
     answers.forEach(e => e.classList.add("hidden"))
     questions.forEach(e => e.classList.remove("hidden"))
     current.style.display = "none"
@@ -198,23 +192,32 @@ const swiper = new Swiper(".swiper-container", {
     nowIndex = nowIndex === (cards.length - 1) ? 0 : nowIndex + 1
     nextIndex = nextIndex === (cards.length - 1) ? 0 : nextIndex + 1
     next = document.getElementById(`card-${nextIndex}`)
+    hideAnswers()
+    hideHints()
+    hideUserAnswers()
   }
 
   const dontKnow = () => {
     console.log('dontKnow')
     nextCard()
-    swiper.slideTo(nextIndex)
-
+    // swiper.slideTo(nextIndex)
   }
 
-  const flip = () => {
+   const flip = () => {
     answers.forEach(e => {
       e.classList.toggle("hidden")
       initMarkdown(e)
     })
     // swiper.allowSlideNext = true
-
   }
+
+  const mainTitles = document.querySelectorAll('h3')
+    mainTitles.forEach((title) => {
+    title.addEventListener('click', (e) => {
+    console.log(e.currentTarget)
+    flip()
+    })
+  })
 
   const hint = () => {
     hints.forEach(e => e.classList.toggle("hidden"))
@@ -229,6 +232,34 @@ const swiper = new Swiper(".swiper-container", {
     const instruction = document.getElementById("flash-instructions")
     instruction.classList.toggle("hidden")
   }
+
+  const hideAnswers = () => {
+    const hideAnswers = document.querySelectorAll(".answer")
+    hideAnswers.forEach((e) => {
+      if (!e.classList.contains("hidden")) {
+        e.classList.add("hidden")
+        console.log("add hidden")
+      }
+    });
+  }
+  const hideHints = () => {
+    let hideHints = document.querySelectorAll(".hint")
+    hideHints.forEach((e) => {
+      if (!e.classList.contains("hidden")) {
+        e.classList.add("hidden")
+        console.log("add hidden")
+      }
+    });
+  }
+  const hideUserAnswers = () => {
+    const hideUserAnswers = document.querySelectorAll(".text-box")
+    hideUserAnswers.forEach((e) => {
+      if (!e.classList.contains("hidden")) {
+        e.classList.add("hidden")
+      }
+    });
+  }
+
 
 
 document.addEventListener('turbolinks:load', () => {
