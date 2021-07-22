@@ -22,8 +22,10 @@
   color: #2292A4;
 }
 
-.dropdown {
+.nav-item {
   position: absolute;
+  top: 10px;
+  z-index: 99;
 }
 
 .dropdown-menu {
@@ -40,6 +42,7 @@
   background-color: #000000;
   left: 155px;
   top: 13px;
+  position: absolute;
 }
 
 .searchbutton {
@@ -48,5 +51,5 @@
   top: 13px;
   padding-top: 2px;
   padding-bottom:2px;
-
+  position: absolute;
 }

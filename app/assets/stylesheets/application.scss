@@ -18,10 +18,11 @@ body {
 
 .application {
  background-color: black;
- width: 380px;
- height: 640px;
+ max-width: 380px;
+ min-height: 650px;
  margin: 0 auto;
- margin-top: 20px;
+ margin-top: 10px;
+ margin-bottom: 10px;
  border-radius: 16px;
 }
 
