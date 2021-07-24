@@ -12,8 +12,19 @@
 @import "components/index";
 @import "pages/index";
 
-body.application {
+
+body {
+  background-color:#28282B ;
+}
+
+.application {
  background-color: #fff;
+ max-width: 380px;
+ min-height: 100vh;
+ margin: 0 auto;
+ margin-top: 10px;
+ margin-bottom: 10px;
+ border-radius: 16px;
 }
 
 h1 {

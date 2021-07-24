@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #DC3C18;
+  border-radius:16px;
 
 }
 
@@ -22,6 +23,16 @@
   color: #FDD187;
 }
 
+.nav-item {
+  position: absolute;
+  top: 10px;
+  z-index: 99;
+}
+
+.dropdown-menu {
+  opacity: 85%;
+}
+
 .search {
   //border-style: solid 2px #2292A4;
   border: solid 1px #f5f5f5;
@@ -30,6 +41,7 @@
   position: absolute;
   left: 155px;
   top: 13px;
+  position: absolute;
 }
 
 .searchbutton {
@@ -38,5 +50,5 @@
   top: 13px;
   padding-top: 2px;
   padding-bottom:2px;
-
+  position: absolute;
 }

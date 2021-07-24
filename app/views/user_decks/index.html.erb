@@ -14,7 +14,7 @@
         <i class="fas fa-angle-double-right"></i>
         Deck: <%= user_deck.deck.name %>
       </div>
-        <li class="list-group-item">Status: <%= user_deck.status %></li>
+        <!-- <li class="list-group-item">Status: <%= user_deck.status %></li> -->
         <li class="list-group-item">Known cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == true} %></li>
         <li class="list-group-item">Unknown cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == false} %></li>
         <div class=" text-center m-2">
