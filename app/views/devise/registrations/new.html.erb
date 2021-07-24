@@ -1,42 +1,39 @@
 <h2 class= "text-center pt-3" >Sign up</h2>
-<div class = "form">
-  <div class = "deviseform text-center" >
-    <div class = "conatiner auto text-center">
-      <div class = "row d-flex justify-content-center">
-        <div class = "col-12 col-md-6 col-lg-3">
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs txtSmall">
-    <%= f.input :email,
+  <div class = "form">
+    <div class = "deviseform text-center" >
+      <div class = "conatiner auto text-center">
+        <div class = "row d-flex justify-content-center">
+          <div class = "col-12 col-md-6 col-lg-3">
+             <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+             <%= f.error_notification %>
+            <div class="form-inputs txtSmall text-center">
+              <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
+              <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+              <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.file_field :photo,
-                placeholder: 'Upload picture',
+            <p class="text-center txtSmall">Add a picture:</p>
+              <%= f.file_field :photo,
+                placeholder: 'Upload Picture',
                 direct_upload: true
                 %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: "btn btn-warning my-1" %>
-  </div>
-    </div>
-      </div>
-       </div>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Sign up", class: "btn btn-warning my-1" %>
+            <div class= "txtSmall text-center">
+            <%= render "devise/shared/links" %>
+            </div>
+          </div>  
+        </div>
       </div>
     </div>
   </div>
 </div>
 <% end %>
 
-<div class= "txtSmall text-center">
-  <%= render "devise/shared/links" %>
-</div>
