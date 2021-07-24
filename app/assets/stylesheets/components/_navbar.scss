@@ -1,7 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #000000;
+  background: #DC3C18;
   border-radius:16px;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,7 +20,7 @@
     border-radius: 5px;
 }
 .navbar-light .navbar-nav .nav-link {
-  color: #2292A4;
+  color: #FDD187;
 }
 
 .nav-item {
@@ -34,12 +35,10 @@
 
 .search {
   //border-style: solid 2px #2292A4;
-  border: solid 3px #2292A4;
+  border: solid 1px #f5f5f5;
   border-radius: 5px;
-  color: #2292A4;
   outline: 0;
   position: absolute;
-  background-color: #000000;
   left: 155px;
   top: 13px;
   position: absolute;

@@ -3,7 +3,7 @@
    <div class=" container inner text-center">
      <h1 class="text-center txtBig"> .FLASH⚡️ </h1>
      <p class ="txtSmall">GET DECKED OUT!</p>
-    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-outline-danger text-center'%>
+    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-info text-center'%>
    </div>
   </div>
   <div class="container txtBig">
@@ -23,7 +23,7 @@
         <h2 class="text-center">
           FAQ <i type="button" class="fas fa-arrow-down" onClick="showFaq()"></i>
         </h2>
-        <div id="faq" class="hidden">
+        <div id="faq" class="hidden txtSmall">
           <ul class= "list-group">
             <li class="list-group-item question">⚡️ Are flashcards good for studying?</li>
             <li class="list-group-item answer">Flashcards are an incredibly versatile study tool. While many students think of using them for simple facts, they can be used for complex processes throughout one's academic career.</li>
@@ -40,7 +40,7 @@
     </div>
     <br>
     <h2 class="txtBig text-center"><%= link_to 'My Profile', user_decks_path %></h2>
-    <h2 class="txtBig text-center"><%= link_to 'All Decks', decks_path %></h2>
+    <h2 class="txtBig text-center color:black"><%= link_to 'All Decks', decks_path %></h2>
     <br>
   </div>
   <script>
