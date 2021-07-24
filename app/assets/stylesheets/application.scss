@@ -238,10 +238,17 @@ margin-top: 20px;
     border-color: black;
 }
 
+.btn-outline-secondary:hover{
+  background-color: none;
+}
+
+.btn-outline-success {
+  text-decoration: none;
+  color: green;
+}
+
 #activeCardButtons{
-  bottom:0px !important;
-
-
+  width: 220px;
 }
 
 // .know-button {
