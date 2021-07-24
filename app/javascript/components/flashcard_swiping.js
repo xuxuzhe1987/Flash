@@ -3,14 +3,16 @@ import MarkdownIt from 'markdown-it';
 const initFlashcard = () => {
 
 const answers = document.querySelectorAll(".answer")
-
+answers.forEach(e=>{
+  e.querySelector(".flashcard-content").innerText = e.querySelector(".flashcard-content").innerText.replace(/bash/g, '')
+})
+//
 const initMarkdown = (answer) => {
-
-  console.log(answer)
+  console.log(answer);
   const markdown = new MarkdownIt();
   const html = markdown.render(answer.querySelector(".flashcard-content").innerText);
   answer.querySelector(".flashcard-content").innerHTML = html;
-};
+  };
 // const swiper = new Swiper(".swiper-container", {
 //     // a11y: {
 //     //   // still not working
