@@ -1,51 +1,21 @@
 <body class="landingpage">
-  <div class="banner d-flex align-items-center">
-   <div class=" container inner text-center">
-     <h1 class="text-center txtBig"> .FLASH⚡️ </h1>
-     <p class ="txtSmall">GET DECKED OUT!</p>
-    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-info text-center'%>
-   </div>
-  </div>
-  <div class="container txtBig">
-    <div class="row">
-      <div class="col-sm">
-        <h2 class="txtBig text-center">Setup</h2>
-        <div class="bordered text-center pb-2">
-          <p> Just like doing your flashcards offline </p>
-          <p> A great way to learn new concepts </p>
-          <p> Practice Makes Perfect </p>
-        </div>
-        <div class="flash-facts text-center">
-        </div>
-        <h2 class="text-center">
-          FAQ <i type="button" class="fas fa-arrow-down" onClick="showFaq()"></i>
-        </h2>
-        <div id="faq" class="hidden txtSmall">
-          <ul class= "list-group">
-            <li class="list-group-item question">⚡️ Are flashcards good for studying?</li>
-            <li class="list-group-item answer">Flashcards are an incredibly versatile study tool. While many students think of using them for simple facts, they can be used for complex processes throughout one's academic career.</li>
-            <li class="list-group-item question">⚡️ How do you study flashcards?</li>
-            <li class="list-group-item answer">- Keep information as short as possible.<br> - Write clearly.<br>- One question and one answer per card.
-            </li>
-            <li class="list-group-item question">⚡️ Do I study better using Flashcards?</li>
-            <li class="list-group-item answer">10 out of 10 Medical Professionals state that using flashcards to self-test helps you learn information quicker</li>
-            <li class="list-group-item question">⚡️ Is there a clear benefit to using Flashcards?</li>
-            <li class="list-group-item answer">Helps you to identify any weak spots you may have with the material.</li>
-          </ul>
-        </div>
-      </div>
+  <div class="banner d-flex flex-column justify-content-between">
+   <div class="container text-center">
+    <h1 class="text-center txtBig" style="font-size: 100px; color: white;   text-shadow:
+   -1px -1px 0 #FF4500,
+    2px -1px 0 #FF4500,
+    -1px 1px 0 #FF4500,
+     3px 1px 0 #FF4500;">
+      .FLASH⚡️
+    </h1>
     </div>
-    <br>
-    <div class= "container">
-      <h2 class=" txtBig text-center"><%= link_to 'My Profile', user_decks_path %></h2>
-      <h2 class="txtBig text-center color:black"><%= link_to 'All Decks', decks_path %></h2>
+    <div class="slogan">
+      <p > Get Decked Out ! <br>Practice your LeWagon Decks on the Go! <br>Make your Decks!</p>
     </div>
-    <br>
+     <div class=" sign-up call-to-action text-center" style="position: relative; bottom: 0px;">
+     <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-info btn-lg text-center'%>
   </div>
-  <script>
-    function showFaq() {
-      const faq = document.getElementById("faq")
-      faq.classList.toggle("hidden")
-    }
-  </script>
+
+  </div>
+
 </body>
