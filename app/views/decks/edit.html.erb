@@ -1,5 +1,20 @@
-<%= form_for(@deck) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
+<h1 class="text-center mt-3">Edit your Deck</h1>
+<div class = "form">
+  <div class = "deviseform text-center" >
+    <div class = "conatiner auto text-center">
+      <div class = "row d-flex justify-content-center">
+        <div class = "col-12 col-md-6 col-lg-3">
+        <div class = "well txtSmall text-center">
+          <%= form_for(@deck) do |f| %>
+           <%= f.label :name %>
+           <%= f.text_field :name %>
+          <%= f.submit %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
+        
+
