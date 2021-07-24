@@ -13,22 +13,22 @@
 @import "pages/index";
 
 body.application {
- background-color: #000 ;
+ background-color: #fff;
 }
 
 h1 {
-  font-family: 'Play', sans-serif;
-  color: #2292A4;
+  font-family: 'Oswald', sans-serif;
+  color: #0d1117;
 }
 
 h2 {
-  font-family: 'Play', sans-serif;
-  color: #2292A4;
+  font-family: 'Oswald', sans-serif;
+  color: #0d1117;
 }
 
 h3 {
-  font-family: 'Play', sans-serif;
-  color: #2292A4;
+  font-family: 'Oswald', sans-serif;
+  color: #0d1117;
 }
 
 .hidden {
@@ -36,11 +36,12 @@ h3 {
 }
 
 .a {
-
+  color: #0d1117;
 }
 
+
 .a-box {
-  align-item:center;
+  align-items:center;
   border: dotted red;
   width: 300px;
   height: 150px;
@@ -112,20 +113,23 @@ margin-top: 20px;
 }
 
 .list-group-item {
-  background-color: #000000;
+  background-color: #f8f8ff;
+  font-family: 'Cardo', serif;
 }
+
 
 .well {
  margin-top: 10px;
 }
 
 .card {
-  border: solid 3px #2292A4;
+  border: solid 1px #DC3C18;
   border-radius: 5px;
-  color: #2292A4;
-  background-color: #000000;
+  color: #0d1117;
+  background-color: #f8f8ff;
   margin-bottom: 5px;
   margin-top:5px;
+  font-family: 'Cardo', serif;
 }
 
 
