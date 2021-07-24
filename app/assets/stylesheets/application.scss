@@ -25,6 +25,7 @@ body {
  margin-top: 10px;
  margin-bottom: 10px;
  border-radius: 16px;
+ overflow-y: scroll;
 }
 
 h1 {
@@ -233,19 +234,15 @@ margin-top: 20px;
   border-color:none;
 }
 .btn-outline-info:hover {
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: transparent;
     border-color: black;
 }
 
 .btn-outline-secondary:hover{
-  background-color: none;
+  background-color: #5B6369;
 }
 
-.btn-outline-success {
-  text-decoration: none;
-  color: green;
-}
 
 #activeCardButtons{
   width: 220px;

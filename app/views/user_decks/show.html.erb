@@ -3,7 +3,7 @@
   <div class="swiper-wrapper">
     <% @user_deck.deck.cards.each_with_index do |card, i|%>
       <div id="card-<%= i %>" class="card swiper-slide m-2" style="display: block;">
-        <button id="hint" class="btn btn-outline-info" type="submit" value="hint">
+        <button id="hint" class="btn btn-outline-info m-2" type="submit" value="hint">
           <i class="fas fa-info-circle" style="font-size: 20px;"></i>
         </button>
         <div class="question m-2" style="dispaly: block;">
@@ -24,16 +24,16 @@
         <div id ="activeCardButtons" class="d-flex justify-content-around m-6">
           <!-- <button class="flip" value="Flip" type="submit">Flip</button> -->
           <button id="know" class="know btn btn-outline-success">
-              <%= link_to "", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post, class:"fas fa-check-circle", style:"font-size: 36px;" %>
+              <%= link_to "", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post, class:"fas fa-check-circle", style:"font-size: 36px; text-decoration: none;" %>
           </button>
           <button id="user-answer" class="user-answer btn btn-outline-secondary" type="button" value="Type your Answer">
             <i class="fas fa-pen-square" style="font-size: 36px;"></i>
           </button>
           <button id="unknow" class="unknow btn btn-outline-danger">
-            <%= link_to "", user_cards_path(user_deck_id: @user_deck.id, answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post, class:"fas fa-times-circle", style:"font-size: 36px;" %>
+            <%= link_to "", user_cards_path(user_deck_id: @user_deck.id, answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post, class:"fas fa-times-circle", style:"font-size: 36px; text-decoration: none;" %>
           </button>
         </div>
-        <div class="swiper-pagination"></div>
+<!--         <div class="swiper-pagination"></div> -->
       </div>
     <% end %>
   </div>
@@ -45,7 +45,7 @@
   <div id="flash-instructions" class="hidden">
     <div class=container>
       <div class="border border-dark text-center pt-2">
-        <p>Check the answer? <strong> doubleTap </strong> your screen<br>Know the answer? tap ✔︎ <br>Don't know? tap ✘<br>Input answer to compare? tap ✎</p>
+        <p>Check the answer? <strong> Tap on the question </strong> <br>Know the answer? tap ✔︎ <br>Don't know? tap ✘<br>Input answer to compare? tap ✎</p>
       </div>
     </div>
   </div>
