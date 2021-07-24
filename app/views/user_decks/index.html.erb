@@ -6,11 +6,11 @@
 
 <h3 class="text-center m-2">My On Going Decks:</h3>
 <div class="container">
-  <ul class="list-group">
+  <ul class="list-group ">
     <% @user_decks.each do |user_deck| %>
     <%= @user_cards_known %>
     <div class="card m-2">
-      <div class="card-header">
+      <div class="card-header txtSmall">
         <i class="fas fa-angle-double-right"></i>
         Deck: <%= user_deck.deck.name %>
       </div>

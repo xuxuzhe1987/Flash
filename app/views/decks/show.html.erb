@@ -1,19 +1,19 @@
 <h1 class="text-center"><%= @deck.name %></h1>
 
 <div class="button-container text-center">
-<%= link_to "Back to All Decks", decks_path, class:"btn btn-primary btn-sm m-2" %><br>
-<%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-primary btn-sm mb-2" %>
+<%= link_to "Back to All Decks", decks_path, class:"btn btn-warning btn-sm m-2" %><br>
+<%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-success btn-sm mb-2" %>
 
 <br>
 <% if policy(@deck).update? %>
-  <%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-outline-danger my-1" %>
+  <%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-danger btn-sm my-1" %>
 <% end %>
 <br>
 
-<div class="container">
+<div class="container ">
 <ul class="list-group">
   <% @deck.cards.each_with_index do |card, i|%>
-    <div id="deck-card <%= i %>" class="card">
+    <div id="deck-card <%= i %>" class="card txtSmall">
       <li id="relative-cont" class="d-flex list-group-item question">Question: <%= card.question %>
         <div id="absolute-cont" class= "activeCardButtons d-flex  m-2" >
           <% if policy(@deck).update? %>
