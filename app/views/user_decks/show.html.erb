@@ -9,13 +9,13 @@
         <div class="question m-2" style="dispaly: block;">
           <br><h3> <%= card.question %> </h3>
         </div><br>
-        <div class="answer hidden a-box" style="overflow-y:scroll;">
-          <h6 class="text-left m-1">Answer:</h6>
-          <div class="flashcard-content"><%= card.answer %> </div>
+        <div class="answer hidden a-box txtSmall" style="overflow-y:scroll;">
+          <h6 class="text-left m-1 txtSmall">Answer:</h6>
+          <div class="flashcard-content txtSmall"><%= card.answer %> </div>
         </div>
-        <div class="text-box hidden m-2">
-            <textarea id=user-answer-box placeholder="type your answer"></textarea> <br>
-            <button id="show-answer" class="btn btn-primary btn-sm">See Answer</button>
+        <div class="text-box hidden m-2 txtSmall">
+            <textarea id=user-answer-box placeholder="Type your Answer"></textarea> <br>
+            <button id="show-answer" class="btn btn-warning btn-sm">See Answer</button>
         </div>
         <div class="hint hidden">
           <div class="flashcard-content"> HINT:<%= card.hint %> </div>
