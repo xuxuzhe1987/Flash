@@ -1,10 +1,21 @@
 // Specific CSS
 .banner {
-  height: 30vh;
+  height: 100vh;
   background-size: cover;
   display: flex;
   background-size: cover;
-  
+}
+
+ .banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('flash-neon.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slogan p {
+  color:white;
+}
+
   h1 {
     margin-top: 16px;
     margin-left: 16px;
@@ -15,7 +26,6 @@
     color: #0d1117;
       
   }
-}
 
 .btn-info {
   margin-left: 16px;
@@ -40,3 +50,6 @@ body.landingpage {
   color:#f8f8ff;
 }
 
+
+
+.zig-zag { border: none; width: 50%; margin: auto; margin-top: 5%; margin-bottom: 5%; height: 40px; background: linear-gradient(135deg,  25%, transparent 25%) -20px 0, linear-gradient(225deg, #DC3C18 25%, transparent 25%) -20px 0, linear-gradient(315deg, #DC3C18 25%, transparent 25%), linear-gradient(45deg,#DC3C18 25%, transparent 25%); background-size: 40px 40px; background-color: #EC173A;}
