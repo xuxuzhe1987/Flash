@@ -17,23 +17,23 @@ user.save!(validate: false)
 
 # setup------------------------------------------------------
 
-file1 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/00-Setup.yml?token=ASLME6X5T64X5FUE7RZ4IS3A7IY6E"
+# file1 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/00-Setup.yml?token=ASLME6X5T64X5FUE7RZ4IS3A7IY6E"
 
-sample1 = YAML.load(open(file1).read)
+# sample1 = YAML.load(open(file1).read)
 
-puts 'Creating Cards for 00-Setup...'
+# puts 'Creating Cards for 00-Setup...'
 
-deckname1 = Deck.create!(user_id: user.id, name: sample1["deck_name"] + " (English)")
-sample1["cards"].each do |card|
- Card.create!(deck_id: deckname1.id, question: card["front"], answer: card["back"], hint: card["slug"])
-end
+# deckname1 = Deck.create!(user_id: user.id, name: sample1["deck_name"] + " (English)")
+# sample1["cards"].each do |card|
+#  Card.create!(deck_id: deckname1.id, question: card["front"], answer: card["back"], hint: card["slug"])
+# end
 
-puts 'Creating Cards for 00-Setup... in Chinese'
+# puts 'Creating Cards for 00-Setup... in Chinese'
 
-deckname1cn = Deck.create!(user_id: user.id, name: sample1["deck_name"] + " (中文)")
-sample1["cards"].each do |card|
- Card.create!(deck_id: deckname1cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
-end
+# deckname1cn = Deck.create!(user_id: user.id, name: sample1["deck_name"] + " (中文)")
+# sample1["cards"].each do |card|
+#  Card.create!(deck_id: deckname1cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+# end
 
 
 
