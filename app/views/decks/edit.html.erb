@@ -1,12 +1,12 @@
-<h1 class="text-center mt-3">Edit your Deck</h1>
+<h1 class="text-center mt-3">Edit <%= @deck.name %></h1>
 <div class = "form">
   <div class = "deviseform text-center" >
     <div class = "conatiner auto text-center">
       <div class = "row d-flex justify-content-center">
         <div class = "well txtSmall text-center">
           <%= form_for(@deck) do |f| %>
-           <%= f.label :name %>
-           <%= f.text_field :name %>
+           <%= f.label :name %> <br>
+           <%= f.text_field :name, class: "mb-2" %> <br>
           <%= f.submit "Update Deck", class: "btn btn-warning mb-2 btn-sm"  %>
             </div>
         </div>

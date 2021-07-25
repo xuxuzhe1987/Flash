@@ -9,17 +9,17 @@
 <% end %>
 <h1 class="text-center mt-3">Add New Deck</h1>
  <div class = "form">
-   <div class = "deviseform text-center" >
+   <div class = "deviseform text-center">
      <div class = "conatiner auto text-center">
        <div class = "row d-flex justify-content-center">
           <div class = "well txtSmall text-center">
             <%= form_for @deck do |f| %>
               <%= f.label :name %>
               <%= f.text_field :name, class: "form-control" %>
-              <p class = "text-center">Attachment</p>
-              
-              <%= f.file_field :attachment, class: "text-align-center"%>
-              
+              <p class = "text-center mt-2">Attachment</p>
+              <div class="attach-file-button">
+                <%= f.file_field :attachment, class: "text-center"%>
+              </div>
               <div class = "button text-center">
               <%= f.submit "Save", class: "btn btn-warning my-1"  %>
               </div>

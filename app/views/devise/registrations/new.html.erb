@@ -24,10 +24,12 @@
                 class: "form-control" 
                 %>
             <p class="text-center txtSmall">Add a picture:</p>
-              <%= f.file_field :photo,
+             <div class="attach-file-button">
+               <%= f.file_field :photo,
                 placeholder: 'Upload Picture',
                 direct_upload: true
                 %>
+             </div>
             </div>
             <div class="form-actions">
               <%= f.button :submit, "Sign up", class: "btn btn-warning my-1" %>
