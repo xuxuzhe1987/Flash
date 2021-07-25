@@ -52,4 +52,17 @@ body.landingpage {
 
 
 
-.zig-zag { border: none; width: 50%; margin: auto; margin-top: 5%; margin-bottom: 5%; height: 40px; background: linear-gradient(135deg,  25%, transparent 25%) -20px 0, linear-gradient(225deg, #DC3C18 25%, transparent 25%) -20px 0, linear-gradient(315deg, #DC3C18 25%, transparent 25%), linear-gradient(45deg,#DC3C18 25%, transparent 25%); background-size: 40px 40px; background-color: #EC173A;}
+.zig-zag {
+  border: none;
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: 40px;
+  background: linear-gradient(135deg,  25%, transparent 25%) -20px 0,
+    linear-gradient(225deg, #DC3C18 25%, transparent 25%) -20px 0,
+    linear-gradient(315deg, #DC3C18 25%, transparent 25%),
+    linear-gradient(45deg,#DC3C18 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-color: #EC173A;
+}
