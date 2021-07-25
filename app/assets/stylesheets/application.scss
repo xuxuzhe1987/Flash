@@ -28,7 +28,11 @@ body {
  overflow-y: scroll;
 }
 
-
+.attach-file-button {
+  position: relative;
+  left: 50px;
+  margin-bottom: 8px;
+}
 
 h1 {
   font-family: 'Oswald', sans-serif;
@@ -109,10 +113,11 @@ margin-top: 20px;
   color: #0d1117;
   background-color: #f8f8ff;
   width:40vh;
-  padding-top: 10px;
-  padding-bottom: 10px; 
+  padding: 10px;
   margin-left: 20px;
   margin-right: 20px;
+  width: 320px;
+
 }
 
 .form-inputs {
