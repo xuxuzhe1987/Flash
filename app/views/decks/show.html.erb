@@ -1,20 +1,28 @@
-<h1 class="text-center"><%= @deck.name %></h1>
+<div class="title-container">
+  <div class="corner">
+    <%= link_to "", decks_path, class:"fas fa-angle-left"%>
+  </div>
+  <div class="text-center" >
+    <h1 style="font-family: 'Helvetica Neue',sans-serif;"><%= @deck.name %></h1>
+  </div>
+</div>
 
 <div class="button-container text-center">
-<%= link_to "Back to All Decks", decks_path, class:"btn btn-warning btn-sm m-2" %><br>
-<%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-success btn-sm mb-2" %>
-
+  <%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-success btn-sm mb-2" %>
+</div>
 <br>
+<div class="button-container text-center">
 <% if policy(@deck).update? %>
-  <%= link_to "New Card", new_deck_card_path(@deck), class: "btn btn-danger btn-sm my-1" %>
+  <%= link_to "Add a Card", new_deck_card_path(@deck), class: "btn btn-danger btn-sm my-1" %>
 <% end %>
+</div>
 <br>
 
 <div class="container ">
 <ul class="list-group">
   <% @deck.cards.each_with_index do |card, i|%>
     <div id="deck-card <%= i %>" class="card txtSmall">
-      <li id="relative-cont" class="d-flex list-group-item question">Question: <%= card.question %>
+      <li id="relative-cont" class="d-flex list-group-item question">Q: <%= card.question %>
         <div id="absolute-cont" class= "activeCardButtons d-flex  m-2" >
           <% if policy(@deck).update? %>
             <%= link_to "", edit_card_path(card), class:"far fa-edit"%>

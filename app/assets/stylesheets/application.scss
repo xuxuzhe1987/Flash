@@ -35,12 +35,12 @@ body {
 }
 
 h1 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: #0d1117;
 }
 
 h2 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: #0d1117;
 }
 
@@ -58,12 +58,52 @@ h3 {
   color: #0d1117;
 }
 
+.corner {
+  position: relative;
+  top: 0px;
+  left:20px;
+}
+
+.fa-angle-left {
+  font-size: 50px;
+  color: #DC3C18;
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+
+
+.fa-angle-left:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.fa-plus-square {
+  font-size: 36px;
+  color: #DC3C18;
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+
+.fa-plus-square:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.text-right {
+  position: relative;
+  top: 10px;
+  right:10px;
+}
+
+.list-group li {
+  font-family: 'Open Sans',sans-serif;
+}
 
 .a-box {
   align-items:center;
-  border: dotted red;
+  border: dotted #DC3C18;
   width: 300px;
-  height: 150px;
+  height: 180px;
   margin-left: 4px;
   margin: 0 auto;
 }
