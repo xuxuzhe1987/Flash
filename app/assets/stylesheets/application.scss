@@ -104,7 +104,7 @@ h3 {
   align-items:center;
   border: dotted #DC3C18;
   width: 300px;
-  height: 180px;
+  height: 160px;
   margin-left: 4px;
   margin: 0 auto;
 }
@@ -133,9 +133,15 @@ h3 {
   // height:600px;
 }
 
-.flashcard-content {
-  font-family: 'Play', sans-serif;
-  font-size: 18px;
+.hint .flashcard-content {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.answer .flashcard-content {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }
 
 .swiper-pagination {
@@ -177,7 +183,7 @@ margin-top: 20px;
 
 .list-group-item {
   background-color: #f8f8ff;
-  font-family: 'Oswald', serif;
+  font-family: 'Open Sans', sans-serif;
   color:#0d1117
 }
 
@@ -316,6 +322,7 @@ margin-top: 20px;
 
 #activeCardButtons{
   width: 220px;
+  bottom: 7px !important;
 }
 
 .fa-edit {
