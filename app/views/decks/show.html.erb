@@ -3,12 +3,14 @@
     <%= link_to "", decks_path, class:"fas fa-angle-left"%>
   </div>
   <div class="text-center" >
-    <h1 style="font-family: 'Helvetica Neue',sans-serif;"><%= @deck.name %></h1>
+    <h1 class="m-2"><%= @deck.name %>
+      <%= link_to "", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "far fa-play-circle" %>
+    </h1>
   </div>
 </div>
 
 <div class="button-container text-center">
-  <%= link_to "Play this deck", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "btn btn-success btn-sm mb-2" %>
+
 </div>
 <br>
 <div class="button-container text-center">

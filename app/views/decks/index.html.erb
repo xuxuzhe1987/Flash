@@ -26,7 +26,7 @@
     <% @my_decks.each do |deck| %>
       <div id="relative-index" class="list-group-item rounded">
         <i class="fa fa-angle-right"></i>
-        <span><%= link_to deck.name, deck_path(deck) %> </span>
+        <span class="name-style"><%= link_to deck.name, deck_path(deck) %> </span>
         <div id="absolute-index" class="d-flex">
           <% if policy(deck).update? %>
             <%= link_to "", edit_deck_path(deck), class:"far fa-edit" %>
