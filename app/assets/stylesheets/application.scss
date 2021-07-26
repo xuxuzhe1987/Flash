@@ -95,7 +95,7 @@ h3 {
   right:10px;
 }
 
-.list-group li {
+.list-group span {
   font-family: 'Open Sans',sans-serif;
 }
 
@@ -167,7 +167,7 @@ margin-top: 20px;
 }
 
 .indexcont {
-  border: solid 3px #2292A4;
+  // border: solid 3px #2292A4;
   border-radius: 5px;
   color: #0d1117;
   background-color: #000000;
@@ -186,15 +186,18 @@ margin-top: 20px;
 }
 
 .card {
-  border: solid 1px #DC3C18;
+  // border: solid 1px #DC3C18;
   border-radius: 5px;
   color: #0d1117;
   background-color: #f8f8ff;
   margin-bottom: 5px;
   margin-top:5px;
-  font-family: 'Cardo', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
+.rounded {
+  border-radius: 5px;
+}
 
 #relative-cont {
   position: relative;
@@ -202,8 +205,8 @@ margin-top: 20px;
 
 #absolute-cont {
   position: absolute;
-  top: 5px;
-  right: 20px;
+  // top: 8px;
+  right: 18px;
   width: 25px;
   height: 25px;
 }
@@ -216,7 +219,7 @@ margin-top: 20px;
 #absolute-index {
   position: absolute;
   top: 15px;
-  right: 40px;
+  right: 17px;
   width: 50px;
   height: 25px;
 }

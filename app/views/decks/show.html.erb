@@ -22,16 +22,16 @@
 <ul class="list-group">
   <% @deck.cards.each_with_index do |card, i|%>
     <div id="deck-card <%= i %>" class="card txtSmall">
-      <li id="relative-cont" class="d-flex list-group-item question">Q: <%= card.question %>
-        <div id="absolute-cont" class= "activeCardButtons d-flex  m-2" >
+      <span id="relative-cont" class="d-flex align-items-center list-group-item question">Q: <%= card.question %>
+        <div id="absolute-cont" class= "activeCardButtons d-flex align-items-center m-2" >
           <% if policy(@deck).update? %>
-            <%= link_to "", edit_card_path(card), class:"far fa-edit"%>
+            <%= link_to "", edit_card_path(card), class:"far fa-edit ml-2"%>
           <% end %>
           <% if policy(@deck).destroy? %>
             <%= link_to "", card_path(card), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-2" %>
           <% end %>
         </div>
-       </li>
+       </span>
 <!--       <li class="list-group-item answer mb-6">Answer: <%= card.answer %></li>
  -->    </div>
   <% end %>
