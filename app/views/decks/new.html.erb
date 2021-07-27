@@ -16,10 +16,13 @@
             <%= form_for @deck do |f| %>
               <%= f.label :name %>
               <%= f.text_field :name, class: "form-control" %>
-              <p class = "text-center mt-2">Attachment</p>
+              <br>
+              <p class = "text-center mt-2">(Optional) Import Cards from csv</p>
               <div class="attach-file-button">
                 <%= f.file_field :attachment, class: "text-center"%>
               </div>
+              <%= link_to "download csv template", download_csv_path %>
+              <br><br>
               <div class = "button text-center">
               <%= f.submit "Save", class: "btn btn-warning my-1"  %>
               </div>
