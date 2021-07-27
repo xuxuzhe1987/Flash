@@ -1,16 +1,17 @@
-<h1 class="text-center">My Profile</h1>
-<div class="text-center m-2">
-  <%= link_to "Add New Deck", new_deck_path, class: "btn btn-info btn-sm txtBig" %>
-</div>
-<br>
 
+<div class="text-right">
+  <%= link_to "", new_deck_path, class:"far fa-plus-square", style:"font-size: 50px; opacity: 0.5;" %>
+</div>
+
+<h1 class="text-center">My Profile</h1>
+<br>
 <h3 class="text-center m-2">My On Going Decks:</h3>
 <div class="container">
   <ul class="list-group ">
     <% @user_decks.each do |user_deck| %>
     <%= @user_cards_known %>
     <div class="card m-2">
-      <div class="card-header txtSmall">
+      <div class="card-header txtSmall" style="font-family: 'Open Sans',sans-serif; font-weight: bold;">
         <i class="fas fa-angle-double-right"></i>
         Deck: <%= user_deck.deck.name %>
       </div>
@@ -18,7 +19,7 @@
         <li class="list-group-item">Known cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == true} %></li>
         <li class="list-group-item">Unknown cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == false} %></li>
         <div class=" text-center m-2">
-          <%= link_to "Redo", user_deck_path(user_deck), class:"btn btn-success btn-sm my-2 mr-2"%>
+          <%= link_to "Redo", user_deck_path(user_deck), class:"btn btn-success btn-sm ml-2 mr-2"%>
           <%= link_to "Delete History", user_deck_path(user_deck),  method: :delete, data: { confirm: "Are you sure?" }, id:"delete-link", class:"btn btn-danger btn-sm ml-2" %>
         </div>
     </div>

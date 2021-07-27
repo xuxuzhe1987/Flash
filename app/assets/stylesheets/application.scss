@@ -28,6 +28,10 @@ body {
  overflow-y: scroll;
 }
 
+.slogan {
+  width: 250px
+}
+
 .attach-file-button {
   position: relative;
   left: 50px;
@@ -35,19 +39,20 @@ body {
 }
 
 h1 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: #0d1117;
 }
 
 h2 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: #0d1117;
 }
 
 h3 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: #0d1117;
 }
+
 
 .hidden {
   display: none;
@@ -57,12 +62,53 @@ h3 {
   color: #0d1117;
 }
 
+.corner {
+  position: relative;
+  top: 0px;
+  left:20px;
+  right: 20px;
+}
+
+.fa-angle-left {
+  font-size: 50px;
+  color: #DC3C18;
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+
+
+.fa-angle-left:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.fa-plus-square {
+  font-size: 36px;
+  color: black;
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+
+.fa-plus-square:hover {
+  color: gray;
+  text-decoration: none;
+}
+
+.text-right {
+  position: relative;
+  top: 10px;
+  right:10px;
+}
+
+.list-group span {
+  font-family: 'Open Sans',sans-serif;
+}
 
 .a-box {
   align-items:center;
-  border: dotted red;
+  border: dotted #DC3C18;
   width: 300px;
-  height: 150px;
+  height: 160px;
   margin-left: 4px;
   margin: 0 auto;
 }
@@ -91,9 +137,15 @@ h3 {
   // height:600px;
 }
 
-.flashcard-content {
-  font-family: 'Play', sans-serif;
-  font-size: 18px;
+.hint .flashcard-content {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.answer .flashcard-content {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }
 
 .swiper-pagination {
@@ -113,10 +165,10 @@ margin-top: 20px;
   color: #0d1117;
   background-color: #f8f8ff;
   width:40vh;
-  padding: 10px;
+  padding: 20px;
   margin-left: 20px;
   margin-right: 20px;
-  width: 320px;
+  width: 340px;
 
 }
 
@@ -126,7 +178,7 @@ margin-top: 20px;
 }
 
 .indexcont {
-  border: solid 3px #2292A4;
+  // border: solid 3px #2292A4;
   border-radius: 5px;
   color: #0d1117;
   background-color: #000000;
@@ -135,7 +187,7 @@ margin-top: 20px;
 
 .list-group-item {
   background-color: #f8f8ff;
-  font-family: 'Oswald', serif;
+  font-family: 'Open Sans', sans-serif;
   color:#0d1117
 }
 
@@ -151,9 +203,12 @@ margin-top: 20px;
   background-color: #f8f8ff;
   margin-bottom: 5px;
   margin-top:5px;
-  font-family: 'Cardo', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
+.rounded {
+  border-radius: 5px;
+}
 
 #relative-cont {
   position: relative;
@@ -161,8 +216,8 @@ margin-top: 20px;
 
 #absolute-cont {
   position: absolute;
-  top: 5px;
-  right: 20px;
+  // top: 8px;
+  right: 18px;
   width: 25px;
   height: 25px;
 }
@@ -175,7 +230,7 @@ margin-top: 20px;
 #absolute-index {
   position: absolute;
   top: 15px;
-  right: 40px;
+  right: 17px;
   width: 50px;
   height: 25px;
 }
@@ -212,6 +267,22 @@ margin-top: 20px;
 
 .btn-outline-success {
   border:none;
+}
+
+.fa-check-circle {
+  color: #00AC35;
+}
+
+.fa-times-circle {
+  color: red;
+}
+
+.fa-check-circle:hover {
+  color: green;
+}
+
+.fa-times-circle:hover {
+  color: #BF0101;
 }
 
 // #relative-profile {
@@ -253,11 +324,34 @@ margin-top: 20px;
   background-color: #5B6369;
 }
 
-
 #activeCardButtons{
   width: 220px;
+  bottom: 7px !important;
 }
 
+.fa-edit {
+  color: #DC3C18;
+}
+
+.fa-trash {
+  color: #DC3C18;
+}
+
+.fa-play-circle {
+  text-decoration: none;
+  color: #DC3C18;
+  transition: color 0.5s ease;
+}
+
+.fa-play-circle:hover{
+  text-decoration:none;
+  color:black;
+
+}
+
+span .name-style  {
+  color: black !important;
+}
 
 // .know-button {
 //   position: absolute;

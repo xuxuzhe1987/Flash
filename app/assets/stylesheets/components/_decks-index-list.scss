@@ -1,16 +1,28 @@
 // this is the SCSS for the Decks lists item
-.list-group-item a {
-  text-decoration: none;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300&display=swap');
+
+.list-group-item span {
+  font-family: 'Open Sans', sans-serif;
+  font-weight:400;
+
 }
 
+.list-group-item a {
+  text-decoration: none;
+
+}
+
+// #index-title {
+// }
+
 .list-group-item:hover {
-  border: 1px solid #0B5AA2;
+  border: 1px solid #DC3C18;
 }
 
 .list-group-item i {
   align-self: center;
   font-size: 15px;
-  color: #0B5AA2;
+  color: #DC3C18;
   font-weight: bold;
   animation: icon 1.5s infinite forwards;
 }
