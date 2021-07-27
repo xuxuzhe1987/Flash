@@ -22,19 +22,23 @@
   <br>
   <div class=" list-group">
     <h2 class="text-center">My Own Decks</h2>
-    <% @my_decks.each do |deck| %>
-      <div id="relative-index" class="list-group-item rounded">
-        <i class="fa fa-angle-right"></i>
-        <span class="name-style"><%= link_to deck.name, deck_path(deck) %> </span>
-        <div id="absolute-index" class="d-flex">
-          <% if policy(deck).update? %>
-            <%= link_to "", edit_deck_path(deck), class:"far fa-edit" %>
-          <% end %>
-          <% if policy(deck).destroy? %>
-            <%= link_to "", deck_path(deck), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-3" %>
-          <% end %>
-       </div>
-        </div>
+    <% if @my_decks.length == 0%>
+      <p>No record, add your own deck!</p>
+    <% else %>
+      <% @my_decks.each do |deck| %>
+        <div id="relative-index" class="list-group-item rounded">
+          <i class="fa fa-angle-right"></i>
+          <span class="name-style"><%= link_to deck.name, deck_path(deck) %> </span>
+          <div id="absolute-index" class="d-flex">
+            <% if policy(deck).update? %>
+              <%= link_to "", edit_deck_path(deck), class:"far fa-edit" %>
+            <% end %>
+            <% if policy(deck).destroy? %>
+              <%= link_to "", deck_path(deck), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-3" %>
+            <% end %>
+         </div>
+          </div>
+      <% end %>
     <% end %>
   </div>
 </div>
