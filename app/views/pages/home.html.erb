@@ -2,24 +2,21 @@
   <div class="banner d-flex flex-column justify-content-between">
    <div class="text-center">
     <h1 class="text-center txtBig" style="font-size: 90px; color: white;   text-shadow:
-   -1px -1px 0 #FF4500,
-    2px -1px 0 #FF4500,
-    -1px 1px 0 #FF4500,
-     3px 1px 0 #FF4500;">
-      .FLASH⚡️
-    </h1>
-    <br> <br><br><br><br>
-    <div class="slogan text-left" style="font-family: 'Open Sans', sans-serif;">
-      <p>Study your Flashcard Decks from LeWagon anyplace and anytime! </p>
-        <p style="text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">Make or upload your <strong>OWN</strong> decks as well!!!</p>
-      <p style="font-family: Source Sans Pro; font-weight: bold;">GET DECKED OUT!</p>
+      -1px -1px 0 #FF4500,
+      2px -1px 0 #FF4500,
+      -1px 1px 0 #FF4500,
+      3px 1px 0 #FF4500;">
+        .FLASH⚡️
+      </h1>
+      <br> <br><br><br><br>
+        <div class="slogan text-left" style="font-family: 'Open Sans', sans-serif;">
+          <p>Study your Flashcard Decks from LeWagon anyplace and anytime! </p>
+          <p style="text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">Make or upload your <strong>OWN</strong> decks as well!!!</p>
+        </div>
+        <div class=" sign-up call-to-action text-center" style="position: relative; bottom: 0px;">
+          <%= link_to "Get Decked Out!", decks_path(@decks), class: 'btn btn-danger btn-lg text-center m-4', style:'position:relative; top: 90px;'  %>
+        </div>
+      </div>
     </div>
-  </div>
-     <div class=" sign-up call-to-action text-center" style="position: relative; bottom: 0px;">
-
-     <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-danger btn-lg text-center m-4'%>
-  </div>
-
-  </div>
-
+  </div>  
 </body>
