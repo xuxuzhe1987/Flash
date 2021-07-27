@@ -1,15 +1,13 @@
-
-<div class="text-right">
+<h1 class="text-center">My Profile</h1>
+<div class="text-center">
   <%= link_to "", new_deck_path, class:"far fa-plus-square", style:"font-size: 50px; opacity: 0.5;" %>
 </div>
-
-<h1 class="text-center">My Profile</h1>
 <br>
 <h3 class="text-center m-2">My On Going Decks:</h3>
 <div class="container">
   <ul class="list-group ">
     <% if @user_decks.length == 0 %>
-      <p>No record, get your decked out!</p>
+      <p class="text-center">No record, get decked out!</p>
     <% else %>
       <% @user_decks.each do |user_deck| %>
         <div class="card m-2">

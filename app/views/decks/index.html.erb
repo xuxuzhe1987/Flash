@@ -7,7 +7,7 @@
   <div class=" list-group">
     <h2 class="text-center">Le Wagon Decks</h2>
     <% @lw_decks.each do |deck| %>
-      <div class="list-group-item" >
+      <div class="list-group-item mb-2" >
         <i class="fa fa-angle-right"></i>
         <span><%= link_to deck.name, deck_path(deck)%></span>
         <% if policy(deck).update? %>
@@ -23,10 +23,10 @@
   <div class=" list-group">
     <h2 class="text-center">My Own Decks</h2>
     <% if @my_decks.length == 0%>
-      <p>No record, add your own deck!</p>
+      <p class="text-center">No record, add your own deck!</p>
     <% else %>
       <% @my_decks.each do |deck| %>
-        <div id="relative-index" class="list-group-item rounded">
+        <div id="relative-index" class="list-group-item mb-2 rounded">
           <i class="fa fa-angle-right"></i>
           <span class="name-style"><%= link_to deck.name, deck_path(deck) %> </span>
           <div id="absolute-index" class="d-flex">
