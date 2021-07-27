@@ -57,23 +57,23 @@ end
 
 # # OOP Basics--------------------------------------------------
 
-# file3 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/02-OOP_01-OO-Basics.yml?token=ASLME6V2KTIIV5DHPGFHGE3BBB5XU"
+file3 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/02-OOP_01-OO-Basics.yml?token=ASLME6V2KTIIV5DHPGFHGE3BBB5XU"
 
-# sample3 = YAML.load(open(file3).read)
+sample3 = YAML.load(open(file3).read)
 
-# puts 'Creating Cards for 02-OOP_01-OO-Basics...'
+puts 'Creating Cards for 02-OOP_01-OO-Basics...'
 
-# deckname3 = Deck.create!(user_id: user.id, name: sample3["deck_name"] + " (English)")
-# sample3["cards"].each do |card|
-#  Card.create!(deck_id: deckname3.id, question: card["front"], answer: card["back"], hint: card["slug"])
-# end
+deckname3 = Deck.create!(user_id: user.id, name: sample3["deck_name"] + " (English)")
+sample3["cards"].each do |card|
+ Card.create!(deck_id: deckname3.id, question: card["front"], answer: card["back"], hint: card["slug"])
+end
 
-# puts 'Creating Cards for 02-OOP_01-OO-Basics... in Chinese'
+puts 'Creating Cards for 02-OOP_01-OO-Basics... in Chinese'
 
-# deckname3cn = Deck.create!(user_id: user.id, name: sample3["deck_name"] + " (中文)")
-# sample3["cards"].each do |card|
-#  Card.create!(deck_id: deckname3cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
-# end
+deckname3cn = Deck.create!(user_id: user.id, name: sample3["deck_name"] + " (中文)")
+sample3["cards"].each do |card|
+ Card.create!(deck_id: deckname3cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+end
 
 # # # db_design_and_sql---------------------------------------------
 
