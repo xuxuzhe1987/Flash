@@ -1,3 +1,4 @@
+
 .navbar-lewagon {
   justify-content: space-between;
   background: #DC3C18;
@@ -35,20 +36,22 @@
 
 .search {
   //border-style: solid 2px #2292A4;
-  border: solid 1px #f5f5f5;
+  //border: solid 1px #f5f5f5;
   border-radius: 5px;
   outline: 0;
   position: absolute;
   left: 155px;
   top: 13px;
   position: absolute;
+
 }
+
 
 .searchbutton {
   position: absolute;
-  left: 108px;
-  top: 13px;
-  padding-top: 2px;
-  padding-bottom:2px;
+  left: 83px;
+  top: 12px;
+  padding-top: 1px;
+  padding-bottom:1px;
   position: absolute;
 }
