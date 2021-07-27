@@ -7,22 +7,26 @@
     </ul>
   </div>
 <% end %>
-<h1 class="text-center mt-3">Add New Deck</h1>
+<h1 class="text-center mt-3">Add Your Deck</h1>
  <div class = "form">
    <div class = "deviseform text-center">
-     <div class = "conatiner auto text-center">
+     <div class = "container auto text-center">
        <div class = "row d-flex justify-content-center">
           <div class = "well txtSmall text-center">
             <%= form_for @deck do |f| %>
               <%= f.label :name %>
               <%= f.text_field :name, class: "form-control" %>
               <br>
-              <p class = "text-center mt-2">(Optional) Import Cards from csv</p>
+              <p class = "text-center mt-2">(Optional) Import Cards from CSV</p>
               <div class="attach-file-button">
                 <%= f.file_field :attachment, class: "text-center"%>
               </div>
               <%= link_to "download csv template", download_csv_path %>
               <br><br>
+              <p style="font-size:12px;"><em>When Uploading Your Decks:</em></p>
+              <p style="font-size:12px;"><em>1. Maintain the same file name as when you downloaded.</em></p>
+              <p style="font-size:12px;"><em>2. Save the file in a CSV format before uploading.</em></p>
+              <br>
               <div class = "button text-center">
               <%= f.submit "Save", class: "btn btn-warning my-1"  %>
               </div>
