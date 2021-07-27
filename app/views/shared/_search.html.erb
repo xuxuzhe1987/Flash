@@ -2,12 +2,12 @@
     class: '') do %>
   <div class = "search">
     <div class="input-group txtSmall">  
-      <%= search_field_tag :search, params[:search], placeholder: "Find your Deck" %>
+      <%= search_field_tag :search, params[:search], placeholder: "Find your Deck", class: "form-control" %>
     </div>
   </div>
   <div class = "searchbutton">  
     <div class="input-group-btn">  
-      <%= button_tag "", :class => 'btn btn-info fab fa-searchengin ml-1 ',:name => nil %>
+      <%= button_tag " ", :class => 'btn btn-info fab fa-searchengin mb-1 btn-lg' %>
     </div>       
   </div>  
 <% end %>
