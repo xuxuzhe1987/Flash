@@ -23,9 +23,9 @@
         <br>
         <div id ="activeCardButtons" class="d-flex justify-content-around m-6">
           <!-- <button class="flip" value="Flip" type="submit">Flip</button> -->
-          <button id="know" class="know btn btn-outline-success">
+          <div id="know" class="know btn btn-outline-success">
               <%= link_to "", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post, class:"fas fa-check-circle", style:"font-size: 36px; text-decoration: none;" %>
-          </button>
+          </div>
           <button id="user-answer" class="user-answer btn btn-outline-secondary" type="button" value="Type your Answer">
             <i class="fas fa-pen-square" style="font-size: 36px;"></i>
           </button>
