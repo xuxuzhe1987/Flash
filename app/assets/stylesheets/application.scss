@@ -18,15 +18,21 @@ body {
 }
 
 .application {
+ position:relative;
  background-color: #fff;
  max-width: 400px;
  min-height: 100vh;
  margin: 0 auto;
  margin-top: 10px;
  margin-bottom: 10px;
- border-radius: 16px;
- overflow-y: scroll;
+  -moz-border-radius: 16px;
+  -khtml-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  overflow:scroll;
+ z-index: 100;
 }
+
+
 
 .slogan {
   width: 250px
@@ -168,7 +174,7 @@ margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
   width: 360px;
-
+  margin-bottom: 20px;
 }
 
 .form-inputs {
@@ -177,7 +183,6 @@ margin-top: 20px;
 }
 
 .indexcont {
-  // border: solid 3px #2292A4;
   border-radius: 5px;
   color: #0d1117;
   background-color: #000000;
