@@ -108,9 +108,9 @@ const initMarkdown = (answer) => {
 
   const dontKnowBtn = document.querySelectorAll(".unknow")
     dontKnowBtn.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('touchstart', (e) => {
     nextCard()
-    })
+    }, false)
   })
 
   // const flipBtn = document.querySelectorAll(".flip")
@@ -132,10 +132,10 @@ const initMarkdown = (answer) => {
 
   const knowBtn = document.querySelectorAll(".know")
   knowBtn.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault()
-    nextCard()
-    })
+    btn.addEventListener('touchstart', (e) => {
+      console.log(e)
+      nextCard()
+    }, false)
   })
 
   const hintBtn = document.querySelectorAll("#hint")
