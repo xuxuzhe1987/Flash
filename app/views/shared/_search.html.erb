@@ -1,7 +1,7 @@
 <%= form_tag(decks_path, :method => "get",   
     class: '') do %>
   <div class = "search">
-    <div class="input-group txtSmall">  
+    <div class="input-group txtSmall" style="width: 160px">
       <%= search_field_tag :search, params[:search], placeholder: "Find your Deck", class: "form-control" %>
     </div>
   </div>
