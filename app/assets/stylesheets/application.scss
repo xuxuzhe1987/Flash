@@ -19,7 +19,7 @@ body {
 
 .application {
  background-color: #fff;
- max-width: 400px;
+ max-width: 400px !important;
  min-height: 100vh;
  margin: 0 auto;
  margin-top: 10px;
@@ -29,7 +29,7 @@ body {
 }
 
 .slogan {
-  width: 250px
+  width: 250px;
 }
 
 .attach-file-button {
@@ -53,7 +53,6 @@ h3 {
   color: #0d1117;
 }
 
-
 .hidden {
   display: none;
 }
@@ -75,7 +74,6 @@ h3 {
   text-decoration: none;
   transition: color 0.5s ease;
 }
-
 
 .fa-angle-left:hover {
   color: black;
@@ -153,10 +151,10 @@ h3 {
 }
 
 .form {
-display: flex;
-align-items: center;
-justify-content: center;
-margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .deviseform {
@@ -167,7 +165,8 @@ margin-top: 20px;
   padding: 20px;
   margin-left: 20px;
   margin-right: 20px;
-  width: 360px;
+  max-width: 360px;
+  margin-bottom: 20px;
 
 }
 
@@ -396,6 +395,11 @@ span .name-style  {
     padding-bottom:1px;
     margin-right: 8px;
   }
+  .navbar-light .navbar-nav .nav-link {
+    font-size: 16px;
+    padding: 8px;
+  }
+
 
 }
 
