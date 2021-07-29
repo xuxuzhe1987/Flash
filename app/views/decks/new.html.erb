@@ -16,12 +16,12 @@
             <%= form_for @deck do |f| %>
               <%= f.label :name %>
               <%= f.text_field :name, class: "form-control" %>
-              <br>
+             <!--  <br> -->
               <p class = "text-center mt-2">(Optional) Import Cards from CSV</p>
               <div class="attach-file-button">
                 <%= f.file_field :attachment, class: "text-center"%>
               </div>
-              <%= link_to "download csv template", download_csv_path %>
+              <%= link_to "Download csv template", download_csv_path %>
               <br><br>
               <p style="font-size:12px;"><em>When Uploading Your Decks:</em></p>
               <p style="font-size:12px;"><em>1. Maintain the same file name as when you downloaded.</em></p>
