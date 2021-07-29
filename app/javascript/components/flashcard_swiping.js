@@ -133,6 +133,7 @@ const initMarkdown = (answer) => {
   const knowBtn = document.querySelectorAll(".know")
   knowBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
+      e.preventDefault()
     nextCard()
     })
   })
