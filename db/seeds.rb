@@ -17,7 +17,7 @@ user.save!(validate: false)
 
 # setup------------------------------------------------------
 
-file1 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/00-Setup.yml?token=ASLME6TQP4MQ7V3XE3PVXXDBBB5P6"
+file1 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/00-Setup.yml?token=AR6NRDXUA34AXWVDV4N2ALLBBPSSW"
 
 sample1 = YAML.load(open(file1).read)
 
@@ -37,7 +37,7 @@ end
 
 # programming basics-----------------------------------------
 
-file2 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/01-Ruby_01-Programming-basics.yml?token=ASLME6VKAZHP67ADKV7SEXTBBB5V4"
+file2 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/01-Ruby_01-Programming-basics.yml?token=AR6NRDR7MKNZS37ZDQ57V63BBPSU4"
 
 sample2 = YAML.load(open(file2).read)
 
@@ -75,25 +75,25 @@ sample3["cards"].each do |card|
  Card.create!(deck_id: deckname3cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
 end
 
-# # # db_design_and_sql---------------------------------------------
+# # db_design_and_sql---------------------------------------------
 
-# file4 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/03-AR-Database_01-DB-Design-and-SQL.yml?token=ASLME6SWEFRSUABMSJBATDLBBB6CQ"
+file4 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/03-AR-Database_01-DB-Design-and-SQL.yml?token=AR6NRDRLBJSLKC3B4M3PSODBBPSMU"
 
-# sample4 = YAML.load(open(file4).read)
+sample4 = YAML.load(open(file4).read)
 
-# puts '03-AR-Database_01-DB-Design-and-SQL...'
+puts '03-AR-Database_01-DB-Design-and-SQL...'
 
-# deckname4 = Deck.create!(user_id: user.id, name: sample4["deck_name"] + " (English)")
-# sample4["cards"].each do |card|
-#  Card.create!(deck_id: deckname4.id, question: card["front"], answer: card["back"], hint: card["slug"])
-# end
+deckname4 = Deck.create!(user_id: user.id, name: sample4["deck_name"] + " (English)")
+sample4["cards"].each do |card|
+ Card.create!(deck_id: deckname4.id, question: card["front"], answer: card["back"], hint: card["slug"])
+end
 
-# puts '03-AR-Database_01-DB-Design-and-SQL... in Chinese'
+puts '03-AR-Database_01-DB-Design-and-SQL... in Chinese'
 
-# deckname4cn = Deck.create!(user_id: user.id, name: sample4["deck_name"] + " (中文)")
-# sample4["cards"].each do |card|
-#  Card.create!(deck_id: deckname4cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
-# end
+deckname4cn = Deck.create!(user_id: user.id, name: sample4["deck_name"] + " (中文)")
+sample4["cards"].each do |card|
+ Card.create!(deck_id: deckname4cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+end
 
 # # # Front-End_01-HTML-and-CSS ------------------------------------------------
 
