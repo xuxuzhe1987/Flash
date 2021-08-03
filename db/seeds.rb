@@ -176,63 +176,63 @@ sample8["cards"].each do |card|
 end
 
 
-# # # OOP Advanced -----------------
+# # # # OOP Advanced -----------------
 
-file9 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/02-OOP_02-OO-Advanced.yml?token=ASN2OE53ODU3IWGCSXFGR5TBCI5GE"
+# file9 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/02-OOP_02-OO-Advanced.yml?token=ASN2OE53ODU3IWGCSXFGR5TBCI5GE"
 
-sample9 = YAML.load(open(file9).read)
+# sample9 = YAML.load(open(file9).read)
 
-puts '02-OOP_02-OO-Advanced...'
+# puts '02-OOP_02-OO-Advanced...'
 
-deckname9 = Deck.create!(user_id: user.id, name:sample9["deck_name"] + " (English)")
-sample9["cards"].each do |card|
-  Card.create!(deck_id: deckname9.id, question: card["front"], answer: card["back"], hint: card["slug"])
-end
+# deckname9 = Deck.create!(user_id: user.id, name:sample9["deck_name"] + " (English)")
+# sample9["cards"].each do |card|
+#   Card.create!(deck_id: deckname9.id, question: card["front"], answer: card["back"], hint: card["slug"])
+# end
 
-puts '02-OOP_02-OO-Advanced... in Chinese'
+# puts '02-OOP_02-OO-Advanced... in Chinese'
 
-deckname9cn = Deck.create!(user_id: user.id, name: sample9["deck_name"] + " (中文)")
-sample9["cards"].each do |card|
- Card.create!(deck_id: deckname9cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
-end
+# deckname9cn = Deck.create!(user_id: user.id, name: sample9["deck_name"] + " (中文)")
+# sample9["cards"].each do |card|
+#  Card.create!(deck_id: deckname9cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+# end
 
-# # # Cookbook Day 1 -------------------
+# # # # Cookbook Day 1 -------------------
 
-file10 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/02-OOP_03-Cookbook-Day-One.yml?token=ASN2OE2NQFH4K2W2ZSTL45DBCI5I2"
+# file10 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/02-OOP_03-Cookbook-Day-One.yml?token=ASN2OE2NQFH4K2W2ZSTL45DBCI5I2"
 
-sample10 = YAML.load(open(file10).read)
+# sample10 = YAML.load(open(file10).read)
 
-puts '02-OOP_03-Cookbook-Day-One...'
+# puts '02-OOP_03-Cookbook-Day-One...'
 
-deckname10 = Deck.create!(user_id: user.id, name:sample10["deck_name"] + " (English)")
-sample10["cards"].each do |card|
-  Card.create!(deck_id: deckname10.id, question: card["front"], answer: card["back"], hint: card["slug"])
-end
+# deckname10 = Deck.create!(user_id: user.id, name:sample10["deck_name"] + " (English)")
+# sample10["cards"].each do |card|
+#   Card.create!(deck_id: deckname10.id, question: card["front"], answer: card["back"], hint: card["slug"])
+# end
 
-puts '02-OOP_03-Cookbook-Day-One... in Chinese'
+# puts '02-OOP_03-Cookbook-Day-One... in Chinese'
 
-deckname10cn = Deck.create!(user_id: user.id, name: sample10["deck_name"] + " (中文)")
-sample10["cards"].each do |card|
- Card.create!(deck_id: deckname10cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
-end
+# deckname10cn = Deck.create!(user_id: user.id, name: sample10["deck_name"] + " (中文)")
+# sample10["cards"].each do |card|
+#  Card.create!(deck_id: deckname10cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+# end
 
-# # # Delivery Day 1 -------------
+# # # # Delivery Day 1 -------------
 
-file11 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/02-OOP_05-Food-Delivery-Day-One.yml?token=ASN2OE3A6VDEHB4BMHTFSZTBCI5QY"
+# file11 = "https://raw.githubusercontent.com/lewagon/flashcards/master/decks/02-OOP_05-Food-Delivery-Day-One.yml?token=ASN2OE3A6VDEHB4BMHTFSZTBCI5QY"
 
-sample11 = YAML.load(open(file11).read)
+# sample11 = YAML.load(open(file11).read)
 
-puts '02-OOP_05-Food-Delivery-Day-One...'
+# puts '02-OOP_05-Food-Delivery-Day-One...'
 
-deckname11 = Deck.create!(user_id: user.id, name:sample11["deck_name"] + " (English)")
-sample11["cards"].each do |card|
-  Card.create!(deck_id: deckname11.id, question: card["front"], answer: card["back"], hint: card["slug"])
-end
+# deckname11 = Deck.create!(user_id: user.id, name:sample11["deck_name"] + " (English)")
+# sample11["cards"].each do |card|
+#   Card.create!(deck_id: deckname11.id, question: card["front"], answer: card["back"], hint: card["slug"])
+# end
 
-puts '02-OOP_05-Food-Delivery-Day-One... in Chinese'
+# puts '02-OOP_05-Food-Delivery-Day-One... in Chinese'
 
-deckname11cn = Deck.create!(user_id: user.id, name: sample11["deck_name"] + " (中文)")
-sample11["cards"].each do |card|
- Card.create!(deck_id: deckname11cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
-end
+# deckname11cn = Deck.create!(user_id: user.id, name: sample11["deck_name"] + " (中文)")
+# sample11["cards"].each do |card|
+#  Card.create!(deck_id: deckname11cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+# end
 
