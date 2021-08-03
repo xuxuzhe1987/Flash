@@ -104,8 +104,8 @@ h3 {
 
 .a-box {
   align-items:center;
-  border: dotted #DC3C18;
-  width: 300px;
+  border: solid #DC3C18;
+  width: 320px;
   height: 160px;
   margin-left: 4px;
   margin: 0 auto;
@@ -129,7 +129,7 @@ h3 {
   width: 335px;
   height: 550px;
   margin: 16px;
-  padding: 8px;
+  padding: 4px;
   // margin: 0 auto;
   // float: none;
   // position: relative;
@@ -146,10 +146,6 @@ h3 {
 .answer .flashcard-content {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
-}
-
-.swiper-pagination {
-  color: white;
 }
 
 .form {
@@ -201,8 +197,7 @@ h3 {
   border-radius: 5px;
   color: #0d1117;
   background-color: #f8f8ff;
-  margin-bottom: 5px;
-  margin-top:5px;
+  margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -236,10 +231,11 @@ h3 {
 }
 
 #activeCardButtons{
-  bottom: 15px !important;
-  position:fixed;
-  margin-left: 48px;
-  margin-right:72px;
+  position:absolute;
+  width: 330px;
+  position: absolute;
+  bottom: 7px;
+  margin: 0 auto;
 }
 
 .btn-outline-info {
@@ -285,18 +281,6 @@ h3 {
   color: #BF0101;
 }
 
-// #relative-profile {
-//   position: relative;
-// }
-
-// #absolute-profile {
-//   position: absolute;
-//   top: 0px;
-//   right: 5px;
-//   width: 30px;
-//   height: 30px;
-// }gs
-
 #instructions {
   border: none;
   //   position: absolute;
@@ -334,11 +318,6 @@ h3 {
   background-color: #5B6369;
 }
 
-#activeCardButtons{
-  width: 220px;
-  bottom: 7px !important;
-}
-
 .fa-edit {
   color: #DC3C18;
 }
@@ -363,20 +342,7 @@ span .name-style  {
   color: black !important;
 }
 
-// .know-button {
-//   position: absolute;
-//   left: 15px;
-// }
 
-// .user-answer-button {
-//   position: absolute;
-//   text-align: center;
-// }
-
-// .unknow-button {
-//   position: absolute;
-//   right: 15px;
-// }
 #know {
   cursor:pointer;
 }
@@ -420,6 +386,18 @@ span .name-style  {
     padding: 8px;
   }
 
+  .swiper-wrapper {
+    width: 360px;
+  }
 
+  .swiper-slide {
+    width: 355px;
+  }
 }
+
+// @media screen and (max-width: 400px) {
+//   .swiper-wrapper {
+//     width:
+//   }
+// }
 

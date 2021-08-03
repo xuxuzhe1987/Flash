@@ -6,8 +6,8 @@
         <button id="hint" class="btn btn-outline-info m-2" type="submit" value="hint">
           <i class="fas fa-info-circle" style="font-size: 20px;"></i>
         </button>
-        <div class="question m-2" style="dispaly: block;">
-          <br><h3> <%= card.question %> </h3>
+        <div class="question m-2" style="display: block;">
+          <h3> <%= card.question %> </h3>
         </div><br>
         <div class="answer hidden a-box txtSmall" style="overflow-y:scroll;">
           <h6 class="text-left m-1 txtSmall" style="text-decoration: underline;">Answer:</h6>
@@ -21,7 +21,7 @@
           <div class="flashcard-content"> HINT:<%= card.hint %> </div>
         </div>
         <br>
-        <div id ="activeCardButtons" class="d-flex justify-content-around m-6">
+        <div id ="activeCardButtons" class="d-flex justify-content-between text-center">
           <!-- <button class="flip" value="Flip" type="submit">Flip</button> -->
           <button id="know" class="know btn btn-outline-success">
               <%= link_to "", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post, class:"fas fa-check-circle", style:"font-size: 36px; text-decoration: none;" %>
