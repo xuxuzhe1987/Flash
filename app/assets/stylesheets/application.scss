@@ -19,7 +19,7 @@ body {
 
 .application {
  background-color: #fff;
- max-width: 380px !important;
+ max-width: 400px !important;
  min-height: 100vh;
  margin: 0 auto;
  margin-top: 10px;
@@ -105,7 +105,7 @@ h3 {
 .a-box {
   align-items:center;
   border: solid #DC3C18;
-  width: 320px;
+  width: 305px;
   height: 160px;
   margin-left: 4px;
   margin: 0 auto;
@@ -126,7 +126,7 @@ h3 {
   display: block;
   text-align: center;
   font-size: 16px;
-  width: 335px;
+  width: 370px;
   height: 550px;
   margin: 16px;
   padding: 4px;
@@ -197,7 +197,7 @@ h3 {
   border-radius: 5px;
   color: #0d1117;
   background-color: #f8f8ff;
-  margin: 0 auto;
+  margin: 5px;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -236,6 +236,11 @@ h3 {
   position: absolute;
   bottom: 7px;
   margin: 0 auto;
+}
+
+.activeCardButtons {
+  width: 220px;
+
 }
 
 .btn-outline-info {
@@ -356,6 +361,11 @@ span .name-style  {
     float: none;
     width: 100%;
   }
+
+  .application {
+    width: 380px;
+  }
+
   .deviseform {
     width: 360px;
     padding-bottom: 2px;
@@ -387,7 +397,7 @@ span .name-style  {
   }
 
   .swiper-wrapper {
-    width: 360px;
+    width: 335px;
   }
 
   .swiper-slide {
