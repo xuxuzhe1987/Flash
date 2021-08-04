@@ -21,7 +21,7 @@
           <div class="flashcard-content"> HINT:<%= card.hint %> </div>
         </div>
         <br>
-        <div id ="activeCardButtons" class="d-flex justify-content-between text-center">
+        <div id ="activeCardButtons" class="d-flex justify-content-between m-2">
           <!-- <button class="flip" value="Flip" type="submit">Flip</button> -->
           <button id="know" class="know btn btn-outline-success">
               <%= link_to "", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post, class:"fas fa-check-circle", style:"font-size: 36px; text-decoration: none;" %>
