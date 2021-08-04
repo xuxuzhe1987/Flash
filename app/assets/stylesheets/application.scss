@@ -106,7 +106,7 @@ h3 {
   align-items:center;
   border: solid #DC3C18;
   width: 305px;
-  height: 160px;
+  height: 170px;
   margin-left: 4px;
   margin: 0 auto;
 }
@@ -234,8 +234,8 @@ h3 {
   position:absolute;
   width: 330px;
   position: absolute;
-  bottom: 7px;
-  margin: 0 auto;
+  bottom: 2px !important;
+  left:12px;
 }
 
 .activeCardButtons {
