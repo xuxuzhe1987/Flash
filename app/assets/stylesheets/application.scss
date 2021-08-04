@@ -28,9 +28,6 @@ body {
  overflow-y: scroll;
 }
 
-.slogan {
-  width: 250px;
-}
 
 .attach-file-button {
   position: relative;
@@ -109,6 +106,11 @@ h3 {
   height: 170px;
   margin-left: 4px;
   margin: 0 auto;
+}
+
+.a-box p {
+  padding: 8px;
+  margin: 8px;
 }
 
 // .swiper-container {
