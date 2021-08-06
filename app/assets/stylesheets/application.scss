@@ -105,10 +105,14 @@ h3 {
 .a-box {
   align-items:center;
   border: solid #DC3C18;
-  width: 305px;
-  height: 170px;
-  margin-left: 4px;
+  width: 315px;
+  height: 260px;
   margin: 0 auto;
+  overflow-y:scroll;
+}
+
+.a-box p {
+  margin: 19px;
 }
 
 // .swiper-container {
@@ -127,7 +131,7 @@ h3 {
   text-align: center;
   font-size: 16px;
   width: 370px;
-  height: 550px;
+  height: 575px;
   margin: 16px;
   padding: 4px;
   // margin: 0 auto;
