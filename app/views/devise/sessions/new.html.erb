@@ -1,29 +1,202 @@
-<h2 class = "text-center pt-3" >Log in</h2>
-<div class = "form">
-  <div class = "deviseform text-center" >
-    <div class = "container auto text-center">
-      <div class = "row d-flex justify-content-center">
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="form-inputs txtSmall">
-           <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-            <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-          </div>
-        <div class="form-actions txtBig">
-        <%= f.button :submit, "Log in", class: "btn btn-warning my-1" %>
-        </div>
-          <div class= "txtSmall text-center mt-3">
-             <%= render "devise/shared/links" %>
-           </div>
-         </div>
-        </div>
+<div class="auth-container">
+  <div class="auth-header">
+    <div class="auth-logo">⚡️Flash</div>
+    <h1>Welcome Back</h1>
+    <p class="auth-subtitle">Sign in to continue learning</p>
+  </div>
+
+  <div class="auth-form">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <%= f.input :email,
+          required: false,
+          autofocus: true,
+          input_html: { 
+            autocomplete: "email",
+            class: "form-input",
+            placeholder: "Enter your email"
+          },
+          label: false %>
       </div>
+
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <%= f.input :password,
+          required: false,
+          input_html: {
+            autocomplete: "current-password",
+            class: "form-input",
+            placeholder: "Enter your password"
+          },
+          label: false %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="form-group form-group-checkbox">
+          <%= f.input :remember_me, as: :boolean, 
+            input_html: { class: "checkbox-input" },
+            label: false %>
+          <label class="checkbox-label">Remember me</label>
+        </div>
+      <% end %>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign In", class: "btn-submit" %>
+      </div>
+    <% end %>
+
+    <div class="auth-footer">
+      <%= render "devise/shared/links" %>
     </div>
   </div>
-<% end %>
-        
+</div>
+
+<style>
+.auth-container {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.auth-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 24px;
+}
+
+.auth-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.auth-form {
+  max-width: 360px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+.form-group-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-input {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.checkbox-input:checked {
+  background-color: #667eea;
+  border-color: #667eea;
+}
+
+.checkbox-label {
+  color: #64748b;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.form-actions {
+  margin-top: 32px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.auth-footer {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.auth-footer a {
+  color: #667eea;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.auth-footer a:hover {
+  color: #764ba2;
+}
+
+.auth-footer p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 8px 0;
+}
+
+.boolean.optional {
+  display: none;
+}
+</style>

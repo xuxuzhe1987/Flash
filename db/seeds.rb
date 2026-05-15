@@ -25,14 +25,14 @@ puts 'Creating Cards for 00-Setup...'
 
 deckname1 = Deck.create!(user_id: user.id, name: sample1["deck_name"] + " (English)")
 sample1["cards"].each do |card|
- Card.create!(deck_id: deckname1.id, question: card["front"], answer: card["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname1.id, question: card["front"], answer: card["back"])
 end
 
 puts 'Creating Cards for 00-Setup... in Chinese'
 
 deckname1cn = Deck.create!(user_id: user.id, name: sample1["deck_name"] + " (中文)")
 sample1["cards"].each do |card|
- Card.create!(deck_id: deckname1cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname1cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"])
 end
 
 # programming basics-----------------------------------------
@@ -45,14 +45,14 @@ puts 'Creating Cards for 01-Ruby_01-Programming-basics...'
 
 deckname2 = Deck.create!(user_id: user.id, name: sample2["deck_name"] + " (English)")
 sample2["cards"].each do |card|
- Card.create!(deck_id: deckname2.id, question: card["front"], answer: card["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname2.id, question: card["front"], answer: card["back"])
 end
 
 puts 'Creating Cards for 01-Ruby_01-Programming-basics... in Chinese'
 
 deckname2cn = Deck.create!(user_id: user.id, name: sample2["deck_name"] + " (中文)")
 sample2["cards"].each do |card|
- Card.create!(deck_id: deckname2cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname2cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"])
 end
 
 # # Iterators-Block--------------------------------------------------
@@ -65,14 +65,14 @@ puts 'Creating Cards for 01-Ruby_03-Iterators-Blocks...'
 
 deckname3 = Deck.create!(user_id: user.id, name: sample3["deck_name"] + " (English)")
 sample3["cards"].each do |card|
- Card.create!(deck_id: deckname3.id, question: card["front"], answer: card["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname3.id, question: card["front"], answer: card["back"])
 end
 
 puts 'Creating Cards for 01-Ruby_03-Iterators-Blocks... in Chinese'
 
 deckname3cn = Deck.create!(user_id: user.id, name: sample3["deck_name"] + " (中文)")
 sample3["cards"].each do |card|
- Card.create!(deck_id: deckname3cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname3cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"])
 end
 
 # # Hash Symbols---------------------------------------------
@@ -105,14 +105,14 @@ puts '01-Ruby_05-Regular-Expressions...'
 
 deckname5 = Deck.create!(user_id: user.id, name: sample5["deck_name"] + " (English)")
 sample5["cards"].each do |card|
- Card.create!(deck_id: deckname5.id, question: card["front"], answer: card["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname5.id, question: card["front"], answer: card["back"])
 end
 
 puts '01-Ruby_05-Regular-Expressions... in Chinese'
 
 deckname5cn = Deck.create!(user_id: user.id, name: sample5["deck_name"] + " (中文)")
 sample5["cards"].each do |card|
- Card.create!(deck_id: deckname5cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname5cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"])
 end
 
 # # # Parsing ------------------------------------------------
@@ -125,14 +125,14 @@ puts '01-Ruby_06-Parsing...'
 
 deckname6 = Deck.create!(user_id: user.id, name: sample6["deck_name"] + " (English)")
 sample6["cards"].each do |card|
- Card.create!(deck_id: deckname6.id, question: card["front"], answer: card["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname6.id, question: card["front"], answer: card["back"])
 end
 
 puts '01-Ruby_06-Parsing... in Chinese'
 
 deckname6cn = Deck.create!(user_id: user.id, name: sample6["deck_name"] + " (中文)")
 sample6["cards"].each do |card|
- Card.create!(deck_id: deckname6cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname6cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"])
 end
 
 # # flow and arrays -------------------------------------------------------
@@ -145,14 +145,14 @@ puts '06-Flow-Array...'
 
 deckname7 = Deck.create!(user_id: user.id, name:sample7["deck_name"] + " (English)")
 sample7["cards"].each do |card|
-  Card.create!(deck_id: deckname7.id, question: card["front"], answer: card["back"], hint: card["slug"])
+  Card.create!(deck_id: deckname7.id, question: card["front"], answer: card["back"])
 end
 
 puts '06-Flow-Array... in Chinese'
 
 deckname7cn = Deck.create!(user_id: user.id, name: sample7["deck_name"] + " (中文)")
 sample6["cards"].each do |card|
- Card.create!(deck_id: deckname7cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname7cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"])
 end
 
 # # # OOP Basics -----------------------------
@@ -165,14 +165,14 @@ puts '02-OOP_01-OO-Basics...'
 
 deckname8 = Deck.create!(user_id: user.id, name:sample8["deck_name"] + " (English)")
 sample8["cards"].each do |card|
-  Card.create!(deck_id: deckname8.id, question: card["front"], answer: card["back"], hint: card["slug"])
+  Card.create!(deck_id: deckname8.id, question: card["front"], answer: card["back"])
 end
 
 puts '02-OOP_01-OO-Basics... in Chinese'
 
 deckname8cn = Deck.create!(user_id: user.id, name: sample8["deck_name"] + " (中文)")
 sample8["cards"].each do |card|
- Card.create!(deck_id: deckname8cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+ Card.create!(deck_id: deckname8cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"])
 end
 
 
@@ -186,14 +186,14 @@ end
 
 # deckname9 = Deck.create!(user_id: user.id, name:sample9["deck_name"] + " (English)")
 # sample9["cards"].each do |card|
-#   Card.create!(deck_id: deckname9.id, question: card["front"], answer: card["back"], hint: card["slug"])
+#   Card.create!(deck_id: deckname9.id, question: card["front"], answer: card["back"])
 # end
 
 # puts '02-OOP_02-OO-Advanced... in Chinese'
 
 # deckname9cn = Deck.create!(user_id: user.id, name: sample9["deck_name"] + " (中文)")
 # sample9["cards"].each do |card|
-#  Card.create!(deck_id: deckname9cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+#  Card.create!(deck_id: deckname9cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"])
 # end
 
 # # # # Cookbook Day 1 -------------------
@@ -206,14 +206,14 @@ end
 
 # deckname10 = Deck.create!(user_id: user.id, name:sample10["deck_name"] + " (English)")
 # sample10["cards"].each do |card|
-#   Card.create!(deck_id: deckname10.id, question: card["front"], answer: card["back"], hint: card["slug"])
+#   Card.create!(deck_id: deckname10.id, question: card["front"], answer: card["back"])
 # end
 
 # puts '02-OOP_03-Cookbook-Day-One... in Chinese'
 
 # deckname10cn = Deck.create!(user_id: user.id, name: sample10["deck_name"] + " (中文)")
 # sample10["cards"].each do |card|
-#  Card.create!(deck_id: deckname10cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+#  Card.create!(deck_id: deckname10cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"])
 # end
 
 # # # # Delivery Day 1 -------------
@@ -226,13 +226,13 @@ end
 
 # deckname11 = Deck.create!(user_id: user.id, name:sample11["deck_name"] + " (English)")
 # sample11["cards"].each do |card|
-#   Card.create!(deck_id: deckname11.id, question: card["front"], answer: card["back"], hint: card["slug"])
+#   Card.create!(deck_id: deckname11.id, question: card["front"], answer: card["back"])
 # end
 
 # puts '02-OOP_05-Food-Delivery-Day-One... in Chinese'
 
 # deckname11cn = Deck.create!(user_id: user.id, name: sample11["deck_name"] + " (中文)")
 # sample11["cards"].each do |card|
-#  Card.create!(deck_id: deckname11cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"], hint: card["slug"])
+#  Card.create!(deck_id: deckname11cn.id, question: card["i18n"]["cn"]["front"], answer: card["i18n"]["cn"]["back"])
 # end
 

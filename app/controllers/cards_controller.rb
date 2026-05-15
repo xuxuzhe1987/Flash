@@ -42,7 +42,7 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:question, :answer, :hint)
+    params.require(:card).permit(:question, :answer)
   end
 
   def set_card

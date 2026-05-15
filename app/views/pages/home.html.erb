@@ -1,30 +1,190 @@
-<body class="landingpage">
-  <div class="banner d-flex flex-column justify-content-between">
-   <div class="text-center">
-    <br>
-    <h1 class="text-center txtBig" style="font-size: 70px; color: white;   text-shadow:
-      -1px -1px 0 #FF4500,
-      2px -1px 0 #FF4500,
-      -1px 1px 0 #FF4500,
-      3px 1px 0 #FF4500;">
-        .FLASH⚡️
-      </h1>
-      <br>
-      <br><br><br>
-        <div class="slogan text-left" style="font-family: 'Open Sans', sans-serif; position:relative; left: 20px;">
-          <p style="text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">Study your Flashcards from LeWagon anyplace and anytime! </p>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flash - Learn Smarter</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .landing-container {
+    background: white;
+    max-width: 480px;
+    width: 100%;
+    min-height: 80vh;
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-section {
+    flex: 1;
+    padding: 60px 40px;
+    background: linear-gradient(180deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+  }
+
+  .brand-logo {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 40px;
+    letter-spacing: -0.03em;
+  }
+
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .feature-content {
+    flex: 1;
+  }
+
+  .feature-title {
+    font-weight: 700;
+    color: #1a1a2e;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+
+  .feature-desc {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .cta-section {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+    color: white;
+  }
+
+  .btn-outline {
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+  }
+
+  .btn-outline:hover {
+    background: #f8fafc;
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 480px) {
+    .hero-section {
+      padding: 40px 24px;
+    }
+
+    .brand-logo {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="landing-container">
+    <div class="hero-section">
+      <div class="brand-logo">⚡️Flash</div>
+
+      <div class="features-list">
+        <div class="feature-item">
+          <div class="feature-icon">📚</div>
+          <div class="feature-content">
+            <div class="feature-title">Learn Any Subject</div>
+            <div class="feature-desc">Create flashcards for languages, science, history, or anything you want to master.</div>
+          </div>
         </div>
-        <div class="slogan text-left" style="font-family:'Open Sans', sans-serif; position:relative; left: 20px; ">
-          <p style="text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">Make or upload your <strong>OWN</strong> decks as well, whether studying languages or anything that fits on a card!</p>
+
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-content">
+            <div class="feature-title">Smart Spaced Repetition</div>
+            <div class="feature-desc">Our algorithm shows cards at optimal intervals for long-term retention.</div>
+          </div>
         </div>
-        <div class=" sign-up call-to-action text-center" style="position: relative; bottom: 0px;">
-          <% if user_signed_in? %>
-          <%= link_to "Get Decked Out!", decks_path(@decks), class: 'btn btn-danger btn-lg text-center m-4', style:'position:relative; top: 90px;'  %>
-          <% else %>
-          <%= link_to "Sign Up!", new_user_registration_path, class: 'btn btn-danger btn-lg text-center m-4', style:'position:relative; top: 90px;' %>
-          <% end %>
+
+        <div class="feature-item">
+          <div class="feature-icon">📱</div>
+          <div class="feature-content">
+            <div class="feature-title">Study Anywhere</div>
+            <div class="feature-desc">Access your decks from any device, anytime. Learn on the go!</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>  
+
+    <div class="cta-section">
+      <a href="/users/sign_up" class="btn btn-primary">✨ Get Started Free</a>
+      <a href="/users/sign_in" class="btn btn-outline">🔐 Sign In</a>
+    </div>
+  </div>
 </body>
+</html>

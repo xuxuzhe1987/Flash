@@ -1,39 +1,316 @@
-<% if !@deck.errors.empty? %>
-  <div class = "alert alert-error">
-    <ul>
-      <% @resume.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Your Deck - Flash</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page-container {
+    background: white;
+    max-width: 480px;
+    width: 100%;
+    min-height: 80vh;
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-header {
+    padding: 40px 32px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(180deg, rgba(102, 126, 234, 0.08) 0%, transparent 100%);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #667eea;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: #764ba2;
+    transform: translateX(-4px);
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+  }
+
+  .page-content {
+    flex: 1;
+    padding: 32px;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    background: #f9fafb;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  }
+
+  .form-input::placeholder {
+    color: #9ca3af;
+  }
+
+  .file-upload-area {
+    border: 2px dashed #e2e8f0;
+    border-radius: 12px;
+    padding: 32px 20px;
+    text-align: center;
+    background: #f8fafc;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .file-upload-area:hover {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.03);
+  }
+
+  .file-upload-area.dragover {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.08);
+  }
+
+  .file-upload-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+
+  .file-upload-text {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .file-upload-hint {
+    color: #94a3b8;
+    font-size: 0.8rem;
+  }
+
+  .file-input {
+    display: none;
+  }
+
+  .form-section {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 24px;
+  }
+
+  .section-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+
+  .section-text {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  .section-text em {
+    font-style: normal;
+    color: #475569;
+  }
+
+  .template-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #667eea;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 12px;
+    font-size: 0.9rem;
+  }
+
+  .template-link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    margin-top: 32px;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+  }
+
+  @media (max-width: 480px) {
+    .page-header {
+      padding: 32px 24px 20px;
+    }
+
+    .page-content {
+      padding: 24px;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="page-header">
+      <a href="/decks" class="back-link">← Back to Decks</a>
+      <h1 class="page-title">Add Your Deck</h1>
+    </div>
+
+    <div class="page-content">
+      <% if @deck.errors.any? %>
+        <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 16px; margin-bottom: 24px;">
+          <ul style="list-style: none; color: #dc2626; font-size: 0.9rem;">
+            <% @deck.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-    </ul>
-  </div>
-<% end %>
-<h1 class="text-center mt-3">Add Your Deck</h1>
- <div class = "form">
-   <div class = "deviseform text-center">
-     <div class = "container auto text-center">
-       <div class = "row d-flex justify-content-center">
-          <div class = "well txtSmall text-center">
-            <%= form_for @deck do |f| %>
-              <%= f.label :name %>
-              <%= f.text_field :name, class: "form-control" %>
-             <!--  <br> -->
-              <p class = "text-center mt-2">(Optional) Import Cards from CSV</p>
-              <div class="attach-file-button">
-                <%= f.file_field :attachment, class: "text-center"%>
-              </div>
-              <%= link_to "Download csv template", download_csv_path %>
-              <br><br>
-              <p style="font-size:12px;"><em>When Uploading Your Decks:</em></p>
-              <p style="font-size:12px;"><em>1. Maintain the same file name as when you downloaded.</em></p>
-              <p style="font-size:12px;"><em>2. Save the file in a CSV format before uploading.</em></p>
-              <br>
-              <div class = "button text-center">
-              <%= f.submit "Save", class: "btn btn-warning my-1"  %>
-              </div>
-            </div>
+
+      <form action="/decks" method="POST" enctype="multipart/form-data" id="deck-form">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        
+        <div class="form-group">
+          <label class="form-label">Deck Name</label>
+          <input type="text" name="deck[name]" class="form-input" placeholder="Enter deck name" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Import Cards from CSV (Optional)</label>
+          <div class="file-upload-area" id="file-upload-area">
+            <div class="file-upload-icon">📁</div>
+            <div class="file-upload-text" id="file-name">Drop your CSV file here or click to browse</div>
+            <div class="file-upload-hint">Supported format: .csv</div>
+            <input type="file" name="deck[attachment]" class="file-input" id="deck_attachment" accept=".csv">
           </div>
         </div>
-      </div>
+
+        <a href="/download_csv" class="template-link" target="_blank">📥 Download CSV Template</a>
+
+        <div class="form-section">
+          <div class="section-title">Tips</div>
+          <div class="section-text">
+            <em>1.</em> Keep the same file format as the template<br>
+            <em>2.</em> Save your file in CSV format before uploading<br>
+            <em>3.</em> Each row should contain front and back text
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Create Deck</button>
+      </form>
     </div>
-  <% end %>
-</div>
+  </div>
+
+  <script>
+    const fileUploadArea = document.getElementById('file-upload-area');
+    const fileInput = document.getElementById('deck_attachment');
+    const fileNameDisplay = document.getElementById('file-name');
+
+    fileUploadArea.addEventListener('click', function() {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function() {
+      const file = this.files[0];
+      if (file) {
+        fileNameDisplay.textContent = '📄 ' + file.name;
+      }
+    });
+
+    fileUploadArea.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      this.classList.add('dragover');
+    });
+
+    fileUploadArea.addEventListener('dragleave', function(e) {
+      e.preventDefault();
+      this.classList.remove('dragover');
+    });
+
+    fileUploadArea.addEventListener('drop', function(e) {
+      e.preventDefault();
+      this.classList.remove('dragover');
+      
+      const files = e.dataTransfer.files;
+      if (files.length > 0 && files[0].name.endsWith('.csv')) {
+        fileInput.files = files;
+        fileNameDisplay.textContent = '📄 ' + files[0].name;
+      } else {
+        alert('Please select a CSV file');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "callbacks" }
   root to: 'pages#home'
 
-  get "pages", to: "pages#download_csv", as: :download_csv
+  get "download_csv", to: "pages#download_csv", as: :download_csv
 
   resources :decks do
     resources :cards, only: [:new, :create]
@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   resources :user_cards, only: [:create]
 
-  resources :user_decks, only: [:index, :create, :show, :destroy, :update]
+  resources :user_decks do
+    member do
+      post :learn
+    end
+  end
 
 end

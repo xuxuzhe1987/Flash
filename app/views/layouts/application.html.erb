@@ -1,47 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Flashcards are an incredibly versatile study tool. While many students think of using them for simple facts, they can be used for complex processes throughout one's academic career.</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= favicon_link_tag 'favicon.ico' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-
-    <title><%= meta_title %></title>
-    <meta name="description" content="<%= meta_description %>">
-
-    <!-- Facebook Open Graph data -->
-    <meta property="og:title" content="<%= meta_title %>" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="<%= request.original_url %>" />
-    <meta property="og:image" content="<%= meta_image %>" />
-    <meta property="og:description" content="<%= meta_description %>" />
-    <meta property="og:site_name" content="<%= meta_title %>" />
-
-    <!-- Twitter Card data -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
-    <meta name="twitter:title" content="<%= meta_title %>">
-    <meta name="twitter:description" content="<%= meta_description %>">
-    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
-    <meta name="twitter:image:src" content="<%= meta_image %>">
-  </head>
-
-  <body>
-    <div class="application" style="border-radius:16px;">
-    <!-- <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p> -->
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-
-    <%= yield %>
+<head>
+  <title>Flash - Learn Smarter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <div style="max-width: 480px; margin: 0 auto; padding: 20px;">
+    <div style="background: white; border-radius: 24px; overflow: hidden;">
+      <%= render "shared/navbar" %>
+      <%= yield %>
     </div>
-  </body>
-
+  </div>
+</body>
 </html>

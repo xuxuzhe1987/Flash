@@ -1,34 +1,207 @@
-<h1 class="text-center">My Profile</h1>
-<div class="text-center">
-  <%= link_to "", new_deck_path, class:"far fa-plus-square", style:"font-size: 50px; opacity: 0.5;" %>
-</div>
-<br>
-<h3 class="text-center m-2">My On Going Decks:</h3>
-<div class="container">
-  <ul class="list-group ">
-    <% if @user_decks.length == 0 %>
-      <p class="text-center">No record, get decked out!</p>
-    <% else %>
-      <% @user_decks.each do |user_deck| %>
-        <div class="card m-2">
-          <div class="card-header txtSmall" style="font-family: 'Open Sans',sans-serif; font-weight: bold;">
-            <i class="fas fa-angle-double-right"></i>
-            Deck: <%= user_deck.deck.name %>
-          </div>
-            <!-- <li class="list-group-item">Status: <%= user_deck.status %></li> -->
-            <li class="list-group-item">Known cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == true} %></li>
-            <li class="list-group-item">Unknown cards: <%= @user_cards.select{|user_card| user_card.card.deck_id == user_deck.deck_id}.count{|user_card| user_card.result == false} %></li>
-            <div class=" text-center m-2">
-              <%= link_to "Redo", user_deck_path(user_deck), class:"btn btn-success btn-sm ml-2 mr-2"%>
-              <%= link_to "Delete History", user_deck_path(user_deck),  method: :delete, data: { confirm: "Are you sure?" }, id:"delete-link", class:"btn btn-danger btn-sm ml-2" %>
-            </div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile - Flash</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page-container {
+    background: white;
+    max-width: 480px;
+    margin: 0 auto;
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+
+  .page-header {
+    padding: 32px 24px;
+    background: linear-gradient(180deg, rgba(102, 126, 234, 0.08) 0%, transparent 100%);
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+  }
+
+  .page-subtitle {
+    font-size: 0.95rem;
+    color: #64748b;
+  }
+
+  .content {
+    padding: 24px;
+  }
+
+  .section-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+
+  .deck-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .deck-item {
+    display: block;
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .deck-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+    border-color: #667eea;
+  }
+
+  .deck-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .deck-icon-bg {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .deck-details {
+    flex: 1;
+  }
+
+  .deck-name {
+    font-weight: 600;
+    color: #1a1a2e;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .deck-stats {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .stat.success {
+    color: #22c55e;
+  }
+
+  .stat.error {
+    color: #ef4444;
+  }
+
+  .deck-arrow {
+    color: #667eea;
+    font-size: 1.2rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 24px;
+    color: #94a3b8;
+  }
+
+  .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+
+  .empty-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 480px) {
+    .page-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="page-header">
+      <h1 class="page-title">My Profile</h1>
+      <p class="page-subtitle">Track your learning progress</p>
+    </div>
+
+    <div class="content">
+      <% if @user_decks.any? %>
+        <h2 class="section-title">Study Progress</h2>
+        
+        <div class="deck-list">
+          <% @user_decks.each do |user_deck| %>
+            <a href="/user_decks/<%= user_deck.id %>?card_index=0" class="deck-item">
+              <div class="deck-info">
+                <div class="deck-icon-bg">
+                  📚
+                </div>
+                <div class="deck-details">
+                  <div class="deck-name"><%= user_deck.deck.name %></div>
+                  <div class="deck-stats">
+                    <span class="stat success">
+                      <i class="fas fa-check-circle"></i> <%= user_deck.user_cards.where(result: true).count %>
+                    </span>
+                    <span class="stat error">
+                      <i class="fas fa-times-circle"></i> <%= user_deck.user_cards.where(result: false).count %>
+                    </span>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-right deck-arrow"></i>
+              </div>
+            </a>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="empty-state">
+          <div class="empty-icon">📚</div>
+          <div class="empty-title">No Study Progress</div>
+          <p>Start learning a deck to track your progress!</p>
         </div>
       <% end %>
-    <% end %>
-  </ul>
-</div>
-
-           <!-- <div id="absolute-profile">
-            link_to "", user_deck_path(user_deck), class:"fas fa-forward"%>
-            link_to "", user_deck_path(user_deck),  method: :delete, data: { confirm: "Are you sure?" }, id:"delete-link", class:"fas fa-trash" %>
-          </div>  -->
+    </div>
+  </div>
+</body>
+</html>

@@ -1,55 +1,385 @@
-<!-- <h1 class='text-center'><%= @user_deck.deck.name %></h1> -->
-<div class="card-container swiper-container">
-  <div class="swiper-wrapper">
-    <% @user_deck.deck.cards.each_with_index do |card, i|%>
-      <div id="card-<%= i %>" class="card swiper-slide m-2" style="display: block;">
-        <button id="hint" class="btn btn-outline-info m-2" type="submit" value="hint">
-          <i class="fas fa-info-circle"></i>
-        </button>
-        <div class="question m-1" style="display: block;">
-        <h3 style="font-size: 21px;"> <%= card.question %> </h3>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study - Flash</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    padding: 20px;
+  }
+
+  .page-container {
+    background: white;
+    max-width: 480px;
+    width: 100%;
+    min-height: calc(100vh - 40px);
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-header {
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(180deg, rgba(102, 126, 234, 0.08) 0%, transparent 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+  }
+
+  .back-link:hover {
+    color: #667eea;
+    border-color: #667eea;
+  }
+
+  .page-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    text-align: center;
+    flex: 1;
+  }
+
+  .progress-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .flashcard {
+    width: 100%;
+    min-height: 300px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .flashcard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-content {
+    flex: 1;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    min-height: 300px;
+  }
+
+  .card-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #667eea;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  .card-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    line-height: 1.4;
+  }
+
+  .card-actions {
+    padding: 20px 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 12px;
+  }
+
+  .btn-action {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 12px;
+    border-radius: 16px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 2px solid;
+    background: white;
+  }
+
+  .btn-action i {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+
+  .btn-know {
+    color: #22c55e;
+    border-color: #22c55e;
+  }
+
+  .btn-know:hover {
+    background: #22c55e;
+    color: white;
+  }
+
+  .btn-flip {
+    color: #667eea;
+    border-color: #667eea;
+  }
+
+  .btn-flip:hover {
+    background: #667eea;
+    color: white;
+  }
+
+  .btn-dont-know {
+    color: #ef4444;
+    border-color: #ef4444;
+  }
+
+  .btn-dont-know:hover {
+    background: #ef4444;
+    color: white;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .empty-state-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+  }
+
+  .empty-state h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+  }
+
+  .empty-state p {
+    color: #64748b;
+    margin-bottom: 24px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .stat-value.success {
+    color: #22c55e;
+  }
+
+  .stat-value.error {
+    color: #ef4444;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  @media (max-width: 480px) {
+    .page-header {
+      padding: 20px 16px;
+    }
+
+    .content {
+      padding: 16px;
+    }
+
+    .card-text {
+      font-size: 1.3rem;
+    }
+
+    .btn-action {
+      padding: 12px 8px;
+    }
+
+    .btn-action i {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="page-header">
+      <a href="/decks/<%= @user_deck.deck.id %>" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      <h1 class="page-title"><%= @user_deck.deck.name %></h1>
+      <% if !@completed %>
+        <span class="progress-badge"><%= @progress[:current] %>/<%= @progress[:total] %></span>
+      <% else %>
+        <span class="progress-badge"><i class="fas fa-check"></i></span>
+      <% end %>
+    </div>
+
+    <div class="content">
+      <% if @completed %>
+        <div class="empty-state">
+          <div class="empty-state-icon">🎉</div>
+          <h3>Congratulations!</h3>
+          <p>You've completed all cards!</p>
+          
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-value success"><%= @progress[:known] %></div>
+              <div class="stat-label">Known</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value error"><%= @progress[:learning] %></div>
+              <div class="stat-label">Learning</div>
+            </div>
+          </div>
+          
+          <a href="/decks/<%= @user_deck.deck.id %>" class="btn-primary" style="margin-top: 24px;">
+            <i class="fas fa-arrow-left"></i>
+            Back to Deck
+          </a>
         </div>
-        <div class="answer hidden a-box txtSmall">
-          <h6 class="text-left m-1 txtSmall" style="text-decoration: underline; font-size: 11px;">Answer:</h6>
-          <div class="flashcard-content txtSmall text-center"><%= card.answer %> </div>
+      <% else %>
+        <div class="flashcard" id="flashcard">
+          <div class="card-content" id="question-side">
+            <div class="card-label">Question</div>
+            <div class="card-text"><%= @current_card.question %></div>
+          </div>
+          <div class="card-content" id="answer-side" style="display: none; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="card-label" style="color: rgba(255,255,255,0.8);">Answer</div>
+            <div class="card-text" style="color: white;"><%= @current_card.answer %></div>
+          </div>
         </div>
-        <div class="text-box hidden m-2 txtSmall">
-            <textarea id=user-answer-box placeholder="Type your Answer" style="font-size: 12px;"></textarea> <br>
-            <button id="show-answer" class="btn btn-warning btn-sm">See Answer</button>
-        </div>
-        <div class="hint hidden">
-          <div class="flashcard-content"> HINT:<%= card.hint %> </div>
-        </div>
-        <br>
-        <div id ="activeCardButtons" class="d-flex justify-content-between">
-          <!-- <button class="flip" value="Flip" type="submit">Flip</button> -->
-          <button id="know" class="know btn btn-outline-success">
-              <%= link_to "", user_cards_path(user_deck_id: @user_deck.id ,answer:"xxx", result: true, card_id: card.id, user_id: current_user.id), method: :post, class:"fas fa-check-circle", style:"font-size: 32px; text-decoration: none;" %>
+
+        <div class="card-actions">
+          <form action="/user_decks/<%= @user_deck.id %>/learn" method="POST" style="flex: 1;">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name="card_id" value="<%= @current_card.id %>">
+            <input type="hidden" name="result" value="false">
+            <input type="hidden" name="next_index" value="<%= @next_index %>">
+            <button type="submit" class="btn-action btn-dont-know" style="width: 100%;">
+              <i class="fas fa-times"></i>
+              Don't Know
+            </button>
+          </form>
+          
+          <button type="button" class="btn-action btn-flip" onclick="flipCard()" style="flex: 1; width: 100%;">
+            <i class="fas fa-sync-alt"></i>
+            Flip
           </button>
-          <button id="user-answer" class="user-answer btn btn-outline-secondary" type="button" value="Type your Answer">
-            <i class="fas fa-pen-square" style="font-size: 32px;"></i>
-          </button>
-          <button id="unknow" class="unknow btn btn-outline-danger">
-            <%= link_to "", user_cards_path(user_deck_id: @user_deck.id, answer:"xxx", result: false, card_id: card.id, user_id: current_user.id), method: :post, class:"fas fa-times-circle", style:"font-size: 32px; text-decoration: none;" %>
-          </button>
+          
+          <form action="/user_decks/<%= @user_deck.id %>/learn" method="POST" style="flex: 1;">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name="card_id" value="<%= @current_card.id %>">
+            <input type="hidden" name="result" value="true">
+            <input type="hidden" name="next_index" value="<%= @next_index %>">
+            <button type="submit" class="btn-action btn-know" style="width: 100%;">
+              <i class="fas fa-check"></i>
+              Know It
+            </button>
+          </form>
         </div>
-<!--         <div class="swiper-pagination"></div> -->
-      </div>
-    <% end %>
-  </div>
-  <div class="text-center">
-    <button id="instructions" type="submit" value="Instruction" class="btn btn-outline-info">
-      <i class="fas fa-question-circle"></i>
-    </button>
-  </div>
-  <div id="flash-instructions" class="hidden">
-    <div class=container>
-      <div class="border border-dark text-center pt-2">
-        <p>Check the answer? <strong> Tap on the question </strong> <br>Know the answer? tap ✔︎ <br>Don't know? tap ✘<br>Input answer to compare? tap ✎</p>
-      </div>
+      <% end %>
     </div>
   </div>
-</div>
 
-
-
+  <script>
+    function flipCard() {
+      const questionSide = document.getElementById('question-side');
+      const answerSide = document.getElementById('answer-side');
+      
+      if (questionSide.style.display === 'none') {
+        questionSide.style.display = 'flex';
+        answerSide.style.display = 'none';
+      } else {
+        questionSide.style.display = 'none';
+        answerSide.style.display = 'flex';
+      }
+    }
+  </script>
+</body>
+</html>

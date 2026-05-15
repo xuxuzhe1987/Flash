@@ -1,45 +1,372 @@
-<div class="title-container">
-  <div class="corner">
-    <%= link_to "", decks_path, class:"fas fa-angle-left"%>
-  </div>
-  <div class="text-center" >
-    <h1 class="m-2"><%= @deck.name %>
-      <%= link_to "", user_decks_path(status: 0, deck_id: @deck.id, user_id: current_user.id), method: :post, class: "far fa-play-circle" %>
-    </h1>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= @deck.name %> - Flash</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-<div class="button-container text-center">
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    padding: 20px;
+  }
 
-</div>
-<br>
-<div class="button-container text-center">
-<% if policy(@deck).update? %>
-  <%= link_to "Add a Card", new_deck_card_path(@deck), class: "btn btn-danger btn-sm my-1" %>
-<% end %>
-</div>
-<br>
+  .page-container {
+    background: white;
+    max-width: 480px;
+    width: 100%;
+    min-height: calc(100vh - 40px);
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    margin: 0 auto;
+  }
 
-<div class="container ">
-<ul class="list-group">
-  <% @deck.cards.each_with_index do |card, i|%>
-    <div id="deck-card <%= i %>" class="card txtSmall">
-      <span id="relative-cont" class="d-flex align-items-center list-group-item question">Q: <%= card.question %>
-        <div id="absolute-cont" class= "activeCardButtons d-flex align-items-center m-2" >
-          <% if policy(@deck).update? %>
-            <%= link_to "", edit_card_path(card), class:"far fa-edit ml-2"%>
-          <% end %>
-          <% if policy(@deck).destroy? %>
-            <%= link_to "", card_path(card), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-2" %>
+  .page-header {
+    padding: 32px 32px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(180deg, rgba(102, 126, 234, 0.08) 0%, transparent 100%);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+  }
+
+  .back-link:hover {
+    color: #667eea;
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.05);
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+    flex: 1;
+  }
+
+  .play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+  }
+
+  .play-btn-form {
+    display: inline;
+  }
+
+  .play-btn-form .play-btn {
+    border: none;
+    cursor: pointer;
+  }
+
+  .page-actions {
+    padding: 16px 32px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .btn-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .btn-add:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+  }
+
+  .content {
+    padding: 24px 32px;
+  }
+
+  .cards-count {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cards-count span {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  .cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #f8fafc;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .card-item:hover {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    transform: translateX(4px);
+  }
+
+  .card-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .card-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-question {
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+  }
+
+  .card-meta {
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: white;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+  }
+
+  .btn-icon:hover {
+    color: #667eea;
+    border-color: #667eea;
+  }
+
+  .btn-icon-danger:hover {
+    color: #ef4444;
+    border-color: #ef4444;
+    background: #fef2f2;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 24px;
+    color: #94a3b8;
+  }
+
+  .empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+
+  .empty-state h3 {
+    font-size: 1.2rem;
+    color: #475569;
+    margin-bottom: 8px;
+  }
+
+  .empty-state p {
+    margin-bottom: 24px;
+    color: #94a3b8;
+  }
+
+  .delete-form {
+    display: inline;
+  }
+
+  .delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: white;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+  }
+
+  .delete-btn:hover {
+    color: #ef4444;
+    border-color: #ef4444;
+    background: #fef2f2;
+  }
+
+  @media (max-width: 480px) {
+    .page-header {
+      padding: 24px 20px 20px;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .page-title {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="page-header">
+      <div class="header-top">
+        <a href="/decks" class="back-link">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="page-title"><%= @deck.name %></h1>
+        <form action="/user_decks" method="POST" class="play-btn-form">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="deck_id" value="<%= @deck.id %>">
+          <button type="submit" class="play-btn">
+            <i class="fas fa-play"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="page-actions">
+      <a href="/decks/<%= @deck.id %>/cards/new" class="btn-add">
+        <i class="fas fa-plus"></i>
+        Add a Card
+      </a>
+    </div>
+
+    <div class="content">
+      <% if @deck.cards.any? %>
+        <div class="cards-count">
+          <i class="fas fa-layer-group"></i>
+          <span><%= @deck.cards.count %></span> cards in this deck
+        </div>
+
+        <div class="cards-list">
+          <% @deck.cards.each_with_index do |card, index| %>
+            <div class="card-item">
+              <div class="card-number"><%= index + 1 %></div>
+              <div class="card-content">
+                <div class="card-question"><%= card.question %></div>
+                <div class="card-meta">Tap to flip • <%= card.answer %></div>
+              </div>
+              <div class="card-actions">
+                <a href="/cards/<%= card.id %>/edit" class="btn-icon">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <form action="/cards/<%= card.id %>" method="POST" class="delete-form" onsubmit="return confirm('Delete this card?');">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  <input type="hidden" name="_method" value="delete">
+                  <button type="submit" class="delete-btn">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
           <% end %>
         </div>
-       </span>
-<!--       <li class="list-group-item answer mb-6">Answer: <%= card.answer %></li>
- -->    </div>
-  <% end %>
-</ul>
-</div>
-
-<script type="text/javascript">
-
-</script>
+      <% else %>
+        <div class="empty-state">
+          <div class="empty-state-icon">📝</div>
+          <h3>No Cards Yet</h3>
+          <p>Add flashcards to start learning!</p>
+          <a href="/decks/<%= @deck.id %>/cards/new" class="btn-add">
+            <i class="fas fa-plus"></i>
+            Add Your First Card
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>

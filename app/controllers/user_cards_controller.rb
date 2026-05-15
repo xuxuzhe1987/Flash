@@ -1,17 +1,27 @@
 class UserCardsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
-    @user_cards = UserCard.where(user_id: current_user.id)
-    @card = Card.find(params[:card_id])
-    # to ckeck if user_card exist? create or update
-    if @user_cards.select { |user_card| user_card.card_id == @card.id }.count.zero?
-      @user_card = UserCard.new(user_card_params)
-      authorize @user_card
-      @user_card.save
+    card = Card.find(params[:card_id])
+    
+    existing_card = UserCard.find_by(user_id: current_user.id, card_id: card.id)
+    
+    if existing_card
+      existing_card.update(result: params[:result])
+      user_deck = existing_card.user_deck
     else
-      @user_card = @user_cards.select { |user_card| user_card.card_id == @card.id }.first
-      authorize @user_card
-      @user_card.update(user_card_params)
+      user_card = UserCard.new(
+        user_id: current_user.id,
+        card_id: card.id,
+        user_deck_id: params[:user_deck_id],
+        result: params[:result]
+      )
+      authorize user_card
+      user_card.save
+      user_deck = user_card.user_deck
     end
+    
+    redirect_to user_deck_path(user_deck)
   end
 
   private

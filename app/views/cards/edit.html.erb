@@ -1,29 +1,178 @@
-<h1 class="text-center mt-3">Edit your Cards</h1>
-  <div class = "form">
-    <div class = "deviseform text-center" >
-      <div class = "container auto text-center">
-        <div class = "row d-flex justify-content-center">
-          <div class = "well txtSmall text-center">
-            <%= form_for(@card) do |f| %>
-          <div class="form-group mx-2">
-            <%= f.label :question %>
-            <%= f.text_field :question, class: 'form-control' %>
-          </div>
-          <div class="form-group mx-2">
-            <%= f.label :answer %>
-            <%= f.text_field :answer, class: 'form-control' %>
-          </div>
-          <div class="form-group mx-2">
-            <%= f.label :hint %>
-            <%= f.text_field :hint, class: 'form-control' %>
-          </div>
-          <div class="text-center p-3">
-            <%= f.submit class: 'btn btn-warning'%>
-          </div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Card - Flash</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page-container {
+    background: white;
+    max-width: 480px;
+    width: 100%;
+    min-height: 70vh;
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-header {
+    padding: 40px 32px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(180deg, rgba(102, 126, 234, 0.08) 0%, transparent 100%);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #667eea;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: #764ba2;
+    transform: translateX(-4px);
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .page-content {
+    flex: 1;
+    padding: 32px;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+
+  .form-label .optional {
+    font-weight: 400;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-left: 4px;
+  }
+
+  .form-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    background: #f9fafb;
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  }
+
+  .form-textarea::placeholder {
+    color: #9ca3af;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    margin-top: 32px;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+  }
+
+  @media (max-width: 480px) {
+    .page-header {
+      padding: 32px 24px 20px;
+    }
+
+    .page-content {
+      padding: 24px;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="page-header">
+      <a href="/decks/<%= @card.deck.id %>" class="back-link">← Back to Deck</a>
+      <h1 class="page-title">Edit Card</h1>
+    </div>
+
+    <div class="page-content">
+      <form action="/cards/<%= @card.id %>" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="patch">
+        
+        <div class="form-group">
+          <label class="form-label">Question</label>
+          <textarea name="card[question]" class="form-textarea" required><%= @card.question %></textarea>
         </div>
-      </div>
+
+        <div class="form-group">
+          <label class="form-label">Answer</label>
+          <textarea name="card[answer]" class="form-textarea" required><%= @card.answer %></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Update Card</button>
+      </form>
     </div>
   </div>
-</div>
-</div>
-<% end %>
+</body>
+</html>

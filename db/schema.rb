@@ -12,14 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2021_07_18_140451) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -39,8 +36,7 @@ ActiveRecord::Schema.define(version: 2021_07_18_140451) do
   create_table "cards", force: :cascade do |t|
     t.text "question"
     t.text "answer"
-    t.text "hint"
-    t.bigint "deck_id", null: false
+    t.integer "deck_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["deck_id"], name: "index_cards_on_deck_id"
@@ -51,18 +47,18 @@ ActiveRecord::Schema.define(version: 2021_07_18_140451) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "attachment"
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.index ["user_id"], name: "index_decks_on_user_id"
   end
 
   create_table "user_cards", force: :cascade do |t|
     t.boolean "result"
     t.text "answer"
-    t.bigint "card_id", null: false
+    t.integer "card_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.bigint "user_deck_id", null: false
+    t.integer "user_id", null: false
+    t.integer "user_deck_id", null: false
     t.index ["card_id"], name: "index_user_cards_on_card_id"
     t.index ["user_deck_id"], name: "index_user_cards_on_user_deck_id"
     t.index ["user_id"], name: "index_user_cards_on_user_id"
@@ -70,10 +66,10 @@ ActiveRecord::Schema.define(version: 2021_07_18_140451) do
 
   create_table "user_decks", force: :cascade do |t|
     t.integer "status"
-    t.bigint "deck_id", null: false
+    t.integer "deck_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.string "name"
     t.index ["deck_id"], name: "index_user_decks_on_deck_id"
     t.index ["user_id"], name: "index_user_decks_on_user_id"
@@ -89,8 +85,8 @@ ActiveRecord::Schema.define(version: 2021_07_18_140451) do
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "provider"

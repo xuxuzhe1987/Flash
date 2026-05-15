@@ -1,44 +1,312 @@
-<h1 class="text-center m2">All Decks</h1>
-<div class="text-center">
-  <%= link_to "", new_deck_path, class:"far fa-plus-square", style:"font-size: 50px; opacity: 0.5;" %>
-</div>
-<br>
-<div class="container">
-  <div class=" list-group">
-    <h2 class="text-center">Le Wagon Decks</h2>
-    <% @lw_decks.each do |deck| %>
-      <div class="list-group-item mb-2" >
-        <i class="fa fa-angle-right"></i>
-        <span><%= link_to deck.name, deck_path(deck)%></span>
-        <% if policy(deck).update? %>
-          <%= link_to "", edit_deck_path(deck), class:"far fa-edit" %>
-        <% end %>
-        <% if policy(deck).destroy? %>
-          <%= link_to "", deck_path(deck), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-3" %>
-        <% end %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Decks - Flash</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    padding: 20px;
+  }
+
+  .page-container {
+    background: white;
+    max-width: 480px;
+    width: 100%;
+    min-height: calc(100vh - 40px);
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    padding: 32px 32px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(180deg, rgba(102, 126, 234, 0.08) 0%, transparent 100%);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+  }
+
+  .btn-create {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .btn-create:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+  }
+
+  .content {
+    padding: 24px 32px;
+  }
+
+  .deck-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .deck-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #f8fafc;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .deck-card:hover {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    transform: translateX(4px);
+  }
+
+  .deck-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .deck-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .deck-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .deck-name a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .deck-name a:hover {
+    color: #667eea;
+  }
+
+  .deck-meta {
+    font-size: 0.85rem;
+    color: #94a3b8;
+  }
+
+  .deck-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: white;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+  }
+
+  .btn-icon:hover {
+    color: #667eea;
+    border-color: #667eea;
+    transform: scale(1.05);
+  }
+
+  .btn-icon-danger:hover {
+    color: #ef4444;
+    border-color: #ef4444;
+    background: #fef2f2;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 24px;
+    color: #94a3b8;
+  }
+
+  .empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+
+  .empty-state h3 {
+    font-size: 1.2rem;
+    color: #475569;
+    margin-bottom: 8px;
+  }
+
+  .empty-state p {
+    margin-bottom: 24px;
+    color: #94a3b8;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+  }
+
+  .delete-form {
+    display: inline;
+  }
+
+  .delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: white;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+  }
+
+  .delete-btn:hover {
+    color: #ef4444;
+    border-color: #ef4444;
+    background: #fef2f2;
+  }
+
+  @media (max-width: 480px) {
+    .page-header {
+      padding: 24px 20px 20px;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+    }
+
+    .deck-card {
+      padding: 12px 16px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="page-header">
+      <div class="header-top">
+        <h1 class="page-title">📚 My Decks</h1>
+        <a href="/decks/new" class="btn-create">
+          <i class="fas fa-plus"></i>
+          New Deck
+        </a>
       </div>
-    <% end %>
-  </div>
-  <br>
-  <div class=" list-group">
-    <h2 class="text-center">My Own Decks</h2>
-    <% if @my_decks.length == 0%>
-      <p class="text-center">No record, add your own deck!</p>
-    <% else %>
-      <% @my_decks.each do |deck| %>
-        <div id="relative-index" class="list-group-item mb-2 rounded">
-          <i class="fa fa-angle-right"></i>
-          <span class="name-style"><%= link_to deck.name, deck_path(deck) %> </span>
-          <div id="absolute-index" class="d-flex">
-            <% if policy(deck).update? %>
-              <%= link_to "", edit_deck_path(deck), class:"far fa-edit" %>
-            <% end %>
-            <% if policy(deck).destroy? %>
-              <%= link_to "", deck_path(deck), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash ml-3" %>
-            <% end %>
-         </div>
-          </div>
+    </div>
+
+    <div class="content">
+      <% if @my_decks.any? %>
+        <div class="deck-grid">
+          <% @my_decks.each do |deck| %>
+            <div class="deck-card" onclick="window.location='/decks/<%= deck.id %>'" style="cursor: pointer;">
+              <div class="deck-icon">📚</div>
+              <div class="deck-info" onclick="event.stopPropagation(); window.location='/decks/<%= deck.id %>'">
+                <h3 class="deck-name"><a href="/decks/<%= deck.id %>"><%= deck.name %></a></h3>
+                <p class="deck-meta"><%= deck.cards.count %> cards</p>
+              </div>
+              <div class="deck-actions" onclick="event.stopPropagation();">
+                <a href="/decks/<%= deck.id %>/edit" class="btn-icon">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <form action="/decks/<%= deck.id %>" method="POST" class="delete-form" onsubmit="return confirm('Delete this deck?');">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  <input type="hidden" name="_method" value="delete">
+                  <button type="submit" class="delete-btn">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="empty-state">
+          <div class="empty-state-icon">�</div>
+          <h3>No Decks Yet</h3>
+          <p>Create your first flashcard deck to start learning!</p>
+          <a href="/decks/new" class="btn-primary">
+            <i class="fas fa-plus"></i>
+            Create Your First Deck
+          </a>
+        </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+</body>
+</html>
